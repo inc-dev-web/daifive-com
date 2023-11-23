@@ -2,7 +2,12 @@
  * @type {import('next').NextConfig}
  */
 const nextConfig = {
-	/* config options here */
+	images: {
+		loader: 'akamai',
+		path: '',
+	},
+	assetPrefix: './',
+	output: 'export',
 };
 
 module.exports = nextConfig;
