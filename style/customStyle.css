@@ -1,0 +1,135 @@
+.bg-customOrange {
+    background: linear-gradient(to right, #E97000 0%, #FF7A00 25.48%, #FFA149 100%);
+}
+
+.bg-customOrangeLight{
+    background: linear-gradient( rgba(233, 112, 0, 0.10) 0%, rgba(255, 122, 0, 0.10) 25.48%, rgba(255, 161, 73, 0.10) 100%)
+}
+.bg-customBlue {
+    background: linear-gradient(to right, #0B82FC 0%, #007EFF 25.48%, #0BC2FC 100%);
+}
+
+.text-customOrange {
+    background: linear-gradient(to right, #E97000 0%, #FF7A00 25.48%, #FFA149 100%);
+    background-clip: text;
+    color: transparent;
+}
+
+.text-customBlue {
+    /*background-image: radial-gradient(330.39% 120.09% at 7.26% 18.11%, #0B82FC 0%, #007EFF 25.48%, #0BC2FC 100%);*/
+    background: linear-gradient(to right, #0B82FC 10%, #007EFF 25.48%, #059FFE 61.56%, #0BC2FC 100%);
+    background-clip: text;
+    color: transparent;
+
+}
+
+.text-hover-customOrange:hover {
+    background-image: linear-gradient(to right, #E97000 0%, #FF7A00 25.48%, #FFA149 100%);
+    background-clip: text;
+    color: transparent;
+}
+
+.border-hover-customOrange:hover {
+    background-image: linear-gradient(to right, #E97000 0%, #FF7A00 25.48%, #FFA149 100%);
+    background-clip: text;
+    color: transparent;
+}
+
+.text-customStyleHover{
+    display: inline-block;
+    font-size: 0 !important;
+    & a {
+        height: 20px;
+        display: inline-block;
+        text-align: center;
+        font-size: 12px;
+        font-weight: 400;
+        position: relative;
+        overflow: hidden;
+    }
+
+    & a::after {
+        display: block;
+        content: attr(title);
+        font-weight: 700;
+        height: 0;
+        overflow: hidden;
+        visibility: hidden;
+    }
+    & a::before {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        z-index: -1;
+        transform: translateX(-101%);
+        border-bottom: 2px solid;
+        border-image: linear-gradient(to right, #E97000 0%, #FF7A00 25.48%, #FFA149 100%) 1;
+        transition: all 0.5s;
+        box-sizing: border-box;
+        border-radius: 50px;
+    }
+    & a:hover::before {
+        transform: translateX(0);
+    }
+
+    &:hover a {
+        background-image: linear-gradient(to right, #E97000 0%, #FF7A00 25.48%, #FFA149 100%);
+        color: transparent;
+        background-clip: text;
+        font-weight: 700;
+    }
+}
+
+.text-customBottomLine {
+    position: relative;
+    &::before {
+        content: "";
+        position: absolute;
+        bottom: -15px;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        flex-shrink: 0;
+        background: url("/line.svg");
+        background-position: bottom left;
+        background-repeat: no-repeat;
+        background-size: contain;
+    }
+}
+
+.customBoxShadowOrange {
+    box-shadow: 0px 0px 30px 0px rgba(204, 98, 0, 0.27);
+}
+.customBoxShadowBlue {
+    box-shadow: 0px 0px 30px 0px rgba(3, 117, 255, 0.35);
+}
+
+.ellipseOneCustom::before {
+    position: absolute;
+    content: '';
+    width: 256.707px;
+    height: 239.522px;
+    transform: rotate(-22.544deg);
+    border-radius: 256.707px;
+    border: 1px solid #FFF;
+    opacity: 0.5;
+    z-index: 5;
+    bottom: -120px;
+    right: -50px;
+}
+
+.ellipseTwoCustom::before {
+    position: absolute;
+    content: '';
+    width: 316.69px;
+    height: 177.616px;
+    transform: rotate(-38.79deg);
+    border-radius: 100%;
+    border: 1px solid;
+    border-image: conic-gradient(from #FFFFFF, #FFFFFFD1, #FFFFFF00);
+    opacity: 0.5;
+    top: -149px;
+    left: -26px;
+}

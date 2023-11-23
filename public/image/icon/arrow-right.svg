@@ -1,0 +1,12 @@
+<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Huge-icon">
+<path id="Vector 190" d="M28 32L36 24M36 24L28 16M36 24L12 24" stroke="url(#paint0_radial_0_1164)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<defs>
+<radialGradient id="paint0_radial_0_1164" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(31.6524 30.8389) rotate(-145.466) scale(24.343 54.504)">
+<stop stop-color="#E97000"/>
+<stop offset="0.254781" stop-color="#FF7A00"/>
+<stop offset="1" stop-color="#FFA149"/>
+</radialGradient>
+</defs>
+</svg>
