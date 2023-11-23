@@ -36,7 +36,10 @@ export default function Articles() {
 			</div>
 			<div className={'flex flex-wrap'}>
 				{articles.map((item, index) => (
-					<figure className={'flex'}>
+					<figure
+						className={'flex'}
+						key={index}
+					>
 						<Image
 							src={item.icon}
 							alt={'img'}
