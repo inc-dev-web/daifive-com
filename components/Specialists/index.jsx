@@ -41,8 +41,8 @@ export function Specialists({ prop }) {
 						Наші спеціалісти <br /> майстри cвоєї справи
 					</h4>
 					<p className={'text-[#2A333CB2] font-normal md:leading-6 md:text-base text-sx flex-1'}>
-						Good specialists are those who are professional, warm and <br /> able to promote children's development through a creative <br /> and
-						empathetic approach.
+						Good specialists are those who are professional, warm and <br /> able to promote children&apos;s development through a creative <br />
+						and empathetic approach.
 					</p>
 				</div>
 			</div>
