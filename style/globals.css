@@ -12,6 +12,13 @@
 }
 
 body {
+  border: 1px solid black;
   font-family: 'Ubuntu', sans-serif !important;
   background-color: #FAFAFA !important;
+  margin: 0 auto;
+  max-width: 1440px;
+  overflow-x: hidden !important;
+  > main {
+    width: 100%;
+  }
 }

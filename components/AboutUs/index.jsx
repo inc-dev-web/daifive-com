@@ -1,31 +1,26 @@
 import { useState } from 'react';
 import Image from 'next/image';
-import childCat from '../../public/image/childCat.png';
-import arrowRight from '../../public/image/icon/arrow-right.svg';
+import childCat from '@/public/image/childCat.png';
+import arrowRight from '@/public/image/icon/arrow-right.svg';
+import ovalRed from '@/public/image/Oval-red.png';
+import ovalYellow from '@/public/image/Oval-yellow.png';
+import ovalBlue from '@/public/image/Oval-blue.png';
 
-export default function AboutUs() {
+export function AboutUs() {
 	const content = [
 		{
-			title: <h4 className="text-custom32 font-bold text-[#2A333C] mb-4">Development and Improvement</h4>,
-			content: (
-				<p className="text-[#2A333CB2] font-normal leading-[normal] text-lg">
-					We strive to create an environment where every child can reach their potential by developing their intellectual,
-					creative, and social skills.
-				</p>
-			),
+			title: 'Development and Improvement',
+			content:
+				'We strive to create an environment where every child can reach their potential by developing their intellectual, creative, and social skills.',
 		},
 		{
-			title: <h4 className="text-custom32 font-bold text-[#2A333C] mb-4">Individuality and Innovation</h4>,
-			content: (
-				<p className="text-[#2A333CB2] font-normal leading-[normal] text-lg">
-					We strive to create an environment where every child can reach their potential by developing their intellectual,
-					creative, and social skills.
-				</p>
-			),
+			title: 'Individuality and Innovation',
+			content:
+				'We strive to create an environment where every child can reach their potential by developing their intellectual, creative, and social skills.',
 		},
 		{
-			title: <h4 className="text-custom32 font-bold text-[#2A333C] mb-4">Another Title</h4>,
-			content: <p className="text-[#2A333CB2] font-normal leading-[normal] text-lg">Another content goes here.</p>,
+			title: 'Another Title',
+			content: 'Another content goes here.',
 		},
 	];
 
@@ -35,49 +30,71 @@ export default function AboutUs() {
 	};
 
 	return (
-		<section className="flex flex-row h-[768px] items-center gap-[23px] overflow-hidden">
-			<Image
-				src={childCat}
-				width={710}
-				className="mt-[-12px]"
-			/>
-			<div>
-				<span className="font-bold text-base text-customBlue">ПРО НАС</span>
-				<div className="mt-6 mb-12 flex flex-row items-center gap-[48px]">
+		<section className="flex lg:flex-row lg:h-[768px] min-h-[793px] flex-col lg:items-center items-start gap-[23px] overflow-hidden relative pb-[96px] lg:pb-0">
+			<div className="max-w-[710px] w-full h-full mt-[-12px] relative flex -mb-[78px]">
+				<Image
+					src={childCat}
+					className="w-full h-full object-contain lg:absolute"
+					alt="img"
+				/>
+				<Image
+					src={ovalRed}
+					width={29}
+					alt="icon"
+					className="absolute bottom-[20%] right-[5%]"
+				/>
+				<Image
+					src={ovalYellow}
+					alt="icon"
+					className="absolute right-[8%] top-[15%]"
+					width={29}
+				/>
+				<Image
+					src={ovalBlue}
+					alt="icon"
+					width={19}
+					className="absolute right-[18%] bottom-[10%]"
+				/>
+			</div>
+			<div className="w-full lg:w-[49%] px-4 lg:px-0">
+				<span className="font-bold md:text-base text-xs text-customBlue">ПРО НАС</span>
+				<div className="mt-6 mb-12 flex flex-row items-center relative overflow-hidden">
 					{content.map((item, index) => (
 						<div
 							key={index}
-							className={`flex-col gap-4 w-[392px] h-full duration-1000 transition-opacity ${
+							className={`justify-start max-w-[220px] w-full md:w-2/4 lg:max-w-[392px] h-[200px] flex-col gap-4 md:mr-[48px] mr-[25px] ${
 								index === activeIndex ? 'flex' : 'hidden'
 							}`}
 						>
-							{item.title}
-							{item.content}
+							<h4 className="md:text-custom32 text-xl font-bold text-[#2A333C] mb-4">{item.title}</h4>
+							<p className="text-[#2A333CB2] font-normal leading-[normal] md:text-lg text-sm"> {item.content}</p>
 						</div>
 					))}
-					<button
-						className="w-[86px] h-[86px] flex items-center justify-center rounded-[80px] bg-customAmberTint"
-						onClick={handleButtonClick}
-					>
-						<Image
-							src={arrowRight}
-							width={48}
-							height={48}
-						/>
-					</button>
-					{content.map((item, index) => (
-						<div
-							key={index}
-							className={`flex-col gap-4 w-[392px] left-[118%] h-full opacity-30 ${
-								index === (activeIndex - 1 + content.length) % content.length ? 'flex' : 'hidden'
-							}`}
+					<div className="relative h-[200px] flex items-center flex-1">
+						<button
+							className="w-[48px] h-[48px] md:w-[86px] md:h-[86px] flex items-center justify-center rounded-[80px] bg-customAmberTint z-10"
+							onClick={handleButtonClick}
 						>
-							{item.title}
-							{item.content}
-						</div>
-					))}
+							<Image
+								src={arrowRight}
+								alt="icon"
+								className="w-[24px] h-[24px] md:w-[48px] md:h-[48px]"
+							/>
+						</button>
+						{content.map((item, index) => (
+							<div
+								key={index}
+								className={`h-[200px] absolute w-[220px] lg:w-[392px] flex-col gap-4 top-0 opacity-30 md:left-[130px] left-[111px] ${
+									index === (activeIndex - 1 + content.length) % content.length ? 'flex' : 'hidden'
+								}`}
+							>
+								<h4 className="md:text-custom32 text-xl font-bold text-[#2A333C] mb-4">{item.title}</h4>
+								<p className="text-[#2A333CB2] font-normal leading-[normal] md:text-lg text-sm"> {item.content}</p>
+							</div>
+						))}
+					</div>
 				</div>
-				<button className="font-bold text-base text-[#FAFAFA] bg-customBlue rounded-[42px] customBoxShadowBlu w-[316px] h-[56px]">
+				<button className="font-bold md:text-base text-sm text-[#FAFAFA] bg-customBlue rounded-[42px] customBoxShadowBlu w-[270px] h-[48px] md:w-[316px] md:h-[56px]">
 					Замовити дзвінок!
 				</button>
 			</div>

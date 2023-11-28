@@ -1,12 +1,33 @@
-.bg-customOrange {
-    background: linear-gradient(to right, #E97000 0%, #FF7A00 25.48%, #FFA149 100%);
+/*.bg-customOrange {*/
+/*    background: linear-gradient(to right, #E97000 0%, #FF7A00 25.48%, #FFA149 100%);*/
+/*}*/
+
+/*.bg-customOrangeLight {*/
+/*    background: linear-gradient( rgba(233, 112, 0, 0.10) 0%, rgba(255, 122, 0, 0.10) 25.48%, rgba(255, 161, 73, 0.10) 100%)*/
+/*}*/
+/*.bg-customBlue {*/
+/*    background: linear-gradient(to right, #0B82FC 0%, #007EFF 25.48%, #0BC2FC 100%);*/
+/*}*/
+
+/*.bg-customBlueLight {*/
+/*    background: linear-gradient(to right, rgba(11, 130, 252, 0.10) 0%, rgba(0, 126, 255, 0.10) 25.48%, rgba(11, 194, 252, 0.10) 100%);*/
+/*}*/
+.customBoxShadowOrange {
+    box-shadow: 0px 0px 30px 0px rgba(204, 98, 0, 0.27);
+}
+.customBoxShadowBlue {
+    box-shadow: 0px 0px 30px 0px rgba(3, 117, 255, 0.35);
 }
 
-.bg-customOrangeLight{
-    background: linear-gradient( rgba(233, 112, 0, 0.10) 0%, rgba(255, 122, 0, 0.10) 25.48%, rgba(255, 161, 73, 0.10) 100%)
+.bg-radiant-orange {
+    border-radius: 597.32px;
+    background: radial-gradient(50% 50% at 50% 50%, rgba(255, 122, 0, 0.42) 0%, rgba(255, 122, 0, 0.00) 100%);
 }
-.bg-customBlue {
-    background: linear-gradient(to right, #0B82FC 0%, #007EFF 25.48%, #0BC2FC 100%);
+
+.bg-radiant-blue {
+    border-radius: 731.884px;
+    background: radial-gradient(50% 50% at 50% 50%, rgba(0, 87, 255, 0.12) 0%, rgba(0, 81, 255, 0.00) 100%);
+    transform: rotate(60deg);
 }
 
 .text-customOrange {
@@ -16,7 +37,6 @@
 }
 
 .text-customBlue {
-    /*background-image: radial-gradient(330.39% 120.09% at 7.26% 18.11%, #0B82FC 0%, #007EFF 25.48%, #0BC2FC 100%);*/
     background: linear-gradient(to right, #0B82FC 10%, #007EFF 25.48%, #059FFE 61.56%, #0BC2FC 100%);
     background-clip: text;
     color: transparent;
@@ -39,10 +59,8 @@
     display: inline-block;
     font-size: 0 !important;
     & a {
-        height: 20px;
         display: inline-block;
         text-align: center;
-        font-size: 12px;
         font-weight: 400;
         position: relative;
         overflow: hidden;
@@ -83,6 +101,7 @@
 }
 
 .text-customBottomLine {
+    display: inline;
     position: relative;
     &::before {
         content: "";
@@ -92,18 +111,11 @@
         width: 100%;
         height: 100%;
         flex-shrink: 0;
-        background: url("/line.svg");
+        background: url("/image/icon/line.svg");
         background-position: bottom left;
         background-repeat: no-repeat;
         background-size: contain;
     }
-}
-
-.customBoxShadowOrange {
-    box-shadow: 0px 0px 30px 0px rgba(204, 98, 0, 0.27);
-}
-.customBoxShadowBlue {
-    box-shadow: 0px 0px 30px 0px rgba(3, 117, 255, 0.35);
 }
 
 .ellipseOneCustom::before {
