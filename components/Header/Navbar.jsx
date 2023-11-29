@@ -19,27 +19,27 @@ export function Navbar() {
 	};
 
 	return (
-		<header className="px-4 lg:pl-[100px] mt-10 flex flex-row justify-between items-center h-[58px] lg:h-[48px] lg:pr-[100px] relative">
+		<header className="px-4 lg:pl-[100px] mt-10 flex flex-row justify-between items-center md:h-[58px] h-[48px] lg:pr-[100px] relative">
 			<Image
 				src={logo}
 				alt="logo"
-				className="object-contain h-[58px] w-[101px] lg:h-[34px] lg:w-[69px]"
+				className="object-contain h-[58px] w-[101px] lg:h-[34px] md::w-[69px]"
 			/>
-			<nav className={`absolute right-0 left-0 bottom-[-50%] md:static items-center justify-center flex`}>
+			<nav className={`md:relative items-center justify-center flex`}>
 				<ul
-					className={`flex bottom-[-150%] flex-col gap-5 md:gap-10 md:flex-row items-center h-[48px] z-40 ${
-						isMenuOpen ? 'visible' : 'md:flex hidden'
+					className={`md:flex gap-14 text-4xl z-40 right-0 top-[58px] bg-[#fafafa] w-full absolute flex flex-col md:gap-10 md:flex-row items-center md:h-[48px] md:text-xs ${
+						isMenuOpen ? 'visible' : 'md:flex hidden md:static'
 					}`}
 				>
 					{menuItem.map((item, index) => (
 						<li
-							className="text-customStyleHover"
+							className="text-customStyleHover w-full flex items-center justify-center"
 							key={index}
 						>
 							<a
 								href={item.href}
 								title={item.title}
-								className="text-xl lg:text-xs"
+								className=""
 							>
 								{item.title}
 							</a>
@@ -48,13 +48,13 @@ export function Navbar() {
 				</ul>
 			</nav>
 			<button
-				className="flex justify-center items-center relative bg-blueRadianCustom rounded-full w-[50px] h-[50px]"
+				className="md:hidden flex justify-center items-center relative bg-blueRadianCustom rounded-full w-[50px] h-[50px]"
 				onClick={toggleMenu}
 			>
 				<Image
 					src={burger}
 					alt={'menu'}
-					className="object-contain w-[24px] h-[24px] inline md:hidden"
+					className="object-contain w-[24px] h-[24px]"
 				/>
 			</button>
 			<div className="md:flex hidden h-[48px] flex-row items-center w-[213px] justify-between py-[16px] px-[32px] text-sm bg-customOrangeLight rounded-[60px]">

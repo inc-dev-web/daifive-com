@@ -7,7 +7,7 @@ import childrenSm from '@/public/image/ghildrenMain.png';
 
 export function Header() {
 	return (
-		<section className="border-2 h-full flex lg:pl-[100px] lg:flex-row flex-col">
+		<section className="h-full flex lg:pl-[100px] lg:flex-row flex-col">
 			<div className="px-4 lg:px-0 flex lg:items-start items-center justify-center lg:justify-start mt-[38px] lg:mt-[100px] flex-col w-full lg:w-[40%]">
 				<div className="max-w-[343px] md:max-w-none">
 					<h1 className="text-[32px] leading-[34px] md:text-6xl text-[#2A333C] text-center lg:text-left">

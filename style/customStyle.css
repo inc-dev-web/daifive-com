@@ -41,8 +41,8 @@
 }
 
 .text-customStyleHover{
-    display: inline-block;
-    font-size: 0 !important;
+    display: flex;
+    /*font-size: 0 !important;*/
     & a {
         display: inline-block;
         text-align: center;
