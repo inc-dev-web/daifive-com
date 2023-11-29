@@ -1,7 +1,7 @@
-import telegramIcon from '../../public/image/icon/telegram.svg';
-import instagramIcon from '../../public/image/icon/instagram.svg';
-import youTubeIcon from '../../public/image/icon/youtube.svg';
-import logo from '../../public/image/logoWhile.png';
+import telegramIcon from '@/public/image/icon/telegram.svg';
+import instagramIcon from '@/public/image/icon/instagram.svg';
+import youTubeIcon from '@/public/image/icon/youtube.svg';
+import logo from '@/public/image/logoWhile.png';
 import Image from 'next/image';
 import { useState } from 'react';
 

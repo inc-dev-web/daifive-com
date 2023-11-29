@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
-import logo from '../../public/image/logoBlack.png';
-import iconPhone from '../../public/image/icon/phone.svg';
-import burger from '../../public/image/icon/burger.svg';
+import logo from '@/public/image/logoBlack.png';
+import iconPhone from '@/public/image/icon/phone.svg';
+import burger from '@/public/image/icon/burger.svg';
 
 export function Navbar() {
 	const menuItem = [
@@ -48,13 +48,13 @@ export function Navbar() {
 				</ul>
 			</nav>
 			<button
-				className="flex justify-center items-center relative"
+				className="flex justify-center items-center relative bg-blueRadianCustom rounded-full w-[50px] h-[50px]"
 				onClick={toggleMenu}
 			>
 				<Image
 					src={burger}
 					alt={'menu'}
-					className="object-contain w-[50px] h-[50px] inline md:hidden"
+					className="object-contain w-[24px] h-[24px] inline md:hidden"
 				/>
 			</button>
 			<div className="md:flex hidden h-[48px] flex-row items-center w-[213px] justify-between py-[16px] px-[32px] text-sm bg-customOrangeLight rounded-[60px]">

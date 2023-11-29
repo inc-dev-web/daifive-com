@@ -29,6 +29,8 @@ module.exports = {
 				customOrangeLight: 'linear-gradient( rgba(233, 112, 0, 0.10) 0%, rgba(255, 122, 0, 0.10) 25.48%, rgba(255, 161, 73, 0.10) 100%)',
 				customBlue: 'linear-gradient(to right, #0B82FC 0%, #007EFF 25.48%, #0BC2FC 100%)',
 				customBlueLight: 'linear-gradient(to right, rgba(11, 130, 252, 0.10) 0%, rgba(0, 126, 255, 0.10) 25.48%, rgba(11, 194, 252, 0.10) 100%)',
+				blueRadianCustom:
+					'radial-gradient(330.39% 120.09% at 7.26% 18.11%, rgba(11, 130, 252, 0.20) 0%, rgba(0, 126, 255, 0.20) 25.48%, rgba(11, 194, 252, 0.20) 100%)',
 			},
 		},
 	},

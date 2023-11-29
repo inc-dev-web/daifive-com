@@ -1,8 +1,8 @@
 import React from 'react';
-import background3 from '../../public/image/background3.png';
-import background3mobi from '../../public/image/bgCard.png';
+import background3 from '@/public/image/background3.png';
+import background3mobi from '@/public/image/bgCard.png';
 import Image from 'next/image';
-import arrowRight from '../../public/image/icon/Arrow-Right-While.svg';
+import arrowRight from '@/public/image/icon/Arrow-Right-While.svg';
 
 export function ServiceCards() {
 	const card = [

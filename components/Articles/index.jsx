@@ -32,7 +32,7 @@ export function Articles() {
 	return (
 		<section className="px-4 bg-[#F3F6FA] rounded-[150px] flex justify-center flex-col pt-[100px] pb-[147px] lg:py-[150px] lg:px-[100px]">
 			<div className={'lg:gap-4 gap-[14px] flex justify-center items-center flex-col'}>
-				<span className="font-bold lg:text-base text-xs text-customBlue">Що почитати?</span>
+				<span className="font-bold lg:text-base text-xs text-customBlue uppercase">Що почитати?</span>
 				<h4 className="lg:text-custom32 text-xl font-bold text-[#2A333C] mt-4 mb-12">Ми написали для вас цікаві статті</h4>
 			</div>
 			<div className={'md:grid md:grid-cols-2 gap-8 flex flex-col items-center md:flex-none'}>

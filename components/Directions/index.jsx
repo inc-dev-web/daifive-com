@@ -3,10 +3,11 @@ import Image from 'next/image';
 import arrowOrange from '@/public/image/icon/light-orange-arrow.svg';
 import arrowUpGray from '@/public/image/icon/Arrow-Right-Gray.svg';
 import arrowUpWhile from '@/public/image/icon/Arrow-Right-While.svg';
-// import oval from '@/public/image/Oval.png';
 import ovalYellow from '@/public/image/Oval-yellow.png';
 import ovalBlue from '@/public/image/Oval-blue.png';
 import ovalRed from '@/public/image/Oval-red.png';
+import arrowUpWhileSmall from '@/public/image/icon/arrowRightUp-whileSmall.svg';
+import arrowUpGraySmall from '@/public/image/icon/arrowRightUp-graySmall.svg';
 
 export function Directions() {
 	const items = [
@@ -49,7 +50,8 @@ export function Directions() {
 	};
 
 	return (
-		<section className="py-[100px] px-4 md:h-[764px] md:px-[50px] md:py-[100px] xl:px-[100px] xl:py-[150px] flex flex-col md:flex-row xl:justify-between md:gap-10 items-center relative">
+		<section className="py-[100px] px-4 h-full lg:px-[50px] lg:py-[100px] xl:px-[100px] xl:py-[150px] flex flex-col lg:flex-row items-center relative">
+			<div className="lg:flex hidden bg-radiant-blue absolute rotate-[-120deg] bottom-[-100%] right-[-13%] md:w-[955px] md:h-[1095px]"></div>
 			<Image
 				alt={'image'}
 				src={ovalYellow}
@@ -62,15 +64,15 @@ export function Directions() {
 				height={17}
 				className="absolute bottom-[2%] md:bottom-[19%] right-[20%]"
 			/>
-			<div className={'gap-3 md:gap-4 flex flex-col md:mt-12 md:pr-[33px] z-40'}>
-				<div className="md:hidden flex justify-center flex-col items-center relative">
+			<div className={'gap-3 lg:gap-4 flex flex-col lg:mt-12 lg:w-2/4'}>
+				<div className="lg:hidden flex justify-center flex-col items-center relative">
 					<Image
 						src={ovalRed}
 						alt="img"
 						className="absolute right-0 top-0"
 						width={12}
 					/>
-					<span className="font-bold text-sm text-customBlue uppercase">Наші напрямки</span>
+					<span className="font-bold md:text-base text-xs text-customBlue uppercase">Наші напрямки</span>
 					<h4 className="text-xl font-bold text-[#2A333C] mt-3 mb-6 text-center">
 						Напрямки які ми <br /> пропонуємо
 					</h4>
@@ -78,21 +80,19 @@ export function Directions() {
 				{items.map((item, index) => (
 					<div key={index}>
 						<div
-							className={`gap-2 md:gap-4 flex items-center justify-between bg-customLightGray rounded-[94px] h-[80px] px-[25px] ${
-								index === activeIndex ? 'bg-customOrange mb-4' : 'opacity-80'
+							className={`gap-2 lg:max-w-[498px] w-full md:gap-4 flex items-center justify-between bg-customLightGray rounded-[94px] h-[80px] px-[25px] ${
+								index === activeIndex ? 'bg-customOrange' : 'opacity-80'
 							}`}
 							onClick={() => handleItemClick(index)}
 						>
-							<div className={'flex gap-6'}>
+							<div className={'flex items-center justify-start gap-6 w-full'}>
 								<div
-									className={`w-8 h-8 rounded-[50%] flex items-center justify-center text-2xl font-bold leading-none ${
+									className={`w-[28px] h-[28px] lg:w-[48px] lg:h-[48px] rounded-[50%] flex items-center justify-center lg:text-2xl text-xl font-bold leading-none ${
 										index === activeIndex ? 'bg-[#FFFFFF33] text-white' : 'bg-[#2A333C33] opacity-30 text-[#2A333C]'
 									}`}
-								>
-									{index + 1}
-								</div>
+								></div>
 								<span
-									className={`text-2xl font-bold text-[#2A333C] ${
+									className={`lg:text-2xl md:text-xl text-base font-bold text-[#2A333C] ${
 										index === activeIndex ? 'text-[#FAFAFA] transition-opacity' : 'opacity-30'
 									}`}
 								>
@@ -100,32 +100,43 @@ export function Directions() {
 								</span>
 							</div>
 							<Image
+								src={index === activeIndex ? arrowUpWhileSmall : arrowUpGraySmall}
+								alt={'icon'}
+								className={`md:hidden block w-[18] h-[18]`}
+							/>
+							<Image
 								src={index === activeIndex ? arrowUpWhile : arrowUpGray}
 								alt={'icon'}
-								width={32}
-								height={32}
-								className={index === activeIndex ? '' : 'opacity-30'}
+								className={`md:block hidden w-[18] h-[18] md:w-[32] md:h-[32]`}
 							/>
 						</div>
-						<span className={`md:hidden block text-base font-normal text-[#2A333CB3] px-[25px] ${index === activeIndex ? 'block' : 'hidden'}`}>
+						<span
+							className={`mt-4 lg:hidden block md:text-base text-xs font-normal text-[#2A333CB3] px-[25px] ${
+								index === activeIndex ? 'block' : 'hidden'
+							}`}
+						>
 							{item.description}
 						</span>
 					</div>
 				))}
 			</div>
-			<div className={'md:w-[630px] md:h-[316px] '}>
-				<span className={'md:inline hidden font-bold text-base text-customBlue'}>Наші напрямки</span>
-				<h4 className={'md:block hidden lg:text-custom32 text-xl font-bold text-[#2A333C] mt-[22px] mb-6'}>{items[activeIndex].title}</h4>
-				<p className="md:block hidden text-[#2A333CB2] font-normal leading-6 text-sm lg:text-base w-full lg:w-[498px] ">
-					{items[activeIndex].description}
-				</p>
-				<button className="w-[286px] h-[56px] mt-8 md:mt-12 flex items-center gap-4 justify-center rounded-[92px] bg-customOrangeLight ">
-					<span className={'text-customOrange flex items-center lg:text-base text-sm font-bold'}>Дізнатись більше</span>
+			{/*<div className={'lg:w-[630px] lg:h-[316px] '}>*/}
+			<div className={'flex-1'}>
+				<span className={'lg:inline hidden font-bold text-base text-customBlue'}>Наші напрямки</span>
+				<div className="max-h-[250px] h-full">
+					<h4 className={'lg:block hidden lg:text-custom32 text-xl font-bold text-[#2A333C] mt-[22px] mb-6'}>{items[activeIndex].title}</h4>
+					<p className="lg:block hidden text-[#2A333CB2] font-normal leading-6 text-sm lg:text-base w-full lg:w-[498px] ">
+						{items[activeIndex].description}
+					</p>
+				</div>
+				<button className="w-[270px] h-[48px] lg:w-[286px] lg:h-[56px] mt-8 lg:mt-12 flex items-center gap-4 justify-center rounded-[92px] bg-customOrangeLight ">
+					<span className={'text-customOrange flex items-center text-base md:text-sm font-bold'}>Дізнатись більше</span>
 					<Image
 						src={arrowOrange}
 						alt={'icon'}
 						width={24}
 						height={24}
+						className="w-[18] h-[18] lg:w-[24] lg:h-[24]"
 					/>
 				</button>
 			</div>

@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 import childrenImage from '@/public/image/childrenTeacher.png';
+import childrenImageSmall from '@/public/image/childrenTeacherSmall.png';
 import arrowUpWhile from '@/public/image/icon/Arrow-Right-While.svg';
+import arrowUpWhileSmall from '@/public/image/icon/arrowRightUp-whileSmall.svg';
 import arrowUpGray from '@/public/image/icon/Arrow-Right-Gray.svg';
+import arrowUpGraySmall from '@/public/image/icon/arrowRightUp-graySmall.svg';
 import ovalYellow from '@/public/image/Oval-yellow.png';
 import ovalBlue from '@/public/image/Oval-blue.png';
 import ovalRed from '@/public/image/Oval-red.png';
-import arrowOrange from '@/public/image/icon/light-orange-arrow.svg';
 
 export function RemainingQuestions() {
 	const items = [
@@ -34,7 +36,7 @@ export function RemainingQuestions() {
 		setActiveIndex(index);
 	};
 	return (
-		<section className="pt-[93px] px-4 md:h-[764px] md:px-[50px] md:py-[100px] xl:px-[100px] xl:py-[150px] flex flex-col md:flex-row xl:justify-between gap-10 items-center relative">
+		<section className="pt-[93px] px-4 lg:h-[764px] lg:px-[50px] lg:py-[100px] xl:px-[100px] xl:py-[150px] flex flex-col lg:flex-row items-center relative">
 			<Image
 				alt={'image'}
 				src={ovalYellow}
@@ -47,36 +49,34 @@ export function RemainingQuestions() {
 				height={17}
 				className="md:block hidden absolute bottom-[19%] right-[20%]"
 			/>
-			<div className={'gap-3 md:gap-4 flex flex-col md:mt-12 md:pr-[33px] z-40'}>
-				<div className="md:hidden flex justify-center flex-col items-center relative">
+			<div className={'gap-3 lg:gap-4 flex flex-col lg:mt-12 lg:w-2/4 w-full'}>
+				<div className="flex justify-center flex-col items-center relative">
 					<Image
 						src={ovalRed}
 						alt="img"
 						className="absolute right-0 top-0"
 						width={12}
 					/>
-					<span className="font-bold text-sm text-customBlue uppercase">Почитай</span>
+					<span className="font-bold text-xs text-customBlue uppercase">Почитай</span>
 					<h4 className="text-xl font-bold text-[#2A333C] mt-3 mb-6 text-center">Відповіді на питання</h4>
 				</div>
 				{items.map((item, index) => (
-					<div key={index}>
+					<div>
 						<div
 							key={index}
-							className={`gap-2 md:gap-4 flex items-center justify-between bg-customLightGray rounded-[94px] h-[80px] px-[25px] ${
-								index === activeIndex ? 'bg-customOrange mb-4' : 'opacity-80'
+							className={`gap-2 lg:max-w-[498px] w-full md:gap-4 flex items-center justify-between bg-customLightGray rounded-[94px] h-[80px] px-[25px] ${
+								index === activeIndex ? 'bg-customOrange' : 'opacity-80'
 							}`}
 							onClick={() => handleItemClick(index)}
 						>
-							<div className={'flex gap-6'}>
+							<div className={'flex items-center justify-start gap-6 w-full'}>
 								<div
-									className={`w-8 h-8 rounded-[50%] flex items-center justify-center text-2xl font-bold leading-none ${
+									className={`w-[28px] h-[28px] lg:w-[48px] lg:h-[48px] rounded-[50%] flex items-center justify-center lg:text-2xl text-xl font-bold leading-none ${
 										index === activeIndex ? 'bg-[#FFFFFF33] text-white' : 'bg-[#2A333C33] opacity-30 text-[#2A333C]'
 									}`}
-								>
-									{index + 1}
-								</div>
+								></div>
 								<span
-									className={`text-2xl font-bold text-[#2A333C] ${
+									className={`lg:text-2xl md:text-xl text-base font-bold text-[#2A333C] ${
 										index === activeIndex ? 'text-[#FAFAFA] transition-opacity' : 'opacity-30'
 									}`}
 								>
@@ -84,27 +84,49 @@ export function RemainingQuestions() {
 								</span>
 							</div>
 							<Image
+								src={index === activeIndex ? arrowUpWhileSmall : arrowUpGraySmall}
+								alt={'icon'}
+								className={`md:hidden block w-[18] h-[18]`}
+							/>
+							<Image
 								src={index === activeIndex ? arrowUpWhile : arrowUpGray}
 								alt={'icon'}
-								width={32}
-								height={32}
-								className={index === activeIndex ? '' : 'opacity-30'}
+								className={`md:block hidden w-[18] h-[18] md:w-[32] md:h-[32]`}
 							/>
 						</div>
-						<span className={`md:hidden block text-base font-normal text-[#2A333CB3] px-[25px] ${index === activeIndex ? 'block' : 'hidden'}`}>
+						<span
+							className={`mt-4 lg:hidden block md:text-base text-xs font-normal text-[#2A333CB3] px-[25px] ${
+								index === activeIndex ? 'block' : 'hidden'
+							}`}
+						>
 							{item.description}
 						</span>
 					</div>
 				))}
 			</div>
-			<div className={'w-full md:w-2/4 relative pl-[75px]'}>
-				<div className={'md:block hidden bg-radiant-orange absolute w-full h-full z-[-1] top-[0] right-[-20%]'}></div>
+			<div className={'w-full lg:w-2/4 relative flex justify-center mt-8 lg:mt-0 mb-[100px] lg:mb-0'}>
+				<div className={'bg-radiant-orange absolute w-full h-full z-[-1] top-[0] lg:right-[-20%]'}></div>
 				<Image
 					src={childrenImage}
 					alt={'img'}
-					className={'object-cover w-full h-full'}
+					className={'lg:block hidden object-cover w-full h-full'}
 				/>
-				добавити овали
+				<Image
+					src={childrenImageSmall}
+					alt={'img'}
+					className={'lg:hidden block object-cover md:max-h-[420px] md:max-w-[322px] max-h-[365px] max-w-[292px] -ml-[20px]'}
+				/>
+				<Image
+					alt={'image'}
+					src={ovalYellow}
+					className="lg:hidden left-[30%] w-[19px] absolute bottom-[15%]"
+				/>
+				<Image
+					src={ovalRed}
+					alt="img"
+					className="lg:hidden block absolute right-[10%] bottom-0"
+					width={12}
+				/>
 			</div>
 		</section>
 	);

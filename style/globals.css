@@ -17,8 +17,16 @@ body {
   background-color: #FAFAFA !important;
   margin: 0 auto;
   max-width: 1440px;
-  overflow-x: hidden !important;
   > main {
     width: 100%;
+  }
+}
+
+section {
+  border: 1px solid black;
+  overflow: hidden;
+  /*2xl:overflow-visible overflow-x-visible*/
+  @media (min-width: 1536px) {
+    overflow: visible;
   }
 }
