@@ -66,7 +66,7 @@ export default function Blog() {
 
 	const [isOpen, setIsOpen] = useState(false);
 	const [selectedItem, setSelectedItem] = useState(itemsArticles[0].company);
-	const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+	const [screenWidth, setScreenWidth] = useState(null);
 	const [filteredArticles, setFilteredArticles] = useState([]);
 
 	const uniqueCompanies = Array.from(new Set(itemsArticles.map((item) => item.company)));
@@ -87,11 +87,13 @@ export default function Blog() {
 	};
 
 	useEffect(() => {
+		setScreenWidth(window.innerWidth);
+
 		const handleResize = () => {
-			setScreenWidth(window.innerWidth);
+			setScreenWidth(typeof window !== 'undefined' ? window.innerWidth : 0);
 		};
 
-		setScreenWidth(window.innerWidth);
+		setScreenWidth(typeof window !== 'undefined' ? window.innerWidth : 0);
 		window.addEventListener('resize', handleResize);
 
 		return () => {
