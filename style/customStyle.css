@@ -137,3 +137,7 @@
     top: -149px;
     left: -26px;
 }
+
+.customRotate{
+    rotate: 120deg;
+}
