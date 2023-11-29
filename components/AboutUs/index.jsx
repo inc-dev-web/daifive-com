@@ -94,7 +94,7 @@ export function AboutUs() {
 						))}
 					</div>
 				</div>
-				<div className="w-full justify-center flex">
+				<div className="w-full justify-center lg:justify-start flex">
 					<button className="font-bold md:text-base text-sm text-[#FAFAFA] bg-customBlue rounded-[42px] customBoxShadowBlu w-[270px] h-[48px] md:w-[316px] md:h-[56px]">
 						Замовити дзвінок!
 					</button>

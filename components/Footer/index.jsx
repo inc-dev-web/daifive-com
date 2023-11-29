@@ -1,7 +1,7 @@
 import telegramIcon from '@/public/image/icon/telegram.svg';
 import instagramIcon from '@/public/image/icon/instagram.svg';
 import youTubeIcon from '@/public/image/icon/youtube.svg';
-import logo from '@/public/image/logoWhile.png';
+import logo from '@/public/image/logoWhite.png';
 import Image from 'next/image';
 import { useState } from 'react';
 
@@ -49,7 +49,7 @@ export function Footer() {
 		<footer className={'md:h-[339px] flex items-center lg:p-[100px] px-4 pt-[100px] md:pt-0'}>
 			<div
 				className={
-					'py-8 md:gap-0 bg-customBlue px-4 md:px-[74px] md:py-[32px] rounded-[42px] flex flex-col md:flex-row justify-between items-center w-full min-w-[343px] sm:max-w-none'
+					'md:h-[139px] py-8 md:gap-0 bg-customBlue px-4 md:px-[74px] md:py-[32px] rounded-[42px] flex flex-col md:flex-row justify-between items-center w-full min-w-[343px] sm:max-w-none'
 				}
 			>
 				<Image

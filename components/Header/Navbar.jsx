@@ -1,15 +1,17 @@
+'use client';
 import React, { useState } from 'react';
 import Image from 'next/image';
 import logo from '@/public/image/logoBlack.png';
 import iconPhone from '@/public/image/icon/phone.svg';
 import burger from '@/public/image/icon/burger.svg';
+import Link from 'next/link';
 
 export function Navbar() {
 	const menuItem = [
-		{ title: 'Головна', href: '#' },
+		{ title: 'Головна', href: '/' },
 		{ title: 'Послуги', href: '#' },
 		{ title: 'Спеціалісти', href: '#' },
-		{ title: 'Блог', href: '#' },
+		{ title: 'Блог', href: '/blog' },
 	];
 
 	const [isMenuOpen, setMenuOpen] = useState(false);
@@ -19,12 +21,14 @@ export function Navbar() {
 	};
 
 	return (
-		<header className="px-4 lg:pl-[100px] mt-10 flex flex-row justify-between items-center md:h-[58px] h-[48px] lg:pr-[100px] relative">
-			<Image
-				src={logo}
-				alt="logo"
-				className="object-contain h-[58px] w-[101px] lg:h-[34px] md::w-[69px]"
-			/>
+		<header className="border-2 px-4 lg:px-[100px] mt-10 flex flex-row justify-between items-center md:h-[58px] h-[48px]  relative">
+			<Link href="/">
+				<Image
+					src={logo}
+					alt="logo"
+					className="object-contain w-[69px] h-[44px]"
+				/>
+			</Link>
 			<nav className={`md:relative items-center justify-center flex`}>
 				<ul
 					className={`md:flex gap-14 text-4xl z-40 right-0 top-[58px] bg-[#fafafa] w-full absolute flex flex-col md:gap-10 md:flex-row items-center md:h-[48px] md:text-xs ${
@@ -36,13 +40,12 @@ export function Navbar() {
 							className="text-customStyleHover w-full flex items-center justify-center"
 							key={index}
 						>
-							<a
+							<Link
 								href={item.href}
 								title={item.title}
-								className=""
 							>
 								{item.title}
-							</a>
+							</Link>
 						</li>
 					))}
 				</ul>

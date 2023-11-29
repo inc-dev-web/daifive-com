@@ -55,7 +55,7 @@ export function Directions() {
 			<Image
 				alt={'image'}
 				src={ovalYellow}
-				className={'left-[40%] w-[19px] md:w-[29px] absolute top-[5%] md:right-[44%]'}
+				className={'left-[60%] w-[19px] md:w-[29px] absolute top-[5%] lg:right-[44%]'}
 			/>
 			<Image
 				src={ovalBlue}
@@ -122,7 +122,7 @@ export function Directions() {
 			</div>
 			{/*<div className={'lg:w-[630px] lg:h-[316px] '}>*/}
 			<div className={'flex-1'}>
-				<span className={'lg:inline hidden font-bold text-base text-customBlue'}>Наші напрямки</span>
+				<span className={'lg:inline hidden font-bold text-base text-customBlue uppercase'}>Наші напрямки</span>
 				<div className="max-h-[250px] h-full">
 					<h4 className={'lg:block hidden lg:text-custom32 text-xl font-bold text-[#2A333C] mt-[22px] mb-6'}>{items[activeIndex].title}</h4>
 					<p className="lg:block hidden text-[#2A333CB2] font-normal leading-6 text-sm lg:text-base w-full lg:w-[498px] ">

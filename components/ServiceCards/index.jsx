@@ -3,6 +3,7 @@ import background3 from '@/public/image/background3.png';
 import background3mobi from '@/public/image/bgCard.png';
 import Image from 'next/image';
 import arrowRight from '@/public/image/icon/Arrow-Right-While.svg';
+import ovalRed from '@/public/image/Oval-red.png';
 
 export function ServiceCards() {
 	const card = [
@@ -48,6 +49,13 @@ export function ServiceCards() {
 	];
 	return (
 		<section className="h-[619px] md:h-[550px] lg:h-[705px] relative flex lg:items-center justify-center">
+			<Image
+				src={ovalRed}
+				alt="img"
+				className="lg:block hidden absolute right-[20%] top-[20%]"
+				width={21}
+				height={21}
+			/>
 			<div className="bg-radiant-blue absolute left-[-15%] top-[0%] z-10 w-[637px] h-[731px]"></div>
 			<Image
 				src={background3}
@@ -63,7 +71,7 @@ export function ServiceCards() {
 				{card.map(({ title, image, background, shadow, rotate, margin, ellipse }, index) => (
 					<div
 						key={index}
-						className={`px-[20px] py-[22px] md:px-0 md:py-0 text-[#FFF] font-bold text-base md:text-2xl flex items-end md:justify-around md:flex-1 md:w-full w-[244px] h-[137px] md:h-[220px] rounded-[32px] md:pb-[42px] overflow-hidden ${background} ${shadow} ${rotate} md:${margin} ${ellipse}`}
+						className={`px-[20px] py-[22px] md:px-0 md:py-0 text-[#FFF] font-bold text-base md:text-2xl flex items-end md:justify-around md:flex-1 md:w-full w-[244px] h-[137px] md:h-[220px] rounded-[32px] md:pb-[32px] overflow-hidden ${background} ${shadow} ${rotate} md:${margin} ${ellipse}`}
 					>
 						<div className={'w-[234px] whitespace-pre-line'}>{title}</div>
 						<picture

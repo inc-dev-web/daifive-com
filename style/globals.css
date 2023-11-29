@@ -12,6 +12,7 @@
 }
 
 body {
+  border: 1px solid black;
   font-family: 'Ubuntu', sans-serif !important;
   background-color: #FAFAFA !important;
   margin: 0 auto;
@@ -22,6 +23,7 @@ body {
 }
 
 section {
+  border: 1px solid black;
   overflow: hidden;
   /*2xl:overflow-visible overflow-x-visible*/
   @media (min-width: 1536px) {

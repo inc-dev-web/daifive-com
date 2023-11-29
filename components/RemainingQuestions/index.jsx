@@ -36,35 +36,34 @@ export function RemainingQuestions() {
 		setActiveIndex(index);
 	};
 	return (
-		<section className="pt-[93px] px-4 lg:h-[764px] lg:px-[50px] lg:py-[100px] xl:px-[100px] xl:py-[150px] flex flex-col lg:flex-row items-center relative">
+		<section className="pt-[93px] px-4 lg:h-[764px] lg:px-[50px] lg:py-[100px] xl:px-[100px] xl:py-[150px] flex flex-col lg:flex-row items-center lg:justify-between relative">
 			<Image
 				alt={'image'}
 				src={ovalYellow}
-				className={'left-[40%] w-[19px] md:w-[29px] absolute top-[5%] md:right-[44%]'}
+				className={'md:hidden block left-[40%] w-[19px] md:w-[29px] absolute top-[5%] md:right-[44%]'}
 			/>
 			<Image
 				src={ovalBlue}
 				alt={'image'}
 				width={17}
 				height={17}
-				className="md:block hidden absolute bottom-[19%] right-[20%]"
+				className="md:hidden block absolute bottom-[19%] right-[20%]"
 			/>
-			<div className={'gap-3 lg:gap-4 flex flex-col lg:mt-12 lg:w-2/4 w-full'}>
-				<div className="flex justify-center flex-col items-center relative">
+			<div className={'gap-3 lg:gap-4 flex flex-col lg:mt-12 lg:w-[45%] w-full'}>
+				<div className="flex justify-center flex-col items-start relative">
 					<Image
 						src={ovalRed}
 						alt="img"
-						className="absolute right-0 top-0"
+						className="md:hidden block absolute right-0 top-0"
 						width={12}
 					/>
-					<span className="font-bold text-xs text-customBlue uppercase">Почитай</span>
-					<h4 className="text-xl font-bold text-[#2A333C] mt-3 mb-6 text-center">Відповіді на питання</h4>
+					<span className=" font-bold text-xs text-customBlue uppercase">Залишились питання?</span>
+					<h4 className=" text-xl font-bold text-[#2A333C] mt-4 mb-6 text-center">Відповіді на питання</h4>
 				</div>
 				{items.map((item, index) => (
-					<div>
+					<div key={index}>
 						<div
-							key={index}
-							className={`gap-2 lg:max-w-[498px] w-full md:gap-4 flex items-center justify-between bg-customLightGray rounded-[94px] h-[80px] px-[25px] ${
+							className={`gap-2 w-full md:gap-4 flex items-center justify-between bg-customLightGray rounded-[94px] h-[80px] px-[25px] ${
 								index === activeIndex ? 'bg-customOrange' : 'opacity-80'
 							}`}
 							onClick={() => handleItemClick(index)}
@@ -95,9 +94,7 @@ export function RemainingQuestions() {
 							/>
 						</div>
 						<span
-							className={`mt-4 lg:hidden block md:text-base text-xs font-normal text-[#2A333CB3] px-[25px] ${
-								index === activeIndex ? 'block' : 'hidden'
-							}`}
+							className={`mt-4 block md:text-base text-xs font-normal text-[#2A333CB3] px-[25px] ${index === activeIndex ? 'block' : 'hidden'}`}
 						>
 							{item.description}
 						</span>
@@ -109,7 +106,7 @@ export function RemainingQuestions() {
 				<Image
 					src={childrenImage}
 					alt={'img'}
-					className={'lg:block hidden object-cover w-full h-full'}
+					className={'lg:block hidden max-h-[578px]'}
 				/>
 				<Image
 					src={childrenImageSmall}
