@@ -1,3 +1,4 @@
+'use client';
 import React, { useState } from 'react';
 import childConsultant from '@/public/image/childConsultation.png';
 import ovalRed from '@/public/image/Oval-red.png';

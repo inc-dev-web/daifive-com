@@ -7,16 +7,10 @@ import specialistImg from '@/public/image/teacherSmall.png';
 import specialistImgFull from '@/public/image/teacher.png';
 import arrowCheck from '@/public/image/icon/arrowChek.svg';
 import Link from 'next/link';
-// import { useRouter } from 'next/router';
 
 export default function Resume({ params }) {
 	const idSpecialist = params.id;
-	// const router = useRouter();
-	console.log('@@@', params);
-	// const { specialists, itemSlider, itemPersonal } = specialist || null;
-	// const specialistData = [specialists[id]];
-	const id = 1;
-	const specialist = [
+	const specialists = [
 		{
 			name: 'Specialist 1',
 			position: 'position 1',
@@ -73,7 +67,7 @@ export default function Resume({ params }) {
 			image: specialistImg,
 		},
 	];
-	const specialistData = [specialist[idSpecialist]];
+	const singleSpecialist = [specialists[idSpecialist]];
 	const itemSlider = [{}, {}, {}];
 	const itemPersonal = [{}, {}, {}, {}];
 
@@ -87,10 +81,10 @@ export default function Resume({ params }) {
 			<BackButton />
 			<div className="lg:mt-12 flex flex-col-reverse desktop:flex-row desktop:gap-8">
 				<div className="flex flex-col gap-10 lg:gap-[34px] lg:w-full md:flex-row md:flex-wrap desktop:flex-col desktop:flex-nowrap lg:items-center mt-6 desktop:max-h-[1200px] desktop:overflow-y-scroll">
-					{specialist.map((people, key) => (
+					{specialists.map((people, key) => (
 						<Link
 							key={key}
-							href={`/specialist/${key}`}
+							href={`/specialists/${key}`}
 						>
 							<div
 								key={key}
@@ -139,7 +133,7 @@ export default function Resume({ params }) {
 							/>
 						</div>
 						<div className="mt-6 flex flex-col md:flex-1">
-							{specialistData.map((items, key) => (
+							{singleSpecialist.map((items, key) => (
 								<div
 									key={key}
 									className="flex flex-col"
@@ -160,7 +154,7 @@ export default function Resume({ params }) {
 							{itemSlider.map((item, key) => (
 								<div
 									key={key}
-									className="md:p-4 lg:p-6 rounded-[16px] md:rounded-[24px] flex h-[200px] md:h-[261px] w-[200px] md:w-[286px] bg-white relative"
+									className="p-4 md:p-4 lg:p-6 rounded-[16px] md:rounded-[24px] flex h-[200px] md:h-[261px] w-[200px] md:w-[286px] md:bg-white relative"
 								>
 									<div className="rounded-[16px] object-contain bg-[#F3F6FA] w-full h-full"></div>
 								</div>
@@ -179,7 +173,7 @@ export default function Resume({ params }) {
 						<div className="gap-8 flex flex-col md:flex-row-reverse md:items-center md:justify-end">
 							<div className="flex flex-col lg:justify-center gap-[14px] flex-1">
 								<h4 className="text-[#2A333C] text-xl font-bold mb-[18px] lg:text-2xl">Персональні деталі</h4>
-								{specialistData.map((items, categoryIndex) => (
+								{singleSpecialist.map((items, categoryIndex) => (
 									<React.Fragment key={categoryIndex}>
 										{items.about.map((item, key) => (
 											<div

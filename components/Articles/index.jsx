@@ -1,3 +1,4 @@
+'use client';
 import Image from 'next/image';
 import image from '@/public/image/faqImage.png';
 import arrowBlue from '@/public/image/icon/ArrowRightBlue.svg';

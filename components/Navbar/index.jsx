@@ -9,8 +9,8 @@ import Link from 'next/link';
 export function Navbar() {
 	const menuItem = [
 		{ title: 'Головна', href: '/' },
-		{ title: 'Послуги', href: '/service' },
-		{ title: 'Спеціалісти', href: '/specialist' },
+		{ title: 'Послуги', href: '/services' },
+		{ title: 'Спеціалісти', href: '/team' },
 		{ title: 'Блог', href: '/blog' },
 		{ title: 'Контакти', href: '/contact' },
 	];

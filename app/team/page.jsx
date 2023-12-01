@@ -85,7 +85,7 @@ export default function Specialist() {
 				{specialist.map((specialist, index) => (
 					<div
 						key={index}
-						className="border-2 flex px-4 pt-[64px] pb-6 flex-col justify-center items-center bg-white rounded-[32px]"
+						className="flex px-4 pt-[64px] pb-6 flex-col justify-center items-center bg-white rounded-[32px]"
 					>
 						<div
 							className={`flex justify-center relative w-[313px] h-[313px] md:w-[344px] md:h-[394px] rounded-[24px] md:rounded-[29px] ${
@@ -102,7 +102,7 @@ export default function Specialist() {
 							<h4 className="text-[#2A333C] text-xl font-bold md:text-custom32">{specialist.name}</h4>
 							<p className="text-base text-[#2A333C] md:text-2xl">{specialist.position}</p>
 						</div>
-						<Link href={`/specialist/${index}`}>
+						<Link href={`/team/${index}`}>
 							<button className="flex justify-center items-center gap-2 bg-customOrangeLight rounded-[92px] w-[270px] md:w-[316px] h-[48px] md:h-[56px] mt-6 md:mt-8">
 								<span className="text-customOrange font-bold text-sm md:text-base">Дізнатись більше</span>
 								<Image

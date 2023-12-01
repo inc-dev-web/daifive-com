@@ -1,3 +1,4 @@
+'use client';
 import React from 'react';
 import teacherImg from '@/public/image/teacher.png';
 import arrowWhite from '@/public/image/icon/Arrow-Right-While.svg';

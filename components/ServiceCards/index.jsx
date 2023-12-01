@@ -1,3 +1,4 @@
+'use client';
 import React from 'react';
 import background3 from '@/public/image/background3.png';
 import background3mobi from '@/public/image/bgCard.png';

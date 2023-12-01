@@ -1,0 +1,12 @@
+<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Arrow / Arrow_Up_Right_MD">
+<path id="Vector" d="M4.94336 11.0554L11.0544 4.94434M11.0544 4.94434H6.16556M11.0544 4.94434V9.83316" stroke="url(#paint0_radial_214_7375)" stroke-width="0.916654" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<defs>
+<radialGradient id="paint0_radial_214_7375" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(5.38683 6.05135) rotate(44.0911) scale(7.3385 17.583)">
+<stop stop-color="#E97000"/>
+<stop offset="0.254781" stop-color="#FF7A00"/>
+<stop offset="1" stop-color="#FFA149"/>
+</radialGradient>
+</defs>
+</svg>

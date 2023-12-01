@@ -1,3 +1,4 @@
+'use client';
 import telegramIcon from '@/public/image/icon/telegram.svg';
 import instagramIcon from '@/public/image/icon/instagram.svg';
 import youTubeIcon from '@/public/image/icon/youtube.svg';

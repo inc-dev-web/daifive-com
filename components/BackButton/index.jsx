@@ -1,13 +1,15 @@
+'use client';
 import React from 'react';
-import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 
 export function BackButton() {
+	const router = useRouter();
 	return (
-		<Link
-			href="/"
+		<button
 			className="text-xs lg:text-lg font-medium text-[#0B82FC]"
+			onClick={router.back}
 		>
 			Назад
-		</Link>
+		</button>
 	);
 }

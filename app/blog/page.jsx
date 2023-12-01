@@ -78,7 +78,9 @@ export default function Blog() {
 	};
 
 	const handleItemClick = (item) => {
+		console.log('handleItemClick', item);
 		setSelectedItem(item);
+		console.log('setSelectedItem', selectedItem);
 		if (screenWidth < 1024) {
 			setIsOpen(false);
 		}
@@ -154,7 +156,11 @@ export default function Blog() {
 									key={index}
 									onClick={() => handleItemClick(item)}
 								>
-									<div className="bg-[#00000019] w-[24px] h-[24px] flex justify-center items-center rounded-[32px]">
+									<div
+										className={`w-[24px] h-[24px] flex justify-center items-center rounded-[32px] ${
+											selectedItem === item ? 'bg-blueRadianCustom' : 'bg-[#00000019]'
+										}`}
+									>
 										<Image
 											src={selectedItem === item ? arrowUp : arrowUpWhite}
 											alt="icon"
@@ -170,10 +176,10 @@ export default function Blog() {
 				{/* Articles block */}
 				<div className="mt-4 flex flex-col gap-8 items-center lg:mt-0 lg:w-full lg:items-start">
 					{filteredArticles.length > 0 ? (
-						filteredArticles.map((item) => (
+						filteredArticles.map((item, index) => (
 							<div
 								className="flex flex-col lg:flex-row lg:items-center lg:w-full lg:max-h-[318px] lg:min-h-[318px]"
-								key={item.title}
+								key={index}
 							>
 								{/* Article image */}
 								<picture className="bg-white p-3 rounded-[24px] max-w-[343px] max-h-[282px] lg:min-h-[318px] lg:max-h-[318px] lg:min-w-[318px] lg:max-w-[318px]">

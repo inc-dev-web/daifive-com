@@ -4,6 +4,7 @@ import marketOrange from '@/public/image/icon/marger-orange.svg';
 import arrowRight from '@/public/image/icon/white-arrow-right.svg';
 import childrenImage from '@/public/image/childrenImage1.png';
 import childrenSm from '@/public/image/ghildrenMain.png';
+import Link from 'next/link';
 
 export function Header() {
 	return (
@@ -17,13 +18,15 @@ export function Header() {
 						The child development centre provides the following educational programmes for children: developmental classes for young children
 					</p>
 				</div>
-				<button className="lg:flex justify-center items-center hidden gap-4 bg-customOrange rounded-[60px] text-base h-[56px] w-[286px] text-[#FAFAFA] lg:mb-[90px] customBoxShadowOrange">
-					Почати
-					<Image
-						src={arrowRight}
-						alt={'icon'}
-					/>
-				</button>
+				<Link href="/services">
+					<button className="lg:flex justify-center items-center hidden gap-4 bg-customOrange rounded-[60px] text-base h-[56px] w-[286px] text-[#FAFAFA] lg:mb-[90px] customBoxShadowOrange">
+						Почати
+						<Image
+							src={arrowRight}
+							alt={'icon'}
+						/>
+					</button>
+				</Link>
 				<figure className="lg:flex hidden items-center gap-4">
 					<Image
 						src={market}
@@ -47,15 +50,17 @@ export function Header() {
 				/>
 			</div>
 			<div className="lg:hidden flex justify-center items-center flex-col mt-[20px] mb-[58px] lg:mb-[55px]">
-				<button className="flex justify-center items-center gap-3 w-[270px] h-[48px] bg-customOrange rounded-[60px] text-sm text-[#FAFAFA] mb-[24px] customBoxShadowOrange">
-					Почати
-					<Image
-						src={arrowRight}
-						alt={'icon'}
-						width={20}
-						height={20}
-					/>
-				</button>
+				<Link href="/services">
+					<button className="flex justify-center items-center gap-3 w-[270px] h-[48px] bg-customOrange rounded-[60px] text-sm text-[#FAFAFA] mb-[24px] customBoxShadowOrange">
+						Почати
+						<Image
+							src={arrowRight}
+							alt={'icon'}
+							width={20}
+							height={20}
+						/>
+					</button>
+				</Link>
 				<figure className="flex items-center gap-2">
 					<Image
 						src={marketOrange}

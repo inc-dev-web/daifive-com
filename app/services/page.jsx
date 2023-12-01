@@ -11,6 +11,7 @@ import service4 from '@/public/image/service/service4.png';
 import service5 from '@/public/image/service/service5.png';
 import service6 from '@/public/image/service/service6.png';
 import ovalGreen from '@/public/image/OvalGreenish.svg';
+import Link from 'next/link';
 
 export default function Service() {
 	const service = [
@@ -86,14 +87,16 @@ export default function Service() {
 								<h4 className="text-[#2A333C] text-xl font-bold md:text-custom32">{item.name}</h4>
 							</div>
 						</div>
-						<button className="flex justify-center items-center gap-2 bg-customOrangeLight rounded-[92px] w-[270px] md:w-[316px] h-[48px] md:h-[56px] mt-4 md:mt-8 md:mb-2">
-							<span className="text-customOrange font-bold text-sm md:text-base">Дізнатись більше</span>
-							<Image
-								src={arrowOrange}
-								alt={'icon'}
-								className="w-[18px] h-[18px] md:w-[22.333px] md:h-[22.333px]"
-							/>
-						</button>
+						<Link href={`/services/${index}`}>
+							<button className="flex justify-center items-center gap-2 bg-customOrangeLight rounded-[92px] w-[270px] md:w-[316px] h-[48px] md:h-[56px] mt-4 md:mt-8 md:mb-2">
+								<span className="text-customOrange font-bold text-sm md:text-base">Дізнатись більше</span>
+								<Image
+									src={arrowOrange}
+									alt={'icon'}
+									className="w-[18px] h-[18px] md:w-[22.333px] md:h-[22.333px]"
+								/>
+							</button>
+						</Link>
 					</div>
 				))}
 			</div>
