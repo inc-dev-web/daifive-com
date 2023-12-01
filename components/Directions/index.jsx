@@ -9,6 +9,7 @@ import ovalBlue from '@/public/image/Oval-blue.png';
 import ovalRed from '@/public/image/Oval-red.png';
 import arrowUpWhileSmall from '@/public/image/icon/arrowRightUp-whileSmall.svg';
 import arrowUpGraySmall from '@/public/image/icon/arrowRightUp-graySmall.svg';
+import Link from 'next/link';
 
 export function Directions() {
 	const items = [
@@ -130,16 +131,18 @@ export function Directions() {
 						{items[activeIndex].description}
 					</p>
 				</div>
-				<button className="w-[270px] h-[48px] lg:w-[286px] lg:h-[56px] mt-8 lg:mt-12 flex items-center gap-4 justify-center rounded-[92px] bg-customOrangeLight ">
-					<span className={'text-customOrange flex items-center text-base md:text-sm font-bold'}>Дізнатись більше</span>
-					<Image
-						src={arrowOrange}
-						alt={'icon'}
-						width={24}
-						height={24}
-						className="w-[18] h-[18] lg:w-[24] lg:h-[24]"
-					/>
-				</button>
+				<Link href={'/services'}>
+					<button className="w-[270px] h-[48px] lg:w-[286px] lg:h-[56px] mt-8 lg:mt-12 flex items-center gap-4 justify-center rounded-[92px] bg-customOrangeLight ">
+						<span className={'text-customOrange flex items-center text-base md:text-sm font-bold'}>Дізнатись більше</span>
+						<Image
+							src={arrowOrange}
+							alt={'icon'}
+							width={24}
+							height={24}
+							className="w-[18] h-[18] lg:w-[24] lg:h-[24]"
+						/>
+					</button>
+				</Link>
 			</div>
 		</section>
 	);

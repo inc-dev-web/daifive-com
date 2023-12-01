@@ -79,12 +79,12 @@ export default function Resume({ params }) {
 				className="absolute w-[18px] h-[18px] -z-10 top-0 md:top-[32px] right-[115px] lg:right-[174px]"
 			/>
 			<BackButton />
-			<div className="lg:mt-12 flex flex-col-reverse desktop:flex-row desktop:gap-8">
+			<div className="lg:mt-8 flex flex-col-reverse desktop:flex-row desktop:gap-8">
 				<div className="flex flex-col gap-10 lg:gap-[34px] lg:w-full md:flex-row md:flex-wrap desktop:flex-col desktop:flex-nowrap lg:items-center mt-6 desktop:max-h-[1200px] desktop:overflow-y-scroll">
 					{specialists.map((people, key) => (
 						<Link
 							key={key}
-							href={`/specialists/${key}`}
+							href={`/team/${key}`}
 						>
 							<div
 								key={key}
