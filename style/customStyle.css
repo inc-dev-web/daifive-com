@@ -141,8 +141,3 @@
 .customRotate {
     rotate: 120deg;
 }
-
-.customSlider:before {
-    display: inline-block;
-    transition: transform 0.5s ease-in-out;
-}
