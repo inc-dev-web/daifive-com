@@ -274,7 +274,7 @@ export default function Blog() {
 	return (
 		<section className="px-4 pt-[39px] pb-[68px] lg:pt-[50px] lg:pb-[118px] lg:px-[50px] xl:px-[100px] relative">
 			<BackButton />
-			<div className="gap-3 lg:gap-4 my-4 lg:mt-8 lg:mb-12">
+			<div className="gap-3 lg:gap-4 my-4 lg:mt-4 lg:mb-12">
 				<h1 className="text-2xl lg:text-3xl xl:text-5xl font-bold text-[#2A333C]">Read Our Articles</h1>
 				<p className="text-xs xl:text-base text-[#7D7D7D]">Powerful Trading Tools and Features for Experienced Investors</p>
 			</div>
