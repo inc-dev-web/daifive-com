@@ -4,17 +4,12 @@ module.exports = {
 	theme: {
 		extend: {
 			screens: {
-				tablet: '640px',
-				// => @media (min-width: 640px) { ... }
-
-				laptop: '1024px',
-				// => @media (min-width: 1024px) { ... }
-
 				desktop: '1440px',
 				// => @media (min-width: 1280px) { ... }
 			},
 			fontSize: {
 				custom32: ['32px', '40px'],
+				custom40: ['40px', '1'],
 			},
 			colors: {
 				customAmberTint: 'rgba(255, 122, 0, 0.10)',

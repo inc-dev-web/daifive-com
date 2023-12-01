@@ -9,9 +9,10 @@ import Link from 'next/link';
 export function Navbar() {
 	const menuItem = [
 		{ title: 'Головна', href: '/' },
-		{ title: 'Послуги', href: '#' },
-		{ title: 'Спеціалісти', href: '#' },
+		{ title: 'Послуги', href: '/service' },
+		{ title: 'Спеціалісти', href: '/specialist' },
 		{ title: 'Блог', href: '/blog' },
+		{ title: 'Контакти', href: '/contact' },
 	];
 
 	const [isMenuOpen, setMenuOpen] = useState(false);
@@ -21,7 +22,7 @@ export function Navbar() {
 	};
 
 	return (
-		<header className="border-2 px-4 lg:px-[100px] mt-10 flex flex-row justify-between items-center md:h-[58px] h-[48px]  relative">
+		<header className="px-4 lg:px-[100px] mt-10 flex flex-row justify-between items-center md:h-[58px] h-[48px] relative">
 			<Link href="/">
 				<Image
 					src={logo}

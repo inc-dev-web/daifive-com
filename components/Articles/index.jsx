@@ -51,7 +51,7 @@ export function Articles() {
 						<figcaption className={'flex justify-center items-start flex-col'}>
 							<h6 className={'text-xl font-medium mb-3 text-[#2A333C]'}>{item.title}</h6>
 							<p className={'lg:text-sm text-xs text-[#2A333C] opacity-70 max-w-[350px] lg:max-w-none'}>{item.description}</p>
-							<button className={'h-[38px] bg-customBlueLight mt-6 w-[182px] flex items-center justify-center rounded-[65px] gap-3'}>
+							<button className={'h-[38px] bg-customBlueLight mt-6 w-full lg:w-[182px] flex items-center justify-center rounded-[65px] gap-3'}>
 								<span className="text-customBlue text-sm">Read</span>
 								<Image
 									src={arrowBlue}

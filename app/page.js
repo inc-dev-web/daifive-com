@@ -8,12 +8,10 @@ import { Articles } from '@/components/Articles';
 import { RemainingQuestions } from '@/components/RemainingQuestions';
 import { Specialists } from '@/components/Specialists';
 import { Consultation } from '@/components/Consultation';
-import { Navbar } from '@/components/Header/Navbar';
 
 export default function Home() {
 	return (
 		<main>
-			{/*<Navbar />*/}
 			<Header />
 			<AboutUs />
 			<ServiceCards />
