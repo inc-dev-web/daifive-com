@@ -3,8 +3,6 @@ import React, { useEffect, useState } from 'react';
 import { BackButton } from '@/components/BackButton';
 import ovalYellow from '@/public/image/Oval-yellow.png';
 import Image from 'next/image';
-import specialistImg from '@/public/image/teacherSmall.png';
-import specialistImgFull from '@/public/image/teacher.png';
 import arrowCheck from '@/public/image/icon/arrowChek.svg';
 import Link from 'next/link';
 import { GET } from '@/app/api/route';
@@ -52,13 +50,13 @@ export default function Resume({ params }) {
 										key % 2 !== 0 ? 'bg-customOrange' : 'bg-customBlue'
 									}`}
 								>
-									<Image
-										src={specialistImg}
+									<img
+										src={`${baseUrl}${people?.attributes.photoSpecialist?.data?.attributes.url}`}
 										alt={'image'}
 										className="lg:hidden absolute w-[238px] h-[280px] bottom-0"
 									/>
-									<Image
-										src={specialistImgFull}
+									<img
+										src={`${baseUrl}${people?.attributes.photoSpecialist?.data?.attributes.url}`}
 										alt={'image'}
 										className="lg:block hidden absolute w-[185px] h-[249px] bottom-0"
 									/>
@@ -72,25 +70,25 @@ export default function Resume({ params }) {
 					))}
 				</div>
 				<div>
-					<div className="flex flex-col md:flex-row px-4 md:px-6 pb-6 pt-[60px] mt-6 bg-white rounded-[32px] items-center md:gap-8">
-						<div
-							className={`relative w-[311px] md:w-[344px] h-[244px] md:h-[390px] flex justify-center rounded-[20px] ${
-								idSpecialist % 2 === 0 ? 'bg-customOrange' : 'bg-customBlue'
-							}`}
-						>
-							<Image
-								src={specialistImg}
-								alt={'image'}
-								className="md:hidden absolute w-[238px] h-[280px] lg:w-[308px] lg:h-[412px] bottom-0"
-							/>
-							<Image
-								src={specialistImgFull}
-								alt={'image'}
-								className="md:block hidden absolute w-[238px] h-[280px] md:w-[308px] md:h-[412px] bottom-0"
-							/>
-						</div>
-						<div className="mt-6 flex flex-col md:flex-1">
-							{singleSpecialist.map((items, key) => (
+					{singleSpecialist.map((items, key) => (
+						<div className="flex flex-col md:flex-row px-4 md:px-6 pb-6 pt-[60px] mt-6 bg-white rounded-[32px] items-center md:gap-8">
+							<div
+								className={`relative w-[311px] md:w-[344px] h-[244px] md:h-[390px] flex justify-center rounded-[20px] ${
+									idSpecialist % 2 === 0 ? 'bg-customOrange' : 'bg-customBlue'
+								}`}
+							>
+								<img
+									src={`${baseUrl}${items?.attributes.photoSpecialist?.data?.attributes.url}`}
+									alt={'image'}
+									className="md:hidden absolute w-[238px] h-[280px] lg:w-[308px] lg:h-[412px] bottom-0"
+								/>
+								<img
+									src={`${baseUrl}${items?.attributes.photoSpecialist?.data?.attributes.url}`}
+									alt={'image'}
+									className="md:block hidden absolute w-[238px] h-[280px] md:w-[308px] md:h-[412px] bottom-0"
+								/>
+							</div>
+							<div className="mt-6 flex flex-col md:flex-1">
 								<div
 									key={key}
 									className="flex flex-col"
@@ -102,12 +100,12 @@ export default function Resume({ params }) {
 									<span className="opacity-70 text-sm lg:text-base text-[#2A333C]">2I’m always trying to them always trying</span>
 									<p className="opacity-70 text-sm lg:text-base  text-[#2A333C] mt-4 lg:mt-8">{items?.attributes.description}</p>
 								</div>
-							))}
-							<button className="mt-8 lg:mt-10 rounded-[92px] w-[270px] lg:w-[286px] h-[48px] lg:h-[56px] items-center justify-center font-bold text-sm lg:text-base text-white bg-customOrange customBoxShadowOrange">
-								Записатися
-							</button>
+								<button className="mt-8 lg:mt-10 rounded-[92px] w-[270px] lg:w-[286px] h-[48px] lg:h-[56px] items-center justify-center font-bold text-sm lg:text-base text-white bg-customOrange customBoxShadowOrange">
+									Записатися
+								</button>
+							</div>
 						</div>
-					</div>
+					))}
 					<div className="lg:overflow-visible overflow-x-scroll h-[280px] md:h-[261px] flex my-10 md:my-8 lg: gap-4 items-center">
 						<div className="flex gap-8 px-4 md:px-0">
 							{itemSlider.map((item, key) => (

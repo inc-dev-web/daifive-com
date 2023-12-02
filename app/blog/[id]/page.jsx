@@ -3,7 +3,6 @@ import React, { useEffect, useState } from 'react';
 import { BackButton } from '@/components/BackButton';
 import ovalRed from '@/public/image/Oval-red.png';
 import ovalYellow from '@/public/image/Oval-yellow.png';
-import articleImg from '@/public/image/articles/articleTop.png';
 import Image from 'next/image';
 import arrowBlue from '@/public/image/icon/ArrowRightBlue.svg';
 import Link from 'next/link';
@@ -42,13 +41,13 @@ export default function Articles({ params }) {
 			/>
 			<BackButton />
 			<div className="flex flex-col pt-4 lg:flex-row-reverse gap-8">
-				<div className="flex flex-col flex-1">
-					<Image
-						src={articleImg}
-						alt="img"
-						className="object-cover min-h-[160px] max-h-[228px] mb-6 rounded-[16px] lg:rounded-[24px]"
-					/>
-					{singleArticle.map((items, key) => (
+				{singleArticle.map((items, key) => (
+					<div className="flex flex-col flex-1">
+						<img
+							src={`${baseUrl}${items?.attributes.imagePageTop?.data.attributes.url}`}
+							alt="img"
+							className="object-cover min-h-[160px] max-h-[228px] mb-6 rounded-[16px] lg:rounded-[24px]"
+						/>
 						<div
 							key={key}
 							className="flex-col flex rounded-[32px] px-4 py-6 lg:p-8 bg-white gap-8"
@@ -84,8 +83,9 @@ export default function Articles({ params }) {
 								/>
 							</div>
 						</div>
-					))}
-				</div>
+					</div>
+				))}
+
 				<div className="flex flex-row flex-wrap gap-10 mt-10 lg:mt-0 lg:flex-col lg:flex-nowrap lg:h-[1200px] overflow-y-scroll">
 					{itemsArticles.map((items, key) => (
 						<Link
