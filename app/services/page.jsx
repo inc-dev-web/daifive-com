@@ -1,4 +1,5 @@
-import React from 'react';
+'use client';
+import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import ovalRed from '@/public/image/Oval-red.png';
 import ovalYellow from '@/public/image/Oval-yellow.png';
@@ -12,34 +13,20 @@ import service5 from '@/public/image/service/service5.png';
 import service6 from '@/public/image/service/service6.png';
 import ovalGreen from '@/public/image/OvalGreenish.svg';
 import Link from 'next/link';
+import { GET } from '@/app/api/route';
 
 export default function Service() {
-	const service = [
-		{
-			name: 'ABA терапія',
-			image: service1,
-		},
-		{
-			name: 'Психологія',
-			image: service2,
-		},
-		{
-			name: 'Логопед',
-			image: service3,
-		},
-		{
-			name: 'Масажист',
-			image: service4,
-		},
-		{
-			name: 'Сенсорний педагог',
-			image: service5,
-		},
-		{
-			name: 'Томатіс',
-			image: service6,
-		},
-	];
+	const baseUrl = process.env.URL;
+	const [services, setServices] = useState([]);
+	useEffect(() => {
+		async function fetchData() {
+			const response = await GET('services?populate=*');
+			const data = await response.json();
+			setServices(data.data);
+		}
+		fetchData();
+	}, []);
+	console.log('services', services);
 	return (
 		<section className="px-4 pt-[39px] lg:pt-[50px] pb-[56px] lg:px-[100px] relative">
 			<Image
@@ -72,22 +59,22 @@ export default function Service() {
 				<h1 className="text-2xl lg:text-3xl xl:text-5xl font-bold text-[#2A333C]">Послуги які ми надаємо</h1>
 			</div>
 			<div className="flex flex-col gap-6 md:gap-8 lg:flex-row lg:flex-wrap lg:justify-center xl:justify-start">
-				{service.map((item, index) => (
+				{services.map((item, index) => (
 					<div
 						key={index}
 						className="max-w-[392px] flex flex-col items-center"
 					>
 						<div className={`rounded-[32px] bg-white p-[16px]`}>
-							<Image
-								src={item.image}
+							<img
+								src={`${baseUrl}${item?.attributes.preview?.data.attributes.url}`}
 								alt={'image'}
 								className="object-contain rounded-[20px]"
 							/>
 							<div className="mt-4 md:mt-6 flex justify-center">
-								<h4 className="text-[#2A333C] text-xl font-bold md:text-custom32">{item.name}</h4>
+								<h4 className="text-[#2A333C] text-xl font-bold md:text-custom32">{item.attributes.titlle}</h4>
 							</div>
 						</div>
-						<Link href={`/services/${index}`}>
+						<Link href={`/services/${item.id}`}>
 							<button className="flex justify-center items-center gap-2 bg-customOrangeLight rounded-[92px] w-[270px] md:w-[316px] h-[48px] md:h-[56px] mt-4 md:mt-8 md:mb-2">
 								<span className="text-customOrange font-bold text-sm md:text-base">Дізнатись більше</span>
 								<Image

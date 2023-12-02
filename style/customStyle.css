@@ -42,7 +42,8 @@
 
 .text-customStyleHover{
     display: flex;
-    /*font-size: 0 !important;*/
+    position: relative;
+    overflow: hidden;
     & a {
         display: inline-block;
         text-align: center;
@@ -59,7 +60,7 @@
         overflow: hidden;
         visibility: hidden;
     }
-    & a::before {
+    &::before {
         content: "";
         position: absolute;
         bottom: 0;
@@ -73,7 +74,7 @@
         box-sizing: border-box;
         border-radius: 50px;
     }
-    & a:hover::before {
+    &:hover::before {
         transform: translateX(0);
     }
 

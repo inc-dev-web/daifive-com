@@ -5,7 +5,6 @@ module.exports = {
 		extend: {
 			screens: {
 				desktop: '1440px',
-				// => @media (min-width: 1280px) { ... }
 			},
 			fontSize: {
 				custom32: ['32px', '40px'],
@@ -18,6 +17,7 @@ module.exports = {
 				customLightGray: 'rgba(42, 51, 60, 0.03)',
 			},
 			backgroundImage: {
+				navGradient: 'linear-gradient(to bottom, rgba(11, 130, 252, 0.10) 0%, rgba(0, 126, 255, 0.00) 25.48%, rgba(11, 194, 252, 0.10) 100%)',
 				childConsultant: "url('/image/bgConsultation.png')",
 				childConsultantSmall: "url('/image/bgConsultationSmall.png')",
 				customOrange: 'linear-gradient(to right, #E97000 0%, #FF7A00 25.48%, #FFA149 100%)',

@@ -5,155 +5,38 @@ import Image from 'next/image';
 import arrowUp from '@/public/image/icon/arrowUpRightOrange.svg';
 import arrow from '@/public/image/icon/arrowDown.svg';
 import arrowUpWhite from '@/public/image/icon/arrowUpWhite.svg';
-import service1 from '@/public/image/service/service1.png';
-import service2 from '@/public/image/service/service2.png';
-import service3 from '@/public/image/service/service3.png';
-import service4 from '@/public/image/service/service4.png';
-import service5 from '@/public/image/service/service5.png';
-import service6 from '@/public/image/service/service6.png';
+// import service1 from '@/public/image/service/service1.png';
+// import service2 from '@/public/image/service/service2.png';
+// import service3 from '@/public/image/service/service3.png';
+// import service4 from '@/public/image/service/service4.png';
+// import service5 from '@/public/image/service/service5.png';
+// import service6 from '@/public/image/service/service6.png';
 import ovalYellow from '@/public/image/Oval-yellow.png';
 import ovalRed from '@/public/image/Oval-red.png';
 import ovalGreen from '@/public/image/OvalGreenish.svg';
-import whale from '@/public/image/whale.png';
+// import whale from '@/public/image/whale.png';
 import child from '@/public/image/service/child.png';
 import arrowCheck from '@/public/image/icon/arrowChek.svg';
+import { GET } from '@/app/api/route';
 
 export default function Page({ params }) {
-	const serviceId = params.id || 0;
-	const services = [
-		{
-			name: 'ABA терапія',
-			image: service1,
-			about: [
-				{ category: 'Назва', detail: 'Супер крутецька' },
-				{ category: 'Вік', detail: '2-3 роки' },
-				{ category: 'Тривалість', detail: '12 років' },
-				{ category: 'К-ть занять', detail: '12 років' },
-			],
-			description: [
-				{
-					detailOne:
-						'Страшне слово для багатьох батьків. Відоме також під назвами «стіми» і «стімінг».\n' +
-						'Аутостимуляція це специфічна поведінка дітей з РАС яка підкріплюється зсередини організму - за рахунок того що вона приносить дитині задоволення, заспокоює її, знімає напругу. Звучить ніби добре - для наших діток. Але ззовні стіми можуть приймати зовсім різноманітні форми - це і махи руками, і стрибки на місці, і вокалізації, а також такі неприємні як облизування предметів, обгризання нігтів, колупання в носі і т.д.',
-					image: whale,
-					detailTwo:
-						'Страшне слово для багатьох батьків. Відоме також під назвами «стіми» і «стімінг».\n' +
-						'Аутостимуляція це специфічна поведінка дітей з РАС яка підкріплюється зсередини організму - за рахунок того що вона приносить дитині задоволення, заспокоює її, знімає напругу. Звучить ніби добре - для наших діток. Але ззовні стіми можуть приймати зовсім різноманітні форми - це і махи руками, і стрибки на місці, і вокалізації, а також такі неприємні як облизування предметів, обгризання нігтів, колупання в носі і т.д.',
-				},
-			],
-		},
-		{
-			name: 'Психологія',
-			image: service2,
-			about: [
-				{ category: 'Назва', detail: 'Супер крутецька' },
-				{ category: 'Вік', detail: '2-3 роки' },
-				{ category: 'Тривалість', detail: '12 років' },
-				{ category: 'К-ть занять', detail: '12 років' },
-			],
-			description: [
-				{
-					detailOne:
-						'Страшне слово для багатьох батьків. Відоме також під назвами «стіми» і «стімінг».\n' +
-						'Аутостимуляція це специфічна поведінка дітей з РАС яка підкріплюється зсередини організму - за рахунок того що вона приносить дитині задоволення, заспокоює її, знімає напругу. Звучить ніби добре - для наших діток. Але ззовні стіми можуть приймати зовсім різноманітні форми - це і махи руками, і стрибки на місці, і вокалізації, а також такі неприємні як облизування предметів, обгризання нігтів, колупання в носі і т.д.',
-					image: whale,
-					detailTwo:
-						'Страшне слово для багатьох батьків. Відоме також під назвами «стіми» і «стімінг».\n' +
-						'Аутостимуляція це специфічна поведінка дітей з РАС яка підкріплюється зсередини організму - за рахунок того що вона приносить дитині задоволення, заспокоює її, знімає напругу. Звучить ніби добре - для наших діток. Але ззовні стіми можуть приймати зовсім різноманітні форми - це і махи руками, і стрибки на місці, і вокалізації, а також такі неприємні як облизування предметів, обгризання нігтів, колупання в носі і т.д.',
-				},
-			],
-		},
-		{
-			name: 'Логопед',
-			image: service3,
-			about: [
-				{ category: 'Назва', detail: 'Супер крутецька' },
-				{ category: 'Вік', detail: '2-3 роки' },
-				{ category: 'Тривалість', detail: '12 років' },
-				{ category: 'К-ть занять', detail: '12 років' },
-			],
-			description: [
-				{
-					detailOne:
-						'Страшне слово для багатьох батьків. Відоме також під назвами «стіми» і «стімінг».\n' +
-						'Аутостимуляція це специфічна поведінка дітей з РАС яка підкріплюється зсередини організму - за рахунок того що вона приносить дитині задоволення, заспокоює її, знімає напругу. Звучить ніби добре - для наших діток. Але ззовні стіми можуть приймати зовсім різноманітні форми - це і махи руками, і стрибки на місці, і вокалізації, а також такі неприємні як облизування предметів, обгризання нігтів, колупання в носі і т.д.',
-					image: whale,
-					detailTwo:
-						'Страшне слово для багатьох батьків. Відоме також під назвами «стіми» і «стімінг».\n' +
-						'Аутостимуляція це специфічна поведінка дітей з РАС яка підкріплюється зсередини організму - за рахунок того що вона приносить дитині задоволення, заспокоює її, знімає напругу. Звучить ніби добре - для наших діток. Але ззовні стіми можуть приймати зовсім різноманітні форми - це і махи руками, і стрибки на місці, і вокалізації, а також такі неприємні як облизування предметів, обгризання нігтів, колупання в носі і т.д.',
-				},
-			],
-		},
-		{
-			name: 'Масажист',
-			image: service4,
-			about: [
-				{ category: 'Назва', detail: 'Супер крутецька' },
-				{ category: 'Вік', detail: '2-3 роки' },
-				{ category: 'Тривалість', detail: '12 років' },
-				{ category: 'К-ть занять', detail: '12 років' },
-			],
-			description: [
-				{
-					detailOne:
-						'Страшне слово для багатьох батьків. Відоме також під назвами «стіми» і «стімінг».\n' +
-						'Аутостимуляція це специфічна поведінка дітей з РАС яка підкріплюється зсередини організму - за рахунок того що вона приносить дитині задоволення, заспокоює її, знімає напругу. Звучить ніби добре - для наших діток. Але ззовні стіми можуть приймати зовсім різноманітні форми - це і махи руками, і стрибки на місці, і вокалізації, а також такі неприємні як облизування предметів, обгризання нігтів, колупання в носі і т.д.',
-					image: whale,
-					detailTwo:
-						'Страшне слово для багатьох батьків. Відоме також під назвами «стіми» і «стімінг».\n' +
-						'Аутостимуляція це специфічна поведінка дітей з РАС яка підкріплюється зсередини організму - за рахунок того що вона приносить дитині задоволення, заспокоює її, знімає напругу. Звучить ніби добре - для наших діток. Але ззовні стіми можуть приймати зовсім різноманітні форми - це і махи руками, і стрибки на місці, і вокалізації, а також такі неприємні як облизування предметів, обгризання нігтів, колупання в носі і т.д.',
-				},
-			],
-		},
-		{
-			name: 'Сенсорний педагог',
-			image: service5,
-			about: [
-				{ category: 'Назва', detail: 'Супер крутецька' },
-				{ category: 'Вік', detail: '2-3 роки' },
-				{ category: 'Тривалість', detail: '12 років' },
-				{ category: 'К-ть занять', detail: '12 років' },
-			],
-			description: [
-				{
-					detailOne:
-						'Страшне слово для багатьох батьків. Відоме також під назвами «стіми» і «стімінг».\n' +
-						'Аутостимуляція це специфічна поведінка дітей з РАС яка підкріплюється зсередини організму - за рахунок того що вона приносить дитині задоволення, заспокоює її, знімає напругу. Звучить ніби добре - для наших діток. Але ззовні стіми можуть приймати зовсім різноманітні форми - це і махи руками, і стрибки на місці, і вокалізації, а також такі неприємні як облизування предметів, обгризання нігтів, колупання в носі і т.д.',
-					image: whale,
-					detailTwo:
-						'Страшне слово для багатьох батьків. Відоме також під назвами «стіми» і «стімінг».\n' +
-						'Аутостимуляція це специфічна поведінка дітей з РАС яка підкріплюється зсередини організму - за рахунок того що вона приносить дитині задоволення, заспокоює її, знімає напругу. Звучить ніби добре - для наших діток. Але ззовні стіми можуть приймати зовсім різноманітні форми - це і махи руками, і стрибки на місці, і вокалізації, а також такі неприємні як облизування предметів, обгризання нігтів, колупання в носі і т.д.',
-				},
-			],
-		},
-		{
-			name: 'Томатіс',
-			image: service6,
-			about: [
-				{ category: 'Назва', detail: 'Супер крутецька' },
-				{ category: 'Вік', detail: '2-3 роки' },
-				{ category: 'Тривалість', detail: '12 років' },
-				{ category: 'К-ть занять', detail: '12 років' },
-			],
-			description: [
-				{
-					detailOne:
-						'Страшне слово для багатьох батьків. Відоме також під назвами «стіми» і «стімінг».\n' +
-						'Аутостимуляція це специфічна поведінка дітей з РАС яка підкріплюється зсередини організму - за рахунок того що вона приносить дитині задоволення, заспокоює її, знімає напругу. Звучить ніби добре - для наших діток. Але ззовні стіми можуть приймати зовсім різноманітні форми - це і махи руками, і стрибки на місці, і вокалізації, а також такі неприємні як облизування предметів, обгризання нігтів, колупання в носі і т.д.',
-					image: whale,
-					detailTwo:
-						'Страшне слово для багатьох батьків. Відоме також під назвами «стіми» і «стімінг».\n' +
-						'Аутостимуляція це специфічна поведінка дітей з РАС яка підкріплюється зсередини організму - за рахунок того що вона приносить дитині задоволення, заспокоює її, знімає напругу. Звучить ніби добре - для наших діток. Але ззовні стіми можуть приймати зовсім різноманітні форми - це і махи руками, і стрибки на місці, і вокалізації, а також такі неприємні як облизування предметів, обгризання нігтів, колупання в носі і т.д.',
-				},
-			],
-		},
-	];
+	const baseUrl = process.env.URL;
+	const [services, setServices] = useState([]);
+	const [selectedItem, setSelectedItem] = useState(null);
+	const [screenWidth, setScreenWidth] = useState(null);
+	const [isOpen, setIsOpen] = useState(false);
+	let singleService = [selectedItem];
 	const itemSlider = [{}, {}, {}];
 
-	const [isOpen, setIsOpen] = useState(false);
-	const [selectedItem, setSelectedItem] = useState(services[serviceId]);
-	const [screenWidth, setScreenWidth] = useState(null);
-	let singleService = [services[serviceId]];
+	useEffect(() => {
+		async function fetchData() {
+			const response = await GET(`services?populate=*`);
+			const data = await response.json();
+			setServices(data.data);
+		}
+
+		fetchData();
+	}, []);
 
 	useEffect(() => {
 		setScreenWidth(window.innerWidth);
@@ -174,6 +57,12 @@ export default function Page({ params }) {
 		setIsOpen(screenWidth >= 1024);
 	}, [screenWidth]);
 
+	useEffect(() => {
+		// Виконується тільки після завершення завантаження даних або зміни параметрів
+		const initialSelectedItem = services.length > 0 ? services[params.id - 1] : null;
+		setSelectedItem(initialSelectedItem);
+	}, [services, params.id]);
+
 	const toggleDropdown = () => {
 		if (screenWidth < 1024 || !isOpen) {
 			setIsOpen(!isOpen);
@@ -181,6 +70,7 @@ export default function Page({ params }) {
 	};
 
 	const handleItemClick = (item, index) => {
+		console.log('item', item);
 		setSelectedItem(item);
 		if (screenWidth < 1024) {
 			setIsOpen(false);
@@ -205,7 +95,13 @@ export default function Page({ params }) {
 				className="lg:block hidden absolute w-[26px] h-[26px] bottom-[317px] left-[302px] -z-10"
 			/>
 			<BackButton />
-			<div className="lg:block hidden rounded-[16px] bg-[#F3F6FA] min-h-[160px] min-w-[343px] w-full h-full mt-8"></div>
+			<div className="block rounded-[16px] bg-[#F3F6FA] min-h-[160px] min-w-[343px] w-full max-h-[228px] mt-8">
+				<img
+					src={`${baseUrl}${singleService[0]?.attributes.imageTop.data.attributes.url}`}
+					alt={'img'}
+					className="object-cover min-h-[160px] min-w-[343px] max-h-[228px] w-full rounded-[16px]"
+				/>
+			</div>
 			<div className="flex flex-col lg:flex-row lg:gap-8 lg:mt-8">
 				<div className="flex flex-col lg:w-[286px]">
 					<div className="lg:flex hidden flex-col bg-white rounded-[32px] p-6">
@@ -219,24 +115,66 @@ export default function Page({ params }) {
 						<div className="flex flex-col lg:justify-center gap-[14px]">
 							<h4 className="text-xl font-bold text-customOrange mb-[10px]">Кому підійде?</h4>
 							{singleService.map((items, index) => (
-								<React.Fragment key={index}>
-									{items.about.map((item, key) => (
-										<div
-											key={key}
-											className="flex-1 flex flex-row justify-start"
-										>
-											<div className="gap-3 flex items-center w-[120px] lg:w-[50%] justify-between">
-												<span className="text-[#2A333C] text-[11px] opacity-30">{item.category}</span>
-											</div>
-											<Image
-												src={arrowCheck}
-												alt="icon"
-												className="mx-4"
-											/>
-											<span className="text-[#2A333C] text-xs flex w-full">{item.detail}</span>
+								<div
+									key={index}
+									className="gap-[14px]"
+								>
+									<div className="flex-1 flex flex-row justify-start">
+										<div className="gap-3 flex items-center w-[120px] lg:w-[50%] justify-between">
+											<span className="text-[#2A333C] text-[11px] opacity-30">Назва</span>
 										</div>
-									))}
-								</React.Fragment>
+										<Image
+											src={arrowCheck}
+											alt="icon"
+											className="mx-4"
+										/>
+										<span className="text-[#2A333C] text-xs flex w-full">{items?.attributes.titlle}</span>
+									</div>
+									<div className="flex-1 flex flex-row justify-start">
+										<div className="gap-3 flex items-center w-[120px] lg:w-[50%] justify-between">
+											<span className="text-[#2A333C] text-[11px] opacity-30">Назва</span>
+										</div>
+										<Image
+											src={arrowCheck}
+											alt="icon"
+											className="mx-4"
+										/>
+										<span className="text-[#2A333C] text-xs flex w-full">{items?.attributes.detailsCategorySmallDescription}</span>
+									</div>
+									<div className="flex-1 flex flex-row justify-start">
+										<div className="gap-3 flex items-center w-[120px] lg:w-[50%] justify-between">
+											<span className="text-[#2A333C] text-[11px] opacity-30">Вік</span>
+										</div>
+										<Image
+											src={arrowCheck}
+											alt="icon"
+											className="mx-4"
+										/>
+										<span className="text-[#2A333C] text-xs flex w-full">{items?.attributes.categoryAge}</span>
+									</div>
+									<div className="flex-1 flex flex-row justify-start">
+										<div className="gap-3 flex items-center w-[120px] lg:w-[50%] justify-between">
+											<span className="text-[#2A333C] text-[11px] opacity-30">Тривалість</span>
+										</div>
+										<Image
+											src={arrowCheck}
+											alt="icon"
+											className="mx-4"
+										/>
+										<span className="text-[#2A333C] text-xs flex w-full">{items?.attributes.durationLesson}</span>
+									</div>
+									<div className="flex-1 flex flex-row justify-start">
+										<div className="gap-3 flex items-center w-[120px] lg:w-[50%] justify-between">
+											<span className="text-[#2A333C] text-[11px] opacity-30">К-ть занять</span>
+										</div>
+										<Image
+											src={arrowCheck}
+											alt="icon"
+											className="mx-4"
+										/>
+										<span className="text-[#2A333C] text-xs flex w-full">{items?.attributes.countLessons}</span>
+									</div>
+								</div>
 							))}
 						</div>
 					</div>
@@ -254,7 +192,7 @@ export default function Page({ params }) {
 									/>
 								</div>
 								<span className="text-customOrange min-w-[268px] text-sm xl:text-base font-medium">
-									{selectedItem ? `${selectedItem.name}` : 'Category Name'}
+									{selectedItem ? `${selectedItem?.attributes.titlle}` : 'Category Name'}
 								</span>
 							</div>
 							<Image
@@ -269,29 +207,23 @@ export default function Page({ params }) {
 								{services.map((item, index) => (
 									<li
 										className={`gap-[10px] flex hover:bg-[#F3F6FA] hover:text-customOrange hover:font-medium rounded-[70px] h-[48px] pl-[10px] items-center text-[#2a3340] ${
-											JSON.stringify(selectedItem) === JSON.stringify(item) ? 'bg-customOrangeLight' : ''
+											selectedItem?.id === item?.id ? 'bg-customOrangeLight' : ''
 										}`}
 										key={index}
 										onClick={() => handleItemClick(item, index)}
 									>
 										<div
 											className={`w-[24px] h-[24px] flex justify-center items-center rounded-[32px] ${
-												JSON.stringify(selectedItem) === JSON.stringify(item) ? 'bg-customOrangeLight' : 'bg-[#00000019]'
+												selectedItem?.id === item?.id ? 'bg-customOrangeLight' : 'bg-[#00000019]'
 											}`}
 										>
 											<Image
-												src={JSON.stringify(selectedItem) === JSON.stringify(item) ? arrowUp : arrowUpWhite}
+												src={selectedItem?.id === item?.id ? arrowUp : arrowUpWhite}
 												alt="icon"
 											/>
 										</div>
-										<span
-											className={`${
-												JSON.stringify(selectedItem) === JSON.stringify(item)
-													? 'text-customOrange bg-customOrangeLight'
-													: 'text-[#2a333c99]'
-											}`}
-										>
-											{item.name}
+										<span className={`${selectedItem?.id === item?.id ? 'text-customOrange bg-customOrangeLight' : 'text-[#2a333c99]'}`}>
+											{item?.attributes.titlle}
 										</span>
 									</li>
 								))}
@@ -306,18 +238,18 @@ export default function Page({ params }) {
 							key={index}
 							className="flex flex-col bg-white rounded-[32px] px-4 py-6 xl:p-8"
 						>
-							<h4 className="text-[#2A333C] text-xl lg:text-2xl mb-6 font-bold">{items.name}</h4>
-							{items.description.map((item, key) => (
-								<React.Fragment key={key}>
-									<p className="opacity-70 text-sm text-[#2A333C] lg:text-base">{item.detailOne}</p>
-									<Image
-										src={item.image}
-										alt="img"
-										className="min-h-[230px] my-8"
-									/>
-									<p className="opacity-70 text-sm text-[#2A333C] lg:text-base">{item.detailTwo}</p>
-								</React.Fragment>
-							))}
+							<h4 className="text-[#2A333C] text-xl lg:text-2xl mb-6 font-bold">{items?.attributes.titlle}</h4>
+							<p className="opacity-70 text-sm text-[#2A333C] lg:text-base">{items?.attributes.descriptionOne}</p>
+							{items?.attributes.image?.data?.attributes?.url ? (
+								<img
+									src={`${baseUrl}${items?.attributes.image.data.attributes.url}`}
+									alt="Preview"
+									className="min-h-[230px] my-8"
+								/>
+							) : (
+								<div className="min-h-[230px] my-8 bg-[#F3F6FA] rounded-[16px]"></div>
+							)}
+							<p className="opacity-70 text-sm text-[#2A333C] lg:text-base">{items?.attributes.descriptionTwo}</p>
 						</div>
 					))}
 					{/*Slider Block*/}
@@ -345,24 +277,66 @@ export default function Page({ params }) {
 					<div className="flex flex-col lg:justify-center gap-[14px]">
 						<h4 className="text-xl font-bold text-customOrange mb-[10px]">Кому підійде?</h4>
 						{singleService.map((items, index) => (
-							<React.Fragment key={index}>
-								{items.about.map((item, key) => (
-									<div
-										key={key}
-										className="flex-1 flex flex-row justify-start"
-									>
-										<div className="gap-3 flex items-center w-[120px] lg:max-w-[196px] lg:w-full">
-											<span className="text-[#2A333C] text-[11px] opacity-30 ">{item.category}</span>
-										</div>
-										<Image
-											src={arrowCheck}
-											alt="icon"
-											className="mx-4"
-										/>
-										<span className="text-[#2A333C] text-xs">{item.detail}</span>
+							<div
+								key={index}
+								className="gap-[14px]"
+							>
+								<div className="flex-1 flex flex-row justify-start">
+									<div className="gap-3 flex items-center w-[120px] lg:w-[50%] justify-between">
+										<span className="text-[#2A333C] text-[11px] opacity-30">Назва</span>
 									</div>
-								))}
-							</React.Fragment>
+									<Image
+										src={arrowCheck}
+										alt="icon"
+										className="mx-4"
+									/>
+									<span className="text-[#2A333C] text-xs flex w-full">{items?.attributes.titlle}</span>
+								</div>
+								<div className="flex-1 flex flex-row justify-start">
+									<div className="gap-3 flex items-center w-[120px] lg:w-[50%] justify-between">
+										<span className="text-[#2A333C] text-[11px] opacity-30">Назва</span>
+									</div>
+									<Image
+										src={arrowCheck}
+										alt="icon"
+										className="mx-4"
+									/>
+									<span className="text-[#2A333C] text-xs flex w-full">{items?.attributes.detailsCategorySmallDescription}</span>
+								</div>
+								<div className="flex-1 flex flex-row justify-start">
+									<div className="gap-3 flex items-center w-[120px] lg:w-[50%] justify-between">
+										<span className="text-[#2A333C] text-[11px] opacity-30">Вік</span>
+									</div>
+									<Image
+										src={arrowCheck}
+										alt="icon"
+										className="mx-4"
+									/>
+									<span className="text-[#2A333C] text-xs flex w-full">{items?.attributes.categoryAge}</span>
+								</div>
+								<div className="flex-1 flex flex-row justify-start">
+									<div className="gap-3 flex items-center w-[120px] lg:w-[50%] justify-between">
+										<span className="text-[#2A333C] text-[11px] opacity-30">Тривалість</span>
+									</div>
+									<Image
+										src={arrowCheck}
+										alt="icon"
+										className="mx-4"
+									/>
+									<span className="text-[#2A333C] text-xs flex w-full">{items?.attributes.durationLesson}</span>
+								</div>
+								<div className="flex-1 flex flex-row justify-start">
+									<div className="gap-3 flex items-center w-[120px] lg:w-[50%] justify-between">
+										<span className="text-[#2A333C] text-[11px] opacity-30">К-ть занять</span>
+									</div>
+									<Image
+										src={arrowCheck}
+										alt="icon"
+										className="mx-4"
+									/>
+									<span className="text-[#2A333C] text-xs flex w-full">{items?.attributes.countLessons}</span>
+								</div>
+							</div>
 						))}
 					</div>
 				</div>

@@ -1,5 +1,5 @@
 'use client';
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { BackButton } from '@/components/BackButton';
 import ovalYellow from '@/public/image/Oval-yellow.png';
 import Image from 'next/image';
@@ -7,69 +7,26 @@ import specialistImg from '@/public/image/teacherSmall.png';
 import specialistImgFull from '@/public/image/teacher.png';
 import arrowCheck from '@/public/image/icon/arrowChek.svg';
 import Link from 'next/link';
+import { GET } from '@/app/api/route';
 
 export default function Resume({ params }) {
+	const baseUrl = process.env.URL;
+	const [specialists, setSpecialists] = useState([]);
+
+	useEffect(() => {
+		const fetchData = async () => {
+			const response = await GET('specialists?populate=*');
+			const data = await response.json();
+			setSpecialists(data.data);
+		};
+
+		fetchData();
+	}, []);
+
 	const idSpecialist = params.id;
-	const specialists = [
-		{
-			name: 'Specialist 1',
-			position: 'position 1',
-			description: 'description description description description',
-			about: [
-				{ category: 'Освіта', detail: 'Супер крутецька' },
-				{ category: 'Вік', detail: 'Вічно молода' },
-				{ category: 'Досвід', detail: '12 років' },
-			],
-			image: specialistImg,
-		},
-		{
-			name: 'Specialist 2',
-			position: 'position 2',
-			description: '2description description description description',
-			about: [
-				{ category: 'Освіта', detail: 'Супер крутецька' },
-				{ category: 'Вік', detail: 'Вічно молода' },
-				{ category: 'Досвід', detail: '12 років' },
-			],
-			image: specialistImg,
-		},
-		{
-			name: 'Specialist 3',
-			position: 'position 3',
-			description: 'description description description description',
-			about: [
-				{ category: 'Освіта', detail: 'Супер крутецька' },
-				{ category: 'Вік', detail: 'Вічно молода' },
-				{ category: 'Досвід', detail: '12 років' },
-			],
-			image: specialistImg,
-		},
-		{
-			name: 'Specialist 4',
-			position: 'position 4',
-			description: 'description description description description',
-			about: [
-				{ category: 'Освіта', detail: 'Супер крутецька' },
-				{ category: 'Вік', detail: 'Вічно молода' },
-				{ category: 'Досвід', detail: '12 років' },
-			],
-			image: specialistImg,
-		},
-		{
-			name: 'Specialist 1',
-			position: 'position 1',
-			description: 'description description description description',
-			about: [
-				{ category: 'Освіта', detail: 'Супер крутецька' },
-				{ category: 'Вік', detail: 'Вічно молода' },
-				{ category: 'Досвід', detail: '12 років' },
-			],
-			image: specialistImg,
-		},
-	];
-	const singleSpecialist = [specialists[idSpecialist]];
+	const singleSpecialist = [specialists[idSpecialist - 1]];
 	const itemSlider = [{}, {}, {}];
-	const itemPersonal = [{}, {}, {}, {}];
+	const itemPersonalDetails = [{}, {}, {}, {}];
 
 	return (
 		<section className="relative pt-[39px] px-4 lg:px-[50px] xl:px-[100px] xl:pb-[118px]">
@@ -84,7 +41,7 @@ export default function Resume({ params }) {
 					{specialists.map((people, key) => (
 						<Link
 							key={key}
-							href={`/team/${key}`}
+							href={`/team/${people.id}`}
 						>
 							<div
 								key={key}
@@ -107,8 +64,8 @@ export default function Resume({ params }) {
 									/>
 								</div>
 								<div className="mt-4 flex justify-start flex-col gap-3">
-									<h4 className="text-[#2A333C] text-xl font-bold">{people.name}</h4>
-									<span className="text-[#2A333C] text-base">{people.position}</span>
+									<h4 className="text-[#2A333C] text-xl font-bold">{people?.attributes.name}</h4>
+									<span className="text-[#2A333C] text-base">{people?.attributes.position}</span>
 								</div>
 							</div>
 						</Link>
@@ -118,7 +75,7 @@ export default function Resume({ params }) {
 					<div className="flex flex-col md:flex-row px-4 md:px-6 pb-6 pt-[60px] mt-6 bg-white rounded-[32px] items-center md:gap-8">
 						<div
 							className={`relative w-[311px] md:w-[344px] h-[244px] md:h-[390px] flex justify-center rounded-[20px] ${
-								idSpecialist % 2 !== 0 ? 'bg-customOrange' : 'bg-customBlue'
+								idSpecialist % 2 === 0 ? 'bg-customOrange' : 'bg-customBlue'
 							}`}
 						>
 							<Image
@@ -138,10 +95,12 @@ export default function Resume({ params }) {
 									key={key}
 									className="flex flex-col"
 								>
-									<span className="text-customBlue text-sm lg:text-base">{items.position}</span>
-									<h4 className="text-[#2A333C] text-xl font-bold my-[6px] lg:my-[8px] lg:text-3xl xl:text-custom40">{items.name}</h4>
+									<span className="text-customBlue text-sm lg:text-base">{items?.attributes.position}</span>
+									<h4 className="text-[#2A333C] text-xl font-bold my-[6px] lg:my-[8px] lg:text-3xl xl:text-custom40">
+										{items?.attributes.name}
+									</h4>
 									<span className="opacity-70 text-sm lg:text-base text-[#2A333C]">2I’m always trying to them always trying</span>
-									<p className="opacity-70 text-sm lg:text-base  text-[#2A333C] mt-4 lg:mt-8">{items.description}</p>
+									<p className="opacity-70 text-sm lg:text-base  text-[#2A333C] mt-4 lg:mt-8">{items?.attributes.description}</p>
 								</div>
 							))}
 							<button className="mt-8 lg:mt-10 rounded-[92px] w-[270px] lg:w-[286px] h-[48px] lg:h-[56px] items-center justify-center font-bold text-sm lg:text-base text-white bg-customOrange customBoxShadowOrange">
@@ -175,28 +134,47 @@ export default function Resume({ params }) {
 								<h4 className="text-[#2A333C] text-xl font-bold mb-[18px] lg:text-2xl">Персональні деталі</h4>
 								{singleSpecialist.map((items, categoryIndex) => (
 									<React.Fragment key={categoryIndex}>
-										{items.about.map((item, key) => (
-											<div
-												key={key}
-												className="flex-1 flex flex-row justify-start"
-											>
-												<div className="gap-3 flex items-center w-[120px] lg:max-w-[196px] lg:w-full">
-													<div className="bg-[#007EFF1A] w-[16px] h-[16px] lg:w-[24px] lg:h-[24px] rounded-[32px]"></div>
-													<span className="text-[#2A333C] text-[11px] opacity-30 lg:text-base">{item.category}</span>
-												</div>
-												<Image
-													src={arrowCheck}
-													alt="icon"
-													className="mx-4"
-												/>
-												<span className="text-[#2A333C] text-xs lg:text-base">{item.detail}</span>
+										<div className="flex-1 flex flex-row justify-start">
+											<div className="gap-3 flex items-center w-[120px] lg:max-w-[196px] lg:w-full">
+												<div className="bg-[#007EFF1A] w-[16px] h-[16px] lg:w-[24px] lg:h-[24px] rounded-[32px]"></div>
+												<span className="text-[#2A333C] text-[11px] opacity-30 lg:text-base">Освіта</span>
 											</div>
-										))}
+											<Image
+												src={arrowCheck}
+												alt="icon"
+												className="mx-4"
+											/>
+											<span className="text-[#2A333C] text-xs lg:text-base">{items?.attributes.education}</span>
+										</div>
+										<div className="flex-1 flex flex-row justify-start">
+											<div className="gap-3 flex items-center w-[120px] lg:max-w-[196px] lg:w-full">
+												<div className="bg-[#007EFF1A] w-[16px] h-[16px] lg:w-[24px] lg:h-[24px] rounded-[32px]"></div>
+												<span className="text-[#2A333C] text-[11px] opacity-30 lg:text-base">Вік</span>
+											</div>
+											<Image
+												src={arrowCheck}
+												alt="icon"
+												className="mx-4"
+											/>
+											<span className="text-[#2A333C] text-xs lg:text-base">{items?.attributes.age}</span>
+										</div>
+										<div className="flex-1 flex flex-row justify-start">
+											<div className="gap-3 flex items-center w-[120px] lg:max-w-[196px] lg:w-full">
+												<div className="bg-[#007EFF1A] w-[16px] h-[16px] lg:w-[24px] lg:h-[24px] rounded-[32px]"></div>
+												<span className="text-[#2A333C] text-[11px] opacity-30 lg:text-base">Досвід</span>
+											</div>
+											<Image
+												src={arrowCheck}
+												alt="icon"
+												className="mx-4"
+											/>
+											<span className="text-[#2A333C] text-xs lg:text-base">{items?.attributes.experience}</span>
+										</div>
 									</React.Fragment>
 								))}
 							</div>
 							<div className="grid grid-cols-2 md:max-w-[368px] gap-4 flex-1">
-								{itemPersonal.map((item, key) => (
+								{itemPersonalDetails.map((item, key) => (
 									<div
 										key={key}
 										className="min-h-[168px] max-h-[176px] bg-[#F3F6FA] w-full rounded-[16px] max-w-[176px]"

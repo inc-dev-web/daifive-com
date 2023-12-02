@@ -21,8 +21,12 @@ export function Navbar() {
 		setMenuOpen(!isMenuOpen);
 	};
 
+	const closeMenu = () => {
+		setMenuOpen(false);
+	};
+
 	return (
-		<header className="px-4 lg:px-[100px] mt-10 flex flex-row justify-between items-center md:h-[58px] h-[48px] relative">
+		<header className="px-4 lg:px-[100px] mt-10 flex justify-between items-center md:h-[58px] h-[48px] relative">
 			<Link href="/">
 				<Image
 					src={logo}
@@ -30,20 +34,21 @@ export function Navbar() {
 					className="object-contain w-[69px] h-[44px]"
 				/>
 			</Link>
-			<nav className={`md:relative items-center justify-center flex`}>
+			<nav className={`md:relative items-center justify-center`}>
 				<ul
-					className={`md:flex gap-14 text-4xl z-40 right-0 top-[58px] bg-[#fafafa] w-full absolute flex flex-col md:gap-10 md:flex-row items-center md:h-[48px] md:text-xs ${
+					className={`text-[#2A333CB2] md:text-[#2A333C] md:bg-none md:flex gap-8 text-xl z-40 py-[60px] md:py-0 right-0 top-[50px] bg-[#fafafa] w-full absolute flex flex-col md:gap-10 md:flex-row items-center md:h-[48px] md:text-xs ${
 						isMenuOpen ? 'visible' : 'md:flex hidden md:static'
 					}`}
 				>
 					{menuItem.map((item, index) => (
 						<li
-							className="text-customStyleHover w-full flex items-center justify-center"
+							className="text-customStyleHover w-[50%] md:w-full flex items-center justify-center border-b border-gray-300 md:border-none"
 							key={index}
 						>
 							<Link
 								href={item.href}
 								title={item.title}
+								onClick={closeMenu}
 							>
 								{item.title}
 							</Link>

@@ -37,8 +37,11 @@ export default function Contact() {
 				<h1 className="text-2xl lg:text-3xl xl:text-5xl font-bold text-[#2A333C]">Локація та контакти</h1>
 			</div>
 			<ul className="flex flex-col gap-3 lg:gap-6 mb-6 xl:flex-row lg:justify-start xl:gap-[93px]">
-				{items.map((item) => (
-					<li className="flex rounded-[60px] bg-[#FFF] lg:bg-inherit gap-[10px] lg:gap-[19px] p-3 lg:p-0 items-center">
+				{items.map((item, key) => (
+					<li
+						key={key}
+						className="flex rounded-[60px] bg-[#FFF] lg:bg-inherit gap-[10px] lg:gap-[19px] p-3 lg:p-0 items-center"
+					>
 						<div className="w-[32px] h-[32px] lg:w-[64px] lg:h-[64px] bg-[#F3F6FA] rounded-[41px] flex justify-center items-center">
 							<Image
 								src={item.icon}
