@@ -42,7 +42,7 @@ export function Articles() {
 							</p>
 							<Link href={`/blog/${item.id}`}>
 								<button
-									className={'h-[38px] bg-customBlueLight mt-6 w-full lg:w-[182px] flex items-center justify-center rounded-[65px] gap-3'}
+									className={'h-[38px] bg-customBlueLight mt-6 w-[270px] md:w-[182px] flex items-center justify-center rounded-[65px] gap-3'}
 								>
 									<span className="text-customBlue text-sm">Read</span>
 									<Image

@@ -34,21 +34,22 @@ export function Navbar() {
 					className="object-contain w-[69px] h-[44px]"
 				/>
 			</Link>
-			<nav className={`md:relative items-center justify-center`}>
+			<nav className={`md:relative flex items-center justify-center`}>
 				<ul
-					className={`text-[#2A333CB2] md:text-[#2A333C] md:bg-none md:flex gap-8 text-xl z-40 py-[60px] md:py-0 right-0 top-[50px] bg-[#fafafa] w-full absolute flex flex-col md:gap-10 md:flex-row items-center md:h-[48px] md:text-xs ${
+					className={`text-[#2A333CB2] md:text-[#2A333C] md:bg-none md:flex gap-8 text-xl z-40 py-[60px] md:py-0 right-0 top-[50px] bg-[#fafafa] w-full absolute flex flex-col md:gap-10 md:flex-row items-center md:h-[48px] md:text-xs w-full${
 						isMenuOpen ? 'visible' : 'md:flex hidden md:static'
 					}`}
 				>
 					{menuItem.map((item, index) => (
 						<li
-							className="text-customStyleHover w-[50%] md:w-full flex items-center justify-center border-b border-gray-300 md:border-none"
+							className="text-customStyleHover w-[50%] md:w-auto flex items-center justify-center border-b border-gray-300 md:border-none"
 							key={index}
 						>
 							<Link
 								href={item.href}
 								title={item.title}
 								onClick={closeMenu}
+								className="w-full"
 							>
 								{item.title}
 							</Link>
