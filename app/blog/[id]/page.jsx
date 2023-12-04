@@ -1,4 +1,6 @@
 'use client';
+export const runtime = 'edge';
+
 import React, { useEffect, useState } from 'react';
 import { BackButton } from '@/components/BackButton';
 import ovalRed from '@/public/image/Oval-red.png';
@@ -6,7 +8,6 @@ import ovalYellow from '@/public/image/Oval-yellow.png';
 import Image from 'next/image';
 import arrowBlue from '@/public/image/icon/ArrowRightBlue.svg';
 import Link from 'next/link';
-import FormattedText from 'components/FormattedText';
 import { GET } from '@/app/api/route';
 
 export default function Articles({ params }) {

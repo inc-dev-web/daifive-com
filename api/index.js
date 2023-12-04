@@ -1,5 +1,7 @@
 import axios from 'axios';
 
+export const runtime = 'edge';
+
 export async function fetchServices() {
 	try {
 		const response = await axios.get(`${process.env.API_URL}/services`);

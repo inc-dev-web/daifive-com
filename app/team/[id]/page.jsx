@@ -1,4 +1,6 @@
 'use client';
+export const runtime = 'edge';
+
 import React, { useEffect, useState } from 'react';
 import { BackButton } from '@/components/BackButton';
 import ovalYellow from '@/public/image/Oval-yellow.png';
