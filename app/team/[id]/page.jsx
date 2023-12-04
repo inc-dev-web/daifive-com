@@ -71,7 +71,7 @@ export default function Resume({ params }) {
 				</div>
 				<div>
 					{singleSpecialist.map((items, key) => (
-						<div className="flex flex-col md:flex-row px-4 md:px-6 pb-6 pt-[60px] mt-6 bg-white rounded-[32px] items-center md:gap-8">
+						<div key={key} className="flex flex-col md:flex-row px-4 md:px-6 pb-6 pt-[60px] mt-6 bg-white rounded-[32px] items-center md:gap-8">
 							<div
 								className={`relative w-[311px] md:w-[344px] h-[244px] md:h-[390px] flex justify-center rounded-[20px] ${
 									idSpecialist % 2 === 0 ? 'bg-customOrange' : 'bg-customBlue'
