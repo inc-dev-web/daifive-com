@@ -42,7 +42,7 @@ export default function Articles({ params }) {
 			<BackButton />
 			<div className="flex flex-col pt-4 lg:flex-row-reverse gap-8">
 				{singleArticle.map((items, key) => (
-					<div className="flex flex-col flex-1">
+					<div key={key} className="flex flex-col flex-1">
 						<img
 							src={`${baseUrl}${items?.attributes.imagePageTop?.data.attributes.url}`}
 							alt="img"
