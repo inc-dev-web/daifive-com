@@ -14,34 +14,29 @@ import Link from 'next/link';
 export function Directions() {
 	const items = [
 		{
-			name: 'Training and development',
-			title: 'Training \n and development',
+			title: 'АВА-терапія',
 			description:
-				'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci blanditiis dignissimos est eveniet ipsa iure maxime omnis, perferendis quaerat, recusandae reiciendis reprehenderit vel veniam? Ad autem eius odio quaerat tempore.',
+				'Наша програма ABA-терапії розроблена для підтримки дітей з аутизмом і не тільки, через структуроване та стратегічне навчання, спрямоване на покращення всіх навичок дитини',
 		},
 		{
-			name: 'Development of social skills',
-			title: 'Development \n of social skills',
+			title: 'Психолог для дітей та дорослих',
 			description:
-				'ТIt is a long established fact that a reader will be distracted by the readable content of a paТIТIt is a long established fact that reader will be distracted by the readable content of a paТI',
+				'Наш кваліфікований психолог пропонує консультації та терапію для дітей та дорослих, створюючи безпечне середовище для вирішення емоційних проблем.',
 		},
 		{
-			name: 'Art and creativity',
-			title: 'Art and creativity',
+			title: 'Психолог для дітей та дорослих',
 			description:
-				'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium adipisci, consequatur, doloribus earum eligendi expedita fugiat harum natus nesciunt porro possimus quia quidem ullam vel voluptatibus? Adipisci impedit laboriosam velit.',
+				'Професійний дефектолог нашого центру допомагає дітям з особливими освітніми потребами досягати успіху в навчанні за допомогою індивідуалізованих планів та методів.',
 		},
 		{
-			name: 'Language courses',
-			title: 'Language courses',
+			title: 'Логопед',
 			description:
-				'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium, asperiores, praesentium. Commodi delectus earum ex libero repellendus! Animi beatae corporis facere ipsam ipsum iusto, maxime nam nulla perferendis perspiciatis vero?',
+				'Наш логопед спеціалізуюється на допомозі дітям та дорослим у  запуску або вдосконаленні мовленнєвих навичок, використовуючи цілеспрямовані та інтерактивні методики.',
 		},
 		{
-			name: 'Physical development',
-			title: 'Physical development',
+			title: 'Сенсорна інтеграція',
 			description:
-				'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque autem cumque, debitis distinctio dolore dolorem earum eius excepturi facilis laboriosam, magnam maiores modi pariatur quasi, quo rerum tenetur totam ut.',
+				'Програма сенсорної інтеграції призначена для допомоги дітям з особливими потребами у координації відчуттів та рухів, що сприяє кращому сприйняттю навколишнього світу та взаємодії з ним.',
 		},
 	];
 
