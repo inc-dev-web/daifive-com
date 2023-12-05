@@ -15,7 +15,7 @@ export function Header() {
 						Забезпечте своїй дитині <span className="text-customBottomLine">успішне</span> майбутнє
 					</h1>
 					<p className="text-xs md:text-base lg:text-left mt-4 lg:mt-6 lg:mb-12 text-[#2A333CB2] min-w-[300px] max-w-[700px] text-center">
-						The child development centre provides the following educational programmes for children: developmental classes for young children
+						Коррекційно реаілітацвійний центр, який працює з дітьми. З порушеннями психічного та мовленвого розвитку.
 					</p>
 				</div>
 				<Link href="/services">
@@ -34,7 +34,7 @@ export function Header() {
 						width={24}
 						height={24}
 					/>
-					<figcaption className="text-sm text-[#2A333C] opacity-70">Ніжин, вул Василя Стуса 54а, каб 15</figcaption>
+					<figcaption className="text-sm text-[#2A333C] opacity-70">м. Ніжин, Богдана Хмельницкого 37, 4 поверх, 25 кабінет </figcaption>
 				</figure>
 			</div>
 			<div className="w-full lg:w-[68%] flex min-h-[300px] md:min-h-[660px] md:h-full relative md: mb-[60px] lg:mb-0">

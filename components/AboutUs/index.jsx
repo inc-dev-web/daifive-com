@@ -10,18 +10,18 @@ import ovalBlue from '@/public/image/Oval-blue.png';
 export function AboutUs() {
 	const content = [
 		{
-			title: 'Development and Improvement',
+			title: 'Висококваліфіковані спеціалісти.',
 			content:
-				'We strive to create an environment where every child can reach their potential by developing their intellectual, creative, and social skills.',
+				'В нашому центрі працюють сертифіковані ABA-спеціалісти, під керівництвом куратора та супервізора рівня BCBA',
 		},
 		{
-			title: 'Individuality and Innovation',
+			title: 'Наушники форбрейн і саундсорі',
 			content:
-				'We strive to create an environment where every child can reach their potential by developing their intellectual, creative, and social skills.',
+				'Навушники використовують для подолання сенсорних та мовленнєвих проблем, а також проблем концентрації уваги та памʼяті',
 		},
 		{
-			title: 'Another Title',
-			content: 'Another content goes here.',
+			title: 'Пільгові програми',
+			content: 'В нашому центрі діють знижки та безоплатні послуги для вразливих категорій населення.',
 		},
 	];
 
