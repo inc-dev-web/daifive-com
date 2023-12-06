@@ -36,21 +36,21 @@ export default function Specialist() {
 			<div className="gap-3 lg:gap-4 my-4 mb-6 lg:mb-12">
 				<h1 className="text-2xl lg:text-3xl xl:text-5xl font-bold text-[#2A333C]">Наші спеціалісти</h1>
 			</div>
-			<div className="flex flex-col gap-6 md:gap-8 lg:flex-row lg:flex-wrap lg:justify-center xl:justify-start">
+			<div className="flex flex-col gap-6 md:gap-8 lg:flex-row lg:flex-wrap xl:flex-nowrap lg:justify-center xl:justify-between">
 				{specialists.map((specialist, index) => (
 					<div
 						key={index}
 						className="flex px-4 pt-[64px] pb-6 flex-col justify-center items-center bg-white rounded-[32px]"
 					>
 						<div
-							className={`flex justify-center relative w-[313px] h-[313px] md:w-[344px] md:h-[394px] rounded-[24px] md:rounded-[29px] ${
+							className={`flex justify-center relative w-[270px] h-[313px] md:w-[305px] md:h-[394px] rounded-[24px] md:rounded-[29px] ${
 								index % 2 !== 0 ? 'bg-customOrange' : 'bg-customBlue'
 							}`}
 						>
 							<img
 								src={`${baseUrl}${specialist.attributes.photoSpecialist?.data?.attributes.url}`}
 								alt={'image'}
-								className="absolute w-[258px] h-[351px] md:w-[308px] md:h-[442px] bottom-0"
+								className="absolute w-full h-[380px] md:w-[308px] md:h-[442px] bottom-0 object-cover rounded-[24px]"
 							/>
 						</div>
 						<div className="flex flex-col items-center justify-center mt-4 md:mt-6 gap-[9px] w-full">

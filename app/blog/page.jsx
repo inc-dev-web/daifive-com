@@ -138,10 +138,6 @@ export default function Blog() {
 
 				<div className="mt-4 flex flex-col gap-8 items-center lg:mt-0 lg:w-full lg:items-start">
 					{filteredArticles.map((item, index) => (
-						<Link
-							key={index}
-							href={`blog/${item.id}`}
-						>
 							<div
 								className="flex flex-col lg:flex-row lg:items-center lg:w-full lg:max-h-[318px] lg:min-h-[318px]"
 								key={index}
@@ -160,6 +156,10 @@ export default function Blog() {
 									</div>
 									<div className="w-full flex items-center justify-center lg:justify-start">
 										<button className="bg-customBlueLight w-[270px] h-[48px] mt-3 rounded-[72px] flex items-center justify-center gap-2">
+										<Link
+							key={index}
+							href={`blog/${item.id}`}
+						>
 											<span className="text-customBlue text-sm xl:text-lg">Read</span>
 											<Image
 												src={arrowBlue}
@@ -167,11 +167,12 @@ export default function Blog() {
 												height={18}
 												alt={'icon'}
 											/>
+						</Link>
+
 										</button>
 									</div>
 								</div>
 							</div>
-						</Link>
 					))}
 				</div>
 			</div>

@@ -64,7 +64,7 @@ export function RemainingQuestions() {
 				{items.map((item, index) => (
 					<div key={index}>
 						<div
-							className={`gap-2 w-full md:gap-4 flex items-center justify-between bg-customLightGray rounded-[94px] h-[80px] px-[25px] ${
+							className={`customHover cursor-pointer hover:bg-customOrange gap-2 lg:max-w-[498px] w-full md:gap-4 flex items-center justify-between bg-customLightGray rounded-[94px] h-[80px] px-[25px] ${
 								index === activeIndex ? 'bg-customOrange' : 'opacity-80'
 							}`}
 							onClick={() => handleItemClick(index)}
@@ -83,16 +83,21 @@ export function RemainingQuestions() {
 									{item.title}
 								</span>
 							</div>
-							<Image
-								src={index === activeIndex ? arrowUpWhileSmall : arrowUpGraySmall}
-								alt={'icon'}
-								className={`md:hidden block w-[18] h-[18]`}
-							/>
-							<Image
-								src={index === activeIndex ? arrowUpWhile : arrowUpGray}
-								alt={'icon'}
-								className={`md:block hidden w-[18] h-[18] md:w-[32] md:h-[32]`}
-							/>
+							<div className={'flex justify-center items-center w-[18px] h-[18px] md:w-[32px] md:h-[32px] '}>
+								<svg
+									viewBox="0 0 32 32"
+									xmlns="http://www.w3.org/2000/svg"
+									fill="none"
+									className={` ${index === activeIndex ? 'opacity-100 stroke-[#FAFAFA]' : 'stroke-[#2A333C] opacity-30'}`}
+								>
+									<path
+										d="M9.33203 22.6668L22.6654 9.3335M22.6654 9.3335H11.9987M22.6654 9.3335V20.0002"
+										stroke-width="2"
+										stroke-linecap="round"
+										stroke-linejoin="round"
+									/>
+								</svg>
+							</div>
 						</div>
 						<span
 							className={`mt-4 block md:text-base text-xs font-normal text-[#2A333CB3] px-[25px] ${index === activeIndex ? 'block' : 'hidden'}`}
