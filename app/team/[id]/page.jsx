@@ -86,7 +86,7 @@ export default async function Resume({ params }) {
 									<h4 className="text-[#2A333C] text-xl font-bold my-[6px] lg:my-[8px] lg:text-3xl xl:text-custom40">
 										{specialist?.attributes.name}
 									</h4>
-									<span className="opacity-70 text-sm lg:text-base text-[#2A333C]">2I’m always trying to them always trying</span>
+									{/* <span className="opacity-70 text-sm lg:text-base text-[#2A333C]">2I’m always trying to them always trying</span> */}
 									<p className="opacity-70 text-sm lg:text-base  text-[#2A333C] mt-4 lg:mt-8">{specialist?.attributes.description}</p>
 								</div>
 								<button className="mt-8 lg:mt-10 rounded-[92px] w-[270px] lg:w-[286px] h-[48px] lg:h-[56px] items-center justify-center font-bold text-sm lg:text-base text-white bg-customOrange customBoxShadowOrange">

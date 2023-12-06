@@ -13,23 +13,6 @@ export default async function Articles({ params }) {
 	const baseUrl = process.env.URL;
 	const [currentArticle, lastArticles] = await Promise.all([fetchArticleById(params.id), fetchLastArticles(6)])
 
-	// const articleId = params.id;
-	// const [itemsArticles, setItemsArticles] = useState([]);
-
-	// useEffect(() => {
-	// 	const fetchData = async () => {
-	// 		const response = await GET(`articles?populate=*`);
-	// 		const data = await response.json();
-	// 		setItemsArticles(data.data);
-	// 	};
-
-	// 	fetchData();
-	// }, []);
-
-	// const singleArticle = [itemsArticles[articleId]];
-
-	console.log({currentArticle})
-
 	return (
 		<section className="px-4 pt-[39px] pb-[16px] relative lg:px-[50px] lg:pb-[50px] xl:px-[100px]">
 			<Image
@@ -46,19 +29,18 @@ export default async function Articles({ params }) {
 			<div className="flex flex-col pt-4 lg:flex-row-reverse gap-8">
 				<>
 					<div className="flex flex-col flex-1">
-						<img
-							src={`${baseUrl}${currentArticle?.attributes.imagePageTop?.data.attributes.url}`}
-							alt="img"
-							className="object-cover min-h-[160px] max-h-[228px] mb-6 rounded-[16px] lg:rounded-[24px]"
-						/>
+						{
+							currentArticle?.attributes.imagePageTop?.data?.attributes.url &&
+								<img
+									src={`${baseUrl}${currentArticle?.attributes.imagePageTop?.data?.attributes.url}`}
+									alt="img"
+									className="object-cover min-h-[160px] max-h-[228px] mb-6 rounded-[16px] lg:rounded-[24px]"
+								/>
+						}
 						<div
 							className="flex-col flex rounded-[32px] px-4 py-6 lg:p-8 bg-white gap-8"
 						>
 							<div className="flex flex-col gap-[20px] px-4 lg:flex-row lg: items-start justify-between">
-								<div className="flex flex-row opacity-30 text-xs lg:text-base text-[#2A333C] gap-4">
-									<span>{currentArticle?.attributes.dataCreate}</span>
-									<span>автор:<br/> {currentArticle?.attributes.authorName}</span>
-								</div>
 								<figure className="flex flex-row items-center gap-[6px] lg:gap-[16px] lg:mr-[270px] max-w-[253px]">
 									<img
 										src={`${baseUrl}${currentArticle?.attributes.authorIcon?.data?.attributes.url}`}
@@ -66,10 +48,13 @@ export default async function Articles({ params }) {
 										className="object-cover rounded-[32px] w-[32px] h-[32px] lg:w-[50px] lg:h-[50px]"
 									/>
 									<figcaption className="text-[#2A333C] flex flex-col opacity-30 gap-1">
-										<span className="text-xs lg:text-base font-medium">{currentArticle?.attributes.author}</span>
+										<span className="text-xs lg:text-base font-medium">{currentArticle?.attributes.authorName}</span>
 										<span className="text-[10px] lg:text-xs">{currentArticle?.attributes.authorTitle}</span>
 									</figcaption>
 								</figure>
+								<div className="flex flex-row opacity-30 text-xs lg:text-base text-[#2A333C] gap-4">
+									<span>{currentArticle?.attributes.dataCreate}</span>
+								</div>
 							</div>
 							<div>
 								<h4 className="text-[#2A333C] font-bold text-xl lg:text-custom32l mb-6">{currentArticle?.attributes.title}</h4>
@@ -77,7 +62,7 @@ export default async function Articles({ params }) {
 								{/*	text={items?.attributes.content}*/}
 								{/*	style={`text-[#2A333C] text-sm opacity-70 lg:text-base`}*/}
 								{/*/>*/}
-								<p className={`text-[#2A333C] text-sm opacity-70 lg:text-base`}>{currentArticle?.attributes.content}</p>
+								<p className={`text-[#2A333C] text-sm opacity-70 lg:text-base whitespace-pre-line`}>{currentArticle?.attributes.content}</p>
 								{
 									currentArticle?.attributes.imageText?.data && 
 										<img
@@ -105,7 +90,7 @@ export default async function Articles({ params }) {
 									<img
 										src={`${baseUrl}${article?.attributes.preview?.data.attributes.url}`}
 										alt="icon"
-										className="max-h-[258px] lg:max-h-[224px] object-cover"
+										className="w-full object-cover"
 									/>
 								</picture>
 

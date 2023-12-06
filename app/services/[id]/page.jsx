@@ -37,17 +37,17 @@ export default async function Page({ params }) {
 			<BackButton />
 			{
 				currentService?.attributes.imageTop?.data?.attributes.url &&
-					<div className="block rounded-[16px] bg-[#F3F6FA] min-h-[160px] min-w-[343px] w-full max-h-[228px] mt-8">
+					<div className="block rounded-[16px] bg-[#F3F6FA] w-full mt-8">
 						<img
 							src={`${baseUrl}${currentService?.attributes.imageTop?.data?.attributes.url}`}
 							alt={'img'}
-							className="object-cover min-h-[160px] min-w-[343px] max-h-[228px] w-full rounded-[16px]"
+							className="object-cover w-full rounded-[16px]"
 						/>
 					</div>
 			}
 			<div className="flex flex-col lg:flex-row lg:gap-8 lg:mt-8">
 				<div className="flex flex-col lg:w-[286px]">
-					<div className="lg:flex hidden flex-col bg-white rounded-[32px] p-6">
+					{/* <div className="lg:flex hidden flex-col bg-white rounded-[32px] p-6">
 						<div className="relative h-[210px] flex mb-[22px] items-start">
 							<Image
 								src={child}
@@ -119,11 +119,11 @@ export default async function Page({ params }) {
 								</div>
 							</>
 						</div>
-					</div>
+					</div> */}
 					<OtherServicesDropdown currentServiceId={currentService.id} items={otherServices}/>
 				</div>
 				<div className="flex gap-8 flex-col w-full flex-1">
-					<div className="lg:hidden rounded-[16px] bg-[#F3F6FA] min-h-[160px] min-w-[343px] w-full h-full"></div>
+					{/* <div className="lg:hidden rounded-[16px] bg-[#F3F6FA] min-h-[160px] min-w-[343px] w-full h-full"></div> */}
 					<>
 						<div
 							className="flex flex-col bg-white rounded-[32px] px-4 py-6 xl:p-8"
