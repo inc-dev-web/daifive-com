@@ -14,16 +14,28 @@ import ovalRed from '@/public/image/Oval-red.png';
 export function RemainingQuestions() {
 	const items = [
 		{
-			title: 'What are your services?',
-			description: '1We offer various educational and creative programmes for children \n' + 'aged 3 to 16.',
+			title: 'З якого віку можна займатися? ',
+			description: 'Ми займаємося з дітьми з 1.5 до 18 років.',
 		},
 		{
-			title: 'What are your services?',
-			description: '2We offer various educational and creative programmes for children \n' + 'aged 3 to 16.',
+			title: 'Дитина не розмовляє, з чого краще почати? ',
+			description: 'В першу чергу, ви маєте звернутись на загальну діагностичну консультацію до куратора Центру, на якій вас зорієнтують с чого вам почати взалежності від хароактеру порушень, та особлиовстей дитини.',
 		},
 		{
-			title: 'How to enrol a child?',
-			description: '3We offer various educational and creative programmes for children \n' + 'aged 3 to 16.',
+			title: 'Яка терапія краще?',
+			description: 'Найкращим для вашої дитини, буде відвідування різних спеціалістів. Тобто системне там мультидисциплінарне втручання яке допоможе компенсувати та виправити всі дефіцити її розвитку. Тобто найркращим буде відвідувати різні терапії одночасно.',
+		},
+		{
+			title: 'У вас групові чи індивідуальні зайняття?',
+			description: 'Більшість наших занятть проходить індивідуально, але ми маємо і групові зайняття для дошкільнят, групп раннього розвитку і школярів.',
+		},
+		{
+			title: 'До вас ходять тільки діти з аутизмом? ',
+			description: 'Ні. До нас звертаються діти з різними порушеннями психічного і мовленнєвого розвитку:\n\n- аутизм (всі різновидності)\n- РДУГ\n- Синдром Дауна\n- ДЦП\n- ЗМР\n- ЗПР\n- всі види логопедичних порушень (такі як діспраксія, \n- Діти які маюсть проблеми з навчанням, соціалізацією, і тд.',
+		},
+		{
+			title: 'Any feedback from other parents?',
+			description: '4We offer various educational and creative programmes for children \n' + 'aged 3 to 16.',
 		},
 		{
 			title: 'Any feedback from other parents?',
@@ -95,7 +107,7 @@ export function RemainingQuestions() {
 							/>
 						</div>
 						<span
-							className={`mt-4 block md:text-base text-xs font-normal text-[#2A333CB3] px-[25px] ${index === activeIndex ? 'block' : 'hidden'}`}
+							className={`mt-4 block md:text-base text-xs font-normal text-[#2A333CB3] px-[25px] whitespace-pre ${index === activeIndex ? 'block' : 'hidden'}`}
 						>
 							{item.description}
 						</span>
