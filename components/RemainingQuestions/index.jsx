@@ -33,14 +33,6 @@ export function RemainingQuestions() {
 			title: 'До вас ходять тільки діти з аутизмом? ',
 			description: 'Ні. До нас звертаються діти з різними порушеннями психічного і мовленнєвого розвитку:\n\n- аутизм (всі різновидності)\n- РДУГ\n- Синдром Дауна\n- ДЦП\n- ЗМР\n- ЗПР\n- всі види логопедичних порушень (такі як діспраксія, \n- Діти які маюсть проблеми з навчанням, соціалізацією, і тд.',
 		},
-		{
-			title: 'Any feedback from other parents?',
-			description: '4We offer various educational and creative programmes for children \n' + 'aged 3 to 16.',
-		},
-		{
-			title: 'Any feedback from other parents?',
-			description: '4We offer various educational and creative programmes for children \n' + 'aged 3 to 16.',
-		},
 	];
 
 	const [activeIndex, setActiveIndex] = useState(0);
@@ -70,8 +62,8 @@ export function RemainingQuestions() {
 						className="md:hidden block absolute right-0 top-0"
 						width={12}
 					/>
-					<span className=" font-bold text-xs text-customBlue uppercase">Залишились питання?</span>
-					<h4 className=" text-xl font-bold text-[#2A333C] mt-4 mb-6 text-center">Відповіді на питання</h4>
+					<span className="font-bold text-xs text-customBlue uppercase">Залишились питання?</span>
+					<h4 className="text-xl font-bold text-[#2A333C] mt-4 mb-6 text-center">Відповіді на питання</h4>
 				</div>
 				{items.map((item, index) => (
 					<div key={index}>
@@ -107,7 +99,7 @@ export function RemainingQuestions() {
 							/>
 						</div>
 						<span
-							className={`mt-4 block md:text-base text-xs font-normal text-[#2A333CB3] px-[25px] whitespace-pre ${index === activeIndex ? 'block' : 'hidden'}`}
+							className={`mt-4 block md:text-base text-xs font-normal text-[#2A333CB3] px-[25px] whitespace-pre-line ${index === activeIndex ? 'block' : 'hidden'}`}
 						>
 							{item.description}
 						</span>
