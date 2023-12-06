@@ -1,5 +1,4 @@
-'use client';
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import Image from 'next/image';
 import ovalRed from '@/public/image/Oval-red.png';
 import ovalYellow from '@/public/image/Oval-yellow.png';
@@ -7,20 +6,14 @@ import { BackButton } from '@/components/BackButton';
 import arrowOrange from '@/public/image/icon/light-orange-arrow.svg';
 import ovalGreen from '@/public/image/OvalGreenish.svg';
 import Link from 'next/link';
-import { GET } from '@/app/api/route';
+import { fetchAllServices } from '@/app/strapi';
 
-export default function Service() {
-	const baseUrl = process.env.URL;
-	const [services, setServices] = useState([]);
-	useEffect(() => {
-		async function fetchData() {
-			const response = await GET('services?populate=*');
-			const data = await response.json();
-			setServices(data.data);
-		}
-		fetchData();
-	}, []);
-	console.log('services', services);
+export default async function Service() {
+	const baseUrl = process.env.URL; 
+	const services = await fetchAllServices()
+
+	console.log(services[0])
+
 	return (
 		<section className="px-4 pt-[39px] lg:pt-[50px] pb-[56px] lg:px-[100px] relative">
 			<Image
@@ -60,7 +53,7 @@ export default function Service() {
 					>
 						<div className={`rounded-[32px] bg-white p-[16px]`}>
 							<img
-								src={`${baseUrl}${item?.attributes.preview?.data.attributes.url}`}
+								src={`${baseUrl}${item?.attributes.preview.data?.attributes.url}`}
 								alt={'image'}
 								className="object-contain rounded-[20px]"
 							/>

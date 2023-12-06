@@ -15,6 +15,7 @@ export default function Contact() {
 		{ title: 'Телефон', description: '+380 96 123 45 67', icon: phone },
 		{ title: 'Email', description: 'dobirka@gmail.com', icon: email },
 	];
+
 	return (
 		<section className="relative px-4 pb-4 lg:pb-[23px] lg:pt-[50px] xl:px-[100px]">
 			<Image

@@ -1,4 +1,3 @@
-'use client';
 import React from 'react';
 import background3 from '@/public/image/background3.png';
 import background3mobi from '@/public/image/bgCard.png';
@@ -48,6 +47,7 @@ export function ServiceCards() {
 			rotate: 'rotate-[-4deg]',
 		},
 	];
+
 	return (
 		<section className="h-[619px] md:h-[550px] lg:h-[705px] relative flex lg:items-center justify-center">
 			<Image

@@ -1,32 +1,34 @@
-'use client';
 export const runtime = 'edge';
 
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { BackButton } from '@/components/BackButton';
 import ovalRed from '@/public/image/Oval-red.png';
 import ovalYellow from '@/public/image/Oval-yellow.png';
 import Image from 'next/image';
 import arrowBlue from '@/public/image/icon/ArrowRightBlue.svg';
 import Link from 'next/link';
-import { GET } from '@/app/api/route';
+import { fetchArticleById, fetchLastArticles } from '@/app/strapi';
 
-export default function Articles({ params }) {
+export default async function Articles({ params }) {
 	const baseUrl = process.env.URL;
+	const [currentArticle, lastArticles] = await Promise.all([fetchArticleById(params.id), fetchLastArticles(6)])
 
-	const articleId = params.id;
-	const [itemsArticles, setItemsArticles] = useState([]);
+	// const articleId = params.id;
+	// const [itemsArticles, setItemsArticles] = useState([]);
 
-	useEffect(() => {
-		const fetchData = async () => {
-			const response = await GET(`articles?populate=*`);
-			const data = await response.json();
-			setItemsArticles(data.data);
-		};
+	// useEffect(() => {
+	// 	const fetchData = async () => {
+	// 		const response = await GET(`articles?populate=*`);
+	// 		const data = await response.json();
+	// 		setItemsArticles(data.data);
+	// 	};
 
-		fetchData();
-	}, []);
+	// 	fetchData();
+	// }, []);
 
-	const singleArticle = [itemsArticles[articleId]];
+	// const singleArticle = [itemsArticles[articleId]];
+
+	console.log({currentArticle})
 
 	return (
 		<section className="px-4 pt-[39px] pb-[16px] relative lg:px-[50px] lg:pb-[50px] xl:px-[100px]">
@@ -42,56 +44,58 @@ export default function Articles({ params }) {
 			/>
 			<BackButton />
 			<div className="flex flex-col pt-4 lg:flex-row-reverse gap-8">
-				{singleArticle.map((items, key) => (
-					<div key={key} className="flex flex-col flex-1">
+				<>
+					<div className="flex flex-col flex-1">
 						<img
-							src={`${baseUrl}${items?.attributes.imagePageTop?.data.attributes.url}`}
+							src={`${baseUrl}${currentArticle?.attributes.imagePageTop?.data.attributes.url}`}
 							alt="img"
 							className="object-cover min-h-[160px] max-h-[228px] mb-6 rounded-[16px] lg:rounded-[24px]"
 						/>
 						<div
-							key={key}
 							className="flex-col flex rounded-[32px] px-4 py-6 lg:p-8 bg-white gap-8"
 						>
 							<div className="flex flex-col gap-[20px] px-4 lg:flex-row lg: items-start justify-between">
 								<div className="flex flex-row opacity-30 text-xs lg:text-base text-[#2A333C] gap-4">
-									<span>{items?.attributes.dataCreate}</span>
-									<span>автор:</span>
+									<span>{currentArticle?.attributes.dataCreate}</span>
+									<span>автор:<br/> {currentArticle?.attributes.authorName}</span>
 								</div>
 								<figure className="flex flex-row items-center gap-[6px] lg:gap-[16px] lg:mr-[270px] max-w-[253px]">
 									<img
-										src={`${baseUrl}${items?.attributes.authorIcon?.data?.attributes.url}`}
+										src={`${baseUrl}${currentArticle?.attributes.authorIcon?.data?.attributes.url}`}
 										alt="img"
 										className="object-cover rounded-[32px] w-[32px] h-[32px] lg:w-[50px] lg:h-[50px]"
 									/>
 									<figcaption className="text-[#2A333C] flex flex-col opacity-30 gap-1">
-										<span className="text-xs lg:text-base font-medium">{items?.attributes.author}</span>
-										<span className="text-[10px] lg:text-xs">{items?.attributes.authorTitle}</span>
+										<span className="text-xs lg:text-base font-medium">{currentArticle?.attributes.author}</span>
+										<span className="text-[10px] lg:text-xs">{currentArticle?.attributes.authorTitle}</span>
 									</figcaption>
 								</figure>
 							</div>
 							<div>
-								<h4 className="text-[#2A333C] font-bold text-xl lg:text-custom32l mb-6">{items?.attributes.title}</h4>
+								<h4 className="text-[#2A333C] font-bold text-xl lg:text-custom32l mb-6">{currentArticle?.attributes.title}</h4>
 								{/*<FormattedText*/}
 								{/*	text={items?.attributes.content}*/}
 								{/*	style={`text-[#2A333C] text-sm opacity-70 lg:text-base`}*/}
 								{/*/>*/}
-								<p className={`text-[#2A333C] text-sm opacity-70 lg:text-base`}>{items?.attributes.content}</p>
-								<img
-									src={`${baseUrl}${items?.attributes.imageText?.data.attributes.url}`}
-									alt="img"
-									className="mt-6 min-h-[230px] max-h-[504px] h-full w-full"
-								/>
+								<p className={`text-[#2A333C] text-sm opacity-70 lg:text-base`}>{currentArticle?.attributes.content}</p>
+								{
+									currentArticle?.attributes.imageText?.data && 
+										<img
+											src={`${baseUrl}${currentArticle?.attributes.imageText?.data.attributes.url}`}
+											alt="img"
+											className="mt-6 m w-full object-cover"
+										/>
+								}
 							</div>
 						</div>
 					</div>
-				))}
+				</>
 
 				<div className="flex flex-row flex-wrap gap-10 mt-10 lg:mt-0 lg:flex-col lg:flex-nowrap lg:h-[1200px] overflow-y-scroll">
-					{itemsArticles.map((items, key) => (
+					{lastArticles.map((article, key) => (
 						<Link
-							key={key}
-							href={`${items.id}`}
+							key={article.id}
+							href={`${article.id}`}
 						>
 							<div
 								key={key}
@@ -99,15 +103,15 @@ export default function Articles({ params }) {
 							>
 								<picture className="flex p-3 bg-white rounded-[24px]">
 									<img
-										src={`${baseUrl}${items?.attributes.preview?.data.attributes.url}`}
+										src={`${baseUrl}${article?.attributes.preview?.data.attributes.url}`}
 										alt="icon"
 										className="max-h-[258px] lg:max-h-[224px] object-cover"
 									/>
 								</picture>
 
 								<div className="text-[#2A333C] mt-6 px-[20px]">
-									<h4 className="text-xl mb-3 font-medium">{items?.attributes.title}</h4>
-									<p className="opacity-70 text-xs h-[60px] line-clamp-4 leading-[16px]">{items?.attributes.description}</p>
+									<h4 className="text-xl mb-3 font-medium">{article?.attributes.title}</h4>
+									<p className="opacity-70 text-xs h-[60px] line-clamp-4 leading-[16px]">{article?.attributes.description}</p>
 									<button
 										className={'lg:hidden h-[38px] bg-customBlueLight mt-6 w-[270px] flex items-center justify-center rounded-[65px] gap-3'}
 									>
