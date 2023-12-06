@@ -36,7 +36,7 @@ export function Navbar() {
 			</Link>
 			<nav className={`md:relative flex items-center justify-center`}>
 				<ul
-					className={`text-[#2A333CB2] md:text-[#2A333C] md:bg-none md:flex gap-8 text-xl z-40 py-[60px] md:py-0 right-0 top-[50px] bg-[#fafafa] w-full absolute flex flex-col md:gap-10 md:flex-row items-center md:h-[48px] md:text-xs w-full${
+					className={`text-[#2A333CB2] md:text-[#2A333C] md:bg-none md:flex gap-8 text-xl z-40 py-[60px] md:py-0 right-0 top-[50px] bg-[#fafafa] absolute flex flex-col md:gap-10 md:flex-row items-center md:h-[48px] md:text-xs lg:text-base w-full ${
 						isMenuOpen ? 'visible' : 'md:flex hidden md:static'
 					}`}
 				>
