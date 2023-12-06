@@ -120,7 +120,7 @@ export default async function Page({ params }) {
 							</>
 						</div>
 					</div>
-					<OtherServicesDropdown items={otherServices.filter(service => service.id !== currentService.id)}/>
+					<OtherServicesDropdown currentServiceId={currentService.id} items={otherServices}/>
 				</div>
 				<div className="flex gap-8 flex-col w-full flex-1">
 					<div className="lg:hidden rounded-[16px] bg-[#F3F6FA] min-h-[160px] min-w-[343px] w-full h-full"></div>
@@ -133,8 +133,8 @@ export default async function Page({ params }) {
 							{currentService?.attributes.image?.data?.attributes?.url && (
 								<img
 									src={`${baseUrl}${currentService?.attributes.image.data.attributes.url}`}
-									alt="Preview"
-									className="min-h-[230px] my-8"
+									alt="Image"
+									className="w-full my-8"
 								/>
 							)}
 							<p className="opacity-70 text-sm text-[#2A333C] lg:text-base">{currentService?.attributes.descriptionTwo}</p>

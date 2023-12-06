@@ -4,12 +4,13 @@ import { useState, useEffect } from 'react'
 import { useWindowSize } from '@uidotdev/usehooks';
 
 import Image from 'next/image';
+import Link from 'next/link';
 
 import arrowUp from '@/public/image/icon/arrowUpRightOrange.svg';
 import arrow from '@/public/image/icon/arrowDown.svg';
 import arrowUpWhite from '@/public/image/icon/arrowUpWhite.svg';
 
-export default function OtherServicesDropdown({ items }) {
+export default function OtherServicesDropdown({ items, currentServiceId }) {
 	const { width: screenWidth } = useWindowSize()
 	const [isOpen, setIsOpen] = useState(false);
 
@@ -40,7 +41,7 @@ export default function OtherServicesDropdown({ items }) {
             />
           </div>
           {/* <span className="text-customOrange min-w-[268px] text-sm xl:text-base font-medium">
-            {selectedItem ? `${selectedItem?.attributes.titlle}` : 'Category Name'}
+            eselectedItem ? `${selectedItem?.attributes.titlle}` : 'Category Name'}
           </span> */}
         </div>
         <Image
@@ -52,27 +53,30 @@ export default function OtherServicesDropdown({ items }) {
       </div>
       {isOpen && (
         <ul className="flex gap-1 flex-col text-sm xl:text-base lg:p-6">
-          {items.filter(service => service.id !== currentService.id).map((item, index) => (
+          {items.map((item, index) => (
             <li
-              className={`gap-[10px] flex hover:bg-[#F3F6FA] hover:text-customOrange hover:font-medium rounded-[70px] h-[48px] pl-[10px] items-center text-[#2a3340] ${
-                selectedItem?.id === item?.id ? 'bg-customOrangeLight' : ''
-              }`}
               key={index}
-              onClick={() => handleItemClick(item, index)}
             >
-              <div
-                className={`w-[24px] h-[24px] flex justify-center items-center rounded-[32px] ${
-                  selectedItem?.id === item?.id ? 'bg-customOrangeLight' : 'bg-[#00000019]'
+              <Link
+                className={`gap-[10px] flex hover:bg-[#F3F6FA] hover:text-customOrange hover:font-medium rounded-[70px] h-[48px] pl-[10px] items-center text-[#2a3340] ${
+                  currentServiceId === item?.id ? 'bg-customOrangeLight' : ''
                 }`}
+                href={`/services/${item?.id}`}
               >
-                <Image
-                  src={selectedItem?.id === item?.id ? arrowUp : arrowUpWhite}
-                  alt="icon"
-                />
-              </div>
-              <span className={`${selectedItem?.id === item?.id ? 'text-customOrange bg-customOrangeLight' : 'text-[#2a333c99]'}`}>
-                {item?.attributes.titlle}
-              </span>
+                <div
+                  className={`w-[24px] h-[24px] flex justify-center items-center rounded-[32px] ${
+                    currentServiceId === item?.id ? 'bg-customOrangeLight' : 'bg-[#00000019]'
+                  }`}
+                >
+                  <Image
+                    src={currentServiceId === item?.id ? arrowUp : arrowUpWhite}
+                    alt="icon"
+                  />
+                </div>
+                <span className={`${currentServiceId === item?.id ? 'text-customOrange bg-customOrangeLight' : 'text-[#2a333c99]'}`}>
+                  {item?.attributes.titlle}
+                </span>
+              </Link>
             </li>
           ))}
         </ul>
