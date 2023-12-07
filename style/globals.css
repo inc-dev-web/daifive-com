@@ -34,3 +34,7 @@ button {
 html {
   scroll-behavior: smooth;
 }
+
+* {
+  transition: .25s all;
+}
