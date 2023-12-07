@@ -110,7 +110,7 @@ export default function Blog() {
 					</div>
 					{isOpen && (
 						<ul className="flex gap-1 flex-col text-sm xl:text-base lg:p-6">
-							<h4 className="lg:block hidden text-[#2A333C] text-xl font-bold mb-4">Categories</h4>
+							<h4 className="lg:block hidden text-[#2A333C] text-xl font-bold mb-4">Категорії</h4>
 							{uniqueCategories.map((item, index) => (
 								<li
 									className={`gap-[10px] flex hover:bg-[#F3F6FA] hover:[#0B82FC] hover:font-medium rounded-[70px] h-[48px] pl-[10px] items-center ${
