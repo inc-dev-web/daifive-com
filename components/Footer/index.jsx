@@ -28,7 +28,7 @@ export function Footer() {
 					alt={'icon'}
 				/>
 			),
-			link: '#',
+			link: 'https://www.instagram.com/dai5pyat/',
 		},
 		{
 			title: 'YouTube',
@@ -62,12 +62,10 @@ export function Footer() {
 					{item.map((item, index) => (
 						<li
 							key={index}
-							className={`flex items-center justify-center w-[115px] h-[39px] text-white ${
-								activeIndex === index ? 'bg-customWhiteTint rounded-[12.581px] opacity-100' : 'opacity-30'
-							} transition-opacity duration-300 ease-in-out`}
+							className={`flex items-center justify-center rounded-[12.581px] hover:opacity-100 hover:bg-customWhiteTint opacity-30 text-white transition-opacity duration-300 ease-in-out`}
 							onClick={() => handleItemClick(index)}
 						>
-							<a className={'flex items-center gap-[8px]'}>
+							<a href={item.link} className={'flex items-center gap-[8px] py-2 px-4'}>
 								{item.title}
 								{item.icon}
 							</a>
