@@ -4,7 +4,7 @@ import ovalRed from '@/public/image/Oval-red.png';
 import ovalYellow from '@/public/image/Oval-yellow.png';
 import { BackButton } from '@/components/BackButton';
 import arrowOrange from '@/public/image/icon/light-orange-arrow.svg';
-import ovalGreen from '@/public/image/OvalGreenish.svg';
+import ovalGreen from '@/public/image/Oval-greenish.png';
 import Link from 'next/link';
 import { fetchAllServices } from '@/app/strapi';
 

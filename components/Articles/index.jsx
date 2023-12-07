@@ -38,7 +38,7 @@ export async function Articles() {
 									<Link
 										key={index}
 										href={`blog/${article.id}`}
-										className="flex items-center justify-center gap-2"
+										className="flex items-center justify-center gap-2 w-full h-full"
 									>
 										<span className="text-customBlue text-sm xl:text-lg">Read</span>
 										<Image

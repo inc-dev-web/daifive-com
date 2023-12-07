@@ -4,10 +4,9 @@ import Image from 'next/image';
 import ovalRed from '@/public/image/Oval-red.png';
 import ovalYellow from '@/public/image/Oval-yellow.png';
 import ovalBlue from '@/public/image/Oval-blue.png';
-import marker from '@/public/image/icon/marger-orange.svg';
+import marker from '@/public/image/icon/point-orange.svg';
 import phone from '@/public/image/icon/phone.svg';
 import email from '@/public/image/icon/email.svg';
-import map from '@/public/image/map.png';
 
 export default function Contact() {
 	const items = [

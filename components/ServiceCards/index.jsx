@@ -1,7 +1,7 @@
 'use client'
 import React from 'react';
-import background3 from '@/public/image/background3.png';
-import background3mobi from '@/public/image/bgCard.png';
+import bg from '@/public/image/bgCard.png';
+import bgSmall from '@/public/image/bgCardSmall.png';
 import Image from 'next/image';
 import arrowRight from '@/public/image/icon/Arrow-Right-While.svg';
 import ovalRed from '@/public/image/Oval-red.png';
@@ -60,12 +60,12 @@ export function ServiceCards() {
 			/>
 			<div className="bg-radiant-blue absolute left-[-15%] top-[0%] -z-10 w-[637px] h-[731px]"></div>
 			<Image
-				src={background3}
+				src={bg}
 				alt={'img'}
 				className={'object-contain absolute md:relative md:block hidden -z-10'}
 			/>
 			<Image
-				src={background3mobi}
+				src={bgSmall}
 				alt={'img'}
 				className={'object-contain w-full h-full absolute md:relative md:hidden block -z-10'}
 			/>

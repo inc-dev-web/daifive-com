@@ -159,7 +159,7 @@ export default function Blog() {
 										<Link
 											key={index}
 											href={`blog/${item.id}`}
-											className="flex items-center justify-center gap-2"
+											className="flex items-center justify-center gap-2 h-full w-full"
 										>
 											<span className="text-customBlue text-sm xl:text-lg">Read</span>
 											<Image

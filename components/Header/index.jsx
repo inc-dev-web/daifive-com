@@ -1,9 +1,9 @@
 import Image from 'next/image';
 import market from '@/public/image/icon/market-icon.svg';
-import marketOrange from '@/public/image/icon/marger-orange.svg';
+import marketOrange from '@/public/image/icon/point-orange.svg';
 import arrowRight from '@/public/image/icon/white-arrow-right.svg';
-import childrenImage from '@/public/image/childrenImage1.png';
-import childrenSm from '@/public/image/ghildrenMain.png';
+import childrenImage from '@/public/image/childrenMain.png';
+import childrenSm from '@/public/image/childrenMainSmall.png';
 import Link from "next/link";
 
 export function Header() {
