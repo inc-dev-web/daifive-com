@@ -102,7 +102,7 @@ export function RemainingQuestions() {
 								</svg>
 							</div>
 						</div>
-						<div className={`mt-4 md:text-base text-xs font-normal text-[#2A333CB3] px-[25px] ${index === activeIndex ? 'flex' : 'hidden'}`}>
+						<div className={`mt-4 md:text-base text-xs font-normal text-[#2A333CB3] px-[25px] whitespace-pre-line ${index === activeIndex ? 'flex' : 'hidden'}`}>
 							{item.description}
 						</div>
 					</div>
