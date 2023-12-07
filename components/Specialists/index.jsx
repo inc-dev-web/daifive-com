@@ -7,7 +7,6 @@ import { fetchAllSpecialists } from '@/app/strapi';
 export async function Specialists() {
 	const baseUrl = process.env.URL;
 	const specialists = await fetchAllSpecialists()
-
 	return (
 		<section className={'pb-[108px] md:pb-[150px] md:pl-[100px] md:pt-[125px] px-4 md:px-0'}>
 			<div className={'flex flex-col md:pr-[243px]'}>

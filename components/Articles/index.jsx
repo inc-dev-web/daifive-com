@@ -15,39 +15,43 @@ export async function Articles() {
 				<span className="font-bold lg:text-base text-xs text-customBlue uppercase">Що почитати?</span>
 				<h4 className="lg:text-custom32 text-xl font-bold text-[#2A333C] mt-4 mb-12">Ми написали для вас цікаві статті</h4>
 			</div>
-			<div className={'md:grid md:grid-cols-2 gap-8 flex flex-col items-center md:flex-none'}>
+			<div className="mt-4 flex flex-col lg:flex-row lg:flex-wrap gap-8 lg:mt-0 items-start lg:justify-center">
 				{articles.map((article, index) => (
-					<figure
-						className={'flex flex-col md:flex-row gap-4'}
+					<div
+						className="flex flex-col xl:flex-row items-start xl:w-[calc(50%-32px)] xl:max-h-[247px]"
 						key={index}
 					>
-						<div className={'bg-white p-4 rounded-3xl w-[343px] md:w-full'}>
+						<picture className="accent-amber-800 bg-white p-3 rounded-[24px] h-[282px] max-w-[286px] lg:h-[247px]">
 							<img
-								src={`${baseUrl}${article?.attributes.preview?.data?.attributes.url}`}
-								alt={'img'}
-								className={'object-cover md:w-full md:h-full h-[258px] w-[319px]'}
+								src={`${baseUrl}${article?.attributes.preview?.data.attributes.url}`}
+								alt="img"
+								className="object-cover rounded-[16px] w-[319px] h-[258px] lg:w-[255px] lg:h-[215px]"
 							/>
-						</div>
-						<figcaption className={'flex justify-center items-start flex-col max-w-[300px]'}>
-							<h6 className={'text-xl font-medium mb-3 text-[#2A333C]'}>{article.attributes.title}</h6>
-							<p className={'lg:text-sm text-xs text-[#2A333C] opacity-70 max-w-[350px] lg:max-w-none h-[60px] line-clamp-3'}>
-								{article.attributes.description}
-							</p>
-							<Link href={`/blog/${article.id}`}>
-								<button
-									className={'h-[38px] bg-customBlueLight mt-6 w-[270px] md:w-[182px] flex items-center justify-center rounded-[65px] gap-3'}
-								>
-									<span className="text-customBlue text-sm">Read</span>
-									<Image
-										src={arrowBlue}
-										width={18}
-										height={18}
-										alt={'icon'}
-									/>
+						</picture>
+						<div className="flex flex-col px-5 lg:px-0 lg:pl-5 gap-3 flex-1 xl:h-[247px] xl:pt-[25px] w-[303px]">
+							<div className="mt-6 xl:mt-0 flex flex-col gap-3 h-full min-h-[85px]">
+								<h4 className="text-[#2A333C] text-xl xl:text-3xl font-medium lg:font-bold">{article.attributes.title}</h4>
+								<p className="opacity-70 text-[#2A333C] text-xs xl:text-base line-clamp-2 xl:line-clamp-3">{article.attributes.description}</p>
+							</div>
+							<div className="w-full flex items-start lg:justify-start">
+								<button className="bg-customBlueLight w-[270px] xl:w-[182px] h-[48px] mt-3 rounded-[72px] flex items-center justify-center gap-2">
+									<Link
+										key={index}
+										href={`blog/${article.id}`}
+										className="flex items-center justify-center gap-2"
+									>
+										<span className="text-customBlue text-sm xl:text-lg">Read</span>
+										<Image
+											src={arrowBlue}
+											width={18}
+											height={18}
+											alt={'icon'}
+										/>
+									</Link>
 								</button>
-							</Link>
-						</figcaption>
-					</figure>
+							</div>
+						</div>
+					</div>
 				))}
 			</div>
 		</section>

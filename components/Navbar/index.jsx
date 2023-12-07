@@ -72,7 +72,12 @@ export function Navbar() {
 					src={iconPhone}
 					alt="phone"
 				/>
-				<span className="text-customOrange">+38 066 826 24 15</span>
+				<a
+					href="tel:+380668262415"
+					className="text-customOrange"
+				>
+					+38 066 826 24 15
+				</a>
 			</div>
 		</header>
 	);

@@ -11,12 +11,10 @@ import OtherServicesDropdown from '@/app/services/[id]/other-services-dropdown';
 
 export default async function Page({ params }) {
 	const baseUrl = process.env.URL;
-
 	const [currentService, otherServices] = await Promise.all([
 		fetchServiceById(params.id),
 		fetchAllServices()
 	])
-
 	return (
 		<section className="pt-[39px] pb-[59px] px-4 relative xl:px-[100px] lg:pt-[50px] lg:pb-[150px]">
 			<Image

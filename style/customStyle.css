@@ -142,3 +142,23 @@
 .customRotate {
     rotate: 120deg;
 }
+
+.customHover {
+    &:hover {
+        opacity: 1;
+        & div {
+            & div {
+                opacity: 1;
+                background-color: #FFFFFF33;
+            }
+        }
+        & span {
+            opacity: 1;
+            color: #FAFAFA;
+        }
+        & svg {
+            opacity: 1;
+            stroke: #FAFAFA;
+        }
+    }
+}

@@ -58,11 +58,14 @@ export default function Contact() {
 				))}
 			</ul>
 			<div className="bg-[#FFF] rounded-[32px] p-4 lg:p-8 h-[520px]">
-				<Image
-					src={map}
-					alt="map"
-					className="rounded-[24px] lg:rounded-[32px] h-full object-cover"
-				/>
+				<iframe
+					src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2509.5198458097693!2d31.9047904!3d51.0250188!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x412a9d0c024ebd2d%3A0x1c9f4f4d510acf2f!2z0LLRg9C70LjRhtGPINCS0LDRgdC40LvRjyDQodGC0YPRgdCwLCA1NCwg0J3RltC20LjQvSwg0KfQtdGA0L3RltCz0ZbQstGB0YzQutCwINC-0LHQu9Cw0YHRgtGMLCAxNjYwMA!5e0!3m2!1suk!2sua!4v1701894934384!5m2!1suk!2sua"
+					style={{ border: '0' }}
+					allowFullScreen=""
+					loading="lazy"
+					referrerPolicy="no-referrer-when-downgrade"
+					className="w-full h-full rounded-[24px] lg:rounded-[32px]"
+				></iframe>
 			</div>
 		</section>
 	);

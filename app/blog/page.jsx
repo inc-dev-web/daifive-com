@@ -138,28 +138,29 @@ export default function Blog() {
 
 				<div className="mt-4 flex flex-col gap-8 items-center lg:mt-0 lg:w-full lg:items-start">
 					{filteredArticles.map((item, index) => (
-						<Link
+						<div
+							className="flex flex-col lg:flex-row lg:items-center lg:w-full lg:max-h-[318px] lg:min-h-[318px]"
 							key={index}
-							href={`blog/${item.id}`}
 						>
-							<div
-								className="flex flex-col lg:flex-row lg:items-center lg:w-full lg:max-h-[318px] lg:min-h-[318px]"
-								key={index}
-							>
-								<picture className="bg-white p-3 rounded-[24px] max-w-[343px] max-h-[282px] lg:min-h-[318px] lg:max-h-[318px] lg:min-w-[318px] lg:max-w-[318px]">
-									<img
-										src={`${baseUrl}${item?.attributes.preview?.data.attributes.url}`}
-										alt="img"
-										className="object-center w-full h-full lg:min-h-[294px] lg:max-h-[294px] lg:min-w-[294px] lg:max-w-[294px]"
-									/>
-								</picture>
-								<div className="flex flex-col px-5 lg:px-0 lg:pl-5 gap-3 max-w-[350px] lg:max-w-full">
-									<div className="mt-6 lg:mt-0 flex flex-col gap-3 min-h-[85px] lg:min-h-[160px] h-full">
-										<h4 className="text-[#2A333C] text-xl xl:text-3xl font-medium lg:font-bold">{item.attributes.title}</h4>
-										<p className="opacity-70 text-[#2A333C] text-xs xl:text-base">{item.attributes.description}</p>
-									</div>
-									<div className="w-full flex items-center justify-center lg:justify-start">
-										<button className="bg-customBlueLight w-[270px] h-[48px] mt-3 rounded-[72px] flex items-center justify-center gap-2">
+							<picture className="bg-white p-3 rounded-[24px] max-w-[343px] max-h-[282px] lg:min-h-[318px] lg:max-h-[318px] lg:min-w-[318px] lg:max-w-[318px]">
+								<img
+									src={`${baseUrl}${item?.attributes.preview?.data.attributes.url}`}
+									alt="img"
+									className="object-center w-full h-full lg:min-h-[294px] lg:max-h-[294px] lg:min-w-[294px] lg:max-w-[294px]"
+								/>
+							</picture>
+							<div className="flex flex-col px-5 lg:px-0 lg:pl-5 gap-3 max-w-[350px] lg:max-w-full">
+								<div className="mt-6 lg:mt-0 flex flex-col gap-3 min-h-[85px] lg:min-h-[160px] h-full">
+									<h4 className="text-[#2A333C] text-xl xl:text-3xl font-medium lg:font-bold">{item.attributes.title}</h4>
+									<p className="opacity-70 text-[#2A333C] text-xs xl:text-base">{item.attributes.description}</p>
+								</div>
+								<div className="w-full flex items-center justify-center lg:justify-start">
+									<button className="bg-customBlueLight w-[270px] h-[48px] mt-3 rounded-[72px] flex items-center justify-center gap-2">
+										<Link
+											key={index}
+											href={`blog/${item.id}`}
+											className="flex items-center justify-center gap-2"
+										>
 											<span className="text-customBlue text-sm xl:text-lg">Read</span>
 											<Image
 												src={arrowBlue}
@@ -167,11 +168,11 @@ export default function Blog() {
 												height={18}
 												alt={'icon'}
 											/>
-										</button>
-									</div>
+										</Link>
+									</button>
 								</div>
 							</div>
-						</Link>
+						</div>
 					))}
 				</div>
 			</div>

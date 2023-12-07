@@ -3,10 +3,6 @@ import React, { useState } from 'react';
 import Image from 'next/image';
 import childrenImage from '@/public/image/childrenTeacher.png';
 import childrenImageSmall from '@/public/image/childrenTeacherSmall.png';
-import arrowUpWhile from '@/public/image/icon/Arrow-Right-While.svg';
-import arrowUpWhileSmall from '@/public/image/icon/arrowRightUp-whileSmall.svg';
-import arrowUpGray from '@/public/image/icon/Arrow-Right-Gray.svg';
-import arrowUpGraySmall from '@/public/image/icon/arrowRightUp-graySmall.svg';
 import ovalYellow from '@/public/image/Oval-yellow.png';
 import ovalBlue from '@/public/image/Oval-blue.png';
 import ovalRed from '@/public/image/Oval-red.png';
@@ -66,9 +62,12 @@ export function RemainingQuestions() {
 					<h4 className="text-xl font-bold text-[#2A333C] mt-4 mb-6 text-center">Відповіді на питання</h4>
 				</div>
 				{items.map((item, index) => (
-					<div key={index}>
+					<div
+						key={index}
+						className={'lg:max-w-[498px]'}
+					>
 						<div
-							className={`gap-2 w-full md:gap-4 flex items-center justify-between bg-customLightGray rounded-[94px] h-[80px] px-[25px] ${
+							className={`customHover cursor-pointer hover:bg-customOrange gap-2 w-full md:gap-4 flex items-center justify-between bg-customLightGray rounded-[94px] h-[80px] px-[25px] ${
 								index === activeIndex ? 'bg-customOrange' : 'opacity-80'
 							}`}
 							onClick={() => handleItemClick(index)}
@@ -87,22 +86,25 @@ export function RemainingQuestions() {
 									{item.title}
 								</span>
 							</div>
-							<Image
-								src={index === activeIndex ? arrowUpWhileSmall : arrowUpGraySmall}
-								alt={'icon'}
-								className={`md:hidden block w-[18] h-[18]`}
-							/>
-							<Image
-								src={index === activeIndex ? arrowUpWhile : arrowUpGray}
-								alt={'icon'}
-								className={`md:block hidden w-[18] h-[18] md:w-[32] md:h-[32]`}
-							/>
+							<div className={'flex justify-center items-center w-[18px] h-[18px] md:w-[32px] md:h-[32px] '}>
+								<svg
+									viewBox="0 0 32 32"
+									xmlns="http://www.w3.org/2000/svg"
+									fill="none"
+									className={` ${index === activeIndex ? 'opacity-100 stroke-[#FAFAFA]' : 'stroke-[#2A333C] opacity-30'}`}
+								>
+									<path
+										d="M9.33203 22.6668L22.6654 9.3335M22.6654 9.3335H11.9987M22.6654 9.3335V20.0002"
+										strokeWidth="2"
+										strokeLinecap="round"
+										strokeLinejoin="round"
+									/>
+								</svg>
+							</div>
 						</div>
-						<span
-							className={`mt-4 block md:text-base text-xs font-normal text-[#2A333CB3] px-[25px] whitespace-pre-line ${index === activeIndex ? 'block' : 'hidden'}`}
-						>
+						<div className={`mt-4 md:text-base text-xs font-normal text-[#2A333CB3] px-[25px] ${index === activeIndex ? 'flex' : 'hidden'}`}>
 							{item.description}
-						</span>
+						</div>
 					</div>
 				))}
 			</div>
