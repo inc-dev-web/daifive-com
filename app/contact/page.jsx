@@ -10,7 +10,7 @@ import email from '@/public/image/icon/email.svg';
 
 export default function Contact() {
 	const items = [
-		{ title: 'Адреса', description: 'м. Ніжин, вул Василя Стуса 54а', icon: marker },
+		{ title: 'Адреса', description: 'м. Ніжин, Богдана Хмельницкого 37', icon: marker },
 		{ title: 'Телефон', description: '+380 96 123 45 67', icon: phone },
 		{ title: 'Email', description: 'dobirka@gmail.com', icon: email },
 	];
@@ -58,7 +58,7 @@ export default function Contact() {
 			</ul>
 			<div className="bg-[#FFF] rounded-[32px] p-4 lg:p-8 h-[520px]">
 				<iframe
-					src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2509.5198458097693!2d31.9047904!3d51.0250188!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x412a9d0c024ebd2d%3A0x1c9f4f4d510acf2f!2z0LLRg9C70LjRhtGPINCS0LDRgdC40LvRjyDQodGC0YPRgdCwLCA1NCwg0J3RltC20LjQvSwg0KfQtdGA0L3RltCz0ZbQstGB0YzQutCwINC-0LHQu9Cw0YHRgtGMLCAxNjYwMA!5e0!3m2!1suk!2sua!4v1701894934384!5m2!1suk!2sua"
+					src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2508.4823991915455!2d31.889865200000003!3d51.044179899999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x412a9db3c8ae9bfb%3A0xa6bfbf202000b972!2sVulytsya%20Bohdana%20Khmel%CA%B9nyts%CA%B9koho%2C%2037%2C%20Nizhyn%2C%20Chernihivs&#39;ka%20oblast%2C%2016601!5e0!3m2!1sen!2sua!4v1701940804073!5m2!1sen!2sua"
 					style={{ border: '0' }}
 					allowFullScreen=""
 					loading="lazy"

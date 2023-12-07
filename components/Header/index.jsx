@@ -69,7 +69,7 @@ export function Header() {
 						width={18}
 						height={18}
 					/>
-					<figcaption className="text-[10px] text-[#2A333C] opacity-70">Ніжин, вул Василя Стуса 54а, каб 15</figcaption>
+					<figcaption className="text-[10px] text-[#2A333C] opacity-70">м. Ніжин, Богдана Хмельницкого 37, 4 поверх, 25 кабінет</figcaption>
 				</figure>
 			</div>
 		</section>
