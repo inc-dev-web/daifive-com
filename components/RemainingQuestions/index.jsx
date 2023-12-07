@@ -62,9 +62,12 @@ export function RemainingQuestions() {
 					<h4 className=" text-xl font-bold text-[#2A333C] mt-4 mb-6 text-center">Відповіді на питання</h4>
 				</div>
 				{items.map((item, index) => (
-					<div key={index}>
+					<div
+						key={index}
+						className={'lg:max-w-[498px]'}
+					>
 						<div
-							className={`customHover cursor-pointer hover:bg-customOrange gap-2 lg:max-w-[498px] w-full md:gap-4 flex items-center justify-between bg-customLightGray rounded-[94px] h-[80px] px-[25px] ${
+							className={`customHover cursor-pointer hover:bg-customOrange gap-2 w-full md:gap-4 flex items-center justify-between bg-customLightGray rounded-[94px] h-[80px] px-[25px] ${
 								index === activeIndex ? 'bg-customOrange' : 'opacity-80'
 							}`}
 							onClick={() => handleItemClick(index)}
@@ -92,18 +95,16 @@ export function RemainingQuestions() {
 								>
 									<path
 										d="M9.33203 22.6668L22.6654 9.3335M22.6654 9.3335H11.9987M22.6654 9.3335V20.0002"
-										stroke-width="2"
-										stroke-linecap="round"
-										stroke-linejoin="round"
+										strokeWidth="2"
+										strokeLinecap="round"
+										strokeLinejoin="round"
 									/>
 								</svg>
 							</div>
 						</div>
-						<span
-							className={`mt-4 block md:text-base text-xs font-normal text-[#2A333CB3] px-[25px] ${index === activeIndex ? 'block' : 'hidden'}`}
-						>
+						<div className={`mt-4 md:text-base text-xs font-normal text-[#2A333CB3] px-[25px] ${index === activeIndex ? 'flex' : 'hidden'}`}>
 							{item.description}
-						</span>
+						</div>
 					</div>
 				))}
 			</div>

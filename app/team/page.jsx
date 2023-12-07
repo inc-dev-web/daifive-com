@@ -19,7 +19,6 @@ export default function Specialist() {
 		}
 		fetchData();
 	}, []);
-	console.log('@@@', specialists[1]?.attributes);
 	return (
 		<section className="px-4 pt-[39px] lg:pt-[50px] pb-[56px] lg:px-[100px] relative">
 			<Image

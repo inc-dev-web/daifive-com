@@ -7,16 +7,9 @@ import Image from 'next/image';
 import arrowUp from '@/public/image/icon/arrowUpRightOrange.svg';
 import arrow from '@/public/image/icon/arrowDown.svg';
 import arrowUpWhite from '@/public/image/icon/arrowUpWhite.svg';
-// import service1 from '@/public/image/service/service1.png';
-// import service2 from '@/public/image/service/service2.png';
-// import service3 from '@/public/image/service/service3.png';
-// import service4 from '@/public/image/service/service4.png';
-// import service5 from '@/public/image/service/service5.png';
-// import service6 from '@/public/image/service/service6.png';
 import ovalYellow from '@/public/image/Oval-yellow.png';
 import ovalRed from '@/public/image/Oval-red.png';
 import ovalGreen from '@/public/image/OvalGreenish.svg';
-// import whale from '@/public/image/whale.png';
 import child from '@/public/image/service/child.png';
 import arrowCheck from '@/public/image/icon/arrowChek.svg';
 import { GET } from '@/app/api/route';
@@ -72,7 +65,6 @@ export default function Page({ params }) {
 	};
 
 	const handleItemClick = (item, index) => {
-		console.log('item', item);
 		setSelectedItem(item);
 		if (screenWidth < 1024) {
 			setIsOpen(false);

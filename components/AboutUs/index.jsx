@@ -1,23 +1,22 @@
 'use client';
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import Image from 'next/image';
 import childCat from '@/public/image/childCat.png';
 import arrowRight from '@/public/image/icon/arrow-right.svg';
 import ovalRed from '@/public/image/Oval-red.png';
 import ovalYellow from '@/public/image/Oval-yellow.png';
 import ovalBlue from '@/public/image/Oval-blue.png';
+import Link from 'next/link';
 
 export function AboutUs() {
 	const content = [
 		{
 			title: 'Висококваліфіковані спеціалісти.',
-			content:
-				'В нашому центрі працюють сертифіковані ABA-спеціалісти, під керівництвом куратора та супервізора рівня BCBA',
+			content: 'В нашому центрі працюють сертифіковані ABA-спеціалісти, під керівництвом куратора та супервізора рівня BCBA',
 		},
 		{
 			title: 'Наушники форбрейн і саундсорі',
-			content:
-				'Навушники використовують для подолання сенсорних та мовленнєвих проблем, а також проблем концентрації уваги та памʼяті',
+			content: 'Навушники використовують для подолання сенсорних та мовленнєвих проблем, а також проблем концентрації уваги та памʼяті',
 		},
 		{
 			title: 'Пільгові програми',
@@ -97,7 +96,12 @@ export function AboutUs() {
 				</div>
 				<div className="w-full justify-center lg:justify-start flex">
 					<button className="font-bold md:text-base text-sm text-[#FAFAFA] bg-customBlue rounded-[42px] customBoxShadowBlu w-[270px] h-[48px] md:w-[316px] md:h-[56px]">
-						Замовити дзвінок!
+						<Link
+							href={`#consultation`}
+							className="flex h-full w-full items-center justify-center "
+						>
+							Замовити дзвінок!
+						</Link>
 					</button>
 				</div>
 			</div>

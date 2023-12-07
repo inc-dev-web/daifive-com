@@ -20,7 +20,6 @@ export default function Service() {
 		}
 		fetchData();
 	}, []);
-	console.log('services', services);
 	return (
 		<section className="px-4 pt-[39px] lg:pt-[50px] pb-[56px] lg:px-[100px] relative">
 			<Image
@@ -52,17 +51,17 @@ export default function Service() {
 			<div className="gap-3 lg:gap-4 my-4 mb-6 lg:mb-12">
 				<h1 className="text-2xl lg:text-3xl xl:text-5xl font-bold text-[#2A333C]">Послуги які ми надаємо</h1>
 			</div>
-			<div className="flex flex-col gap-6 md:gap-8 lg:flex-row lg:flex-wrap lg:justify-center xl:justify-start">
+			<div className="flex flex-col gap-6 md:gap-8 lg:flex-row lg:flex-wrap lg:justify-center xl:justify-start px-4 md:px-6 lg:px-0">
 				{services.map((item, index) => (
 					<div
 						key={index}
-						className="max-w-[392px] flex flex-col items-center"
+						className="w-[343px] lg:w-[392px] flex flex-col items-center "
 					>
-						<div className={`rounded-[32px] bg-white p-[16px]`}>
+						<div className={`px-4 md:px-6 pt-4 md:pt-6 rounded-[32px] bg-white md:w-[392px] md:h-[416px] w-full`}>
 							<img
 								src={`${baseUrl}${item?.attributes.preview?.data.attributes.url}`}
 								alt={'image'}
-								className="object-contain rounded-[20px]"
+								className="object-cover rounded-[20px] h-[260px] w-[311px] md:w-[343px] md:h-[300px]"
 							/>
 							<div className="mt-4 md:mt-6 flex justify-center">
 								<h4 className="text-[#2A333C] text-xl font-bold md:text-custom32">{item.attributes.titlle}</h4>

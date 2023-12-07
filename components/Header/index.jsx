@@ -4,7 +4,6 @@ import marketOrange from '@/public/image/icon/marger-orange.svg';
 import arrowRight from '@/public/image/icon/white-arrow-right.svg';
 import childrenImage from '@/public/image/childrenImage1.png';
 import childrenSm from '@/public/image/ghildrenMain.png';
-import Link from 'next/link';
 import { router } from 'next/client';
 
 export function Header() {

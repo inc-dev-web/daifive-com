@@ -44,7 +44,7 @@ export function Directions() {
 
 	return (
 		<section className="py-[100px] px-4 h-full lg:px-[50px] lg:py-[100px] xl:px-[100px] xl:py-[150px] flex flex-col lg:flex-row items-center relative">
-			<div className="lg:flex hidden bg-radiant-blue absolute rotate-[-120deg] bottom-[-100%] right-[-13%] md:w-[955px] md:h-[1095px]"></div>
+			<div className="lg:flex hidden bg-radiant-blue absolute rotate-[-120deg] bottom-[-50%] right-[-15%] md:w-[955px] md:h-[1095px]"></div>
 			<Image
 				alt={'image'}
 				src={ovalYellow}
@@ -71,9 +71,12 @@ export function Directions() {
 					</h4>
 				</div>
 				{items.map((item, index) => (
-					<div key={index}>
+					<div
+						key={index}
+						className="lg:max-w-[498px]"
+					>
 						<div
-							className={`customHover cursor-pointer hover:bg-customOrange gap-2 lg:max-w-[498px] w-full md:gap-4 flex items-center justify-between bg-customLightGray rounded-[94px] h-[80px] px-[25px] ${
+							className={`customHover cursor-pointer hover:bg-customOrange gap-2 w-full md:gap-4 flex items-center justify-between bg-customLightGray rounded-[94px] h-[80px] px-[25px] ${
 								index === activeIndex ? 'bg-customOrange' : 'opacity-80'
 							}`}
 							onClick={() => handleItemClick(index)}
@@ -101,9 +104,9 @@ export function Directions() {
 								>
 									<path
 										d="M9.33203 22.6668L22.6654 9.3335M22.6654 9.3335H11.9987M22.6654 9.3335V20.0002"
-										stroke-width="2"
-										stroke-linecap="round"
-										stroke-linejoin="round"
+										strokeWidth="2"
+										strokeLinecap="round"
+										strokeLinejoin="round"
 									/>
 								</svg>
 							</div>

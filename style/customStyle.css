@@ -146,7 +146,7 @@
 .customHover {
     &:hover {
         opacity: 1;
-        & div{
+        & div {
             & div {
                 opacity: 1;
                 background-color: #FFFFFF33;
