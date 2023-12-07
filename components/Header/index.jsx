@@ -4,12 +4,9 @@ import marketOrange from '@/public/image/icon/marger-orange.svg';
 import arrowRight from '@/public/image/icon/white-arrow-right.svg';
 import childrenImage from '@/public/image/childrenImage1.png';
 import childrenSm from '@/public/image/ghildrenMain.png';
-import { router } from 'next/client';
+import Link from "next/link";
 
 export function Header() {
-	const buttonClick = () => {
-		router.push('/services');
-	};
 	return (
 		<section className="h-full flex lg:pl-[100px] lg:flex-row flex-col">
 			<div className="px-4 lg:px-0 flex lg:items-start items-center justify-center lg:justify-start mt-[38px] lg:mt-[100px] flex-col w-full lg:w-[40%]">
@@ -22,14 +19,14 @@ export function Header() {
 					</p>
 				</div>
 				<button
-					className="lg:flex justify-center items-center hidden gap-4 bg-customOrange rounded-[60px] text-base h-[56px] w-[286px] text-[#FAFAFA] lg:mb-[90px] customBoxShadowOrange"
-					onClick={buttonClick}
-				>
+					className="lg:flex justify-center items-center hidden bg-customOrange rounded-[60px] text-base h-[56px] w-[286px] text-[#FAFAFA] lg:mb-[90px] customBoxShadowOrange">
+					<Link href='/services' className={'flex items-center justify-center gap-3 w-full h-full'}>
 					Почати
 					<Image
 						src={arrowRight}
 						alt={'icon'}
 					/>
+					</Link>
 				</button>
 				<figure className="lg:flex hidden items-center gap-4">
 					<Image
@@ -55,14 +52,15 @@ export function Header() {
 			</div>
 			<div className="lg:hidden flex justify-center items-center flex-col mt-[20px] mb-[58px] lg:mb-[55px]">
 				<button
-					className="flex justify-center items-center gap-3 w-[270px] h-[48px] bg-customOrange rounded-[60px] text-sm text-[#FAFAFA] mb-[24px] customBoxShadowOrange"
-					onClick={buttonClick}
+					className="flex justify-center items-center w-[270px] h-[48px] bg-customOrange rounded-[60px] text-sm text-[#FAFAFA] mb-[24px] customBoxShadowOrange"
 				>
+					<Link href='/services' className={'flex items-center justify-center gap-3 h-full w-full'}>
 					Почати
 					<Image
 						src={arrowRight}
 						alt={'icon'}
 					/>
+					</Link>
 				</button>
 				<figure className="flex items-center gap-2">
 					<Image

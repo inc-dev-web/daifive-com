@@ -44,7 +44,7 @@ export function Directions() {
 
 	return (
 		<section className="py-[100px] px-4 h-full lg:px-[50px] lg:py-[100px] xl:px-[100px] xl:py-[150px] flex flex-col lg:flex-row items-center relative">
-			<div className="lg:flex hidden bg-radiant-blue absolute rotate-[-120deg] bottom-[-50%] right-[-15%] md:w-[955px] md:h-[1095px]"></div>
+			<div className="-z-10 lg:flex hidden bg-radiant-blue absolute rotate-[-120deg] bottom-[-50%] right-[-15%] md:w-[955px] md:h-[1095px]"></div>
 			<Image
 				alt={'image'}
 				src={ovalYellow}
@@ -88,7 +88,7 @@ export function Directions() {
 									}`}
 								></div>
 								<span
-									className={`lg:text-2xl md:text-xl text-base font-bold text-[#2A333C] flex-1 ${
+									className={`flex-1 lg:text-2xl md:text-xl text-base font-bold text-[#2A333C] flex-1 ${
 										index === activeIndex ? 'text-[#FAFAFA] transition-opacity' : 'opacity-30'
 									}`}
 								>

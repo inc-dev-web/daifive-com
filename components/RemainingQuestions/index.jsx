@@ -79,7 +79,7 @@ export function RemainingQuestions() {
 									}`}
 								></div>
 								<span
-									className={`lg:text-2xl md:text-xl text-base font-bold text-[#2A333C] ${
+									className={`flex-1 lg:text-2xl md:text-xl text-base font-bold text-[#2A333C] ${
 										index === activeIndex ? 'text-[#FAFAFA] transition-opacity' : 'opacity-30'
 									}`}
 								>
