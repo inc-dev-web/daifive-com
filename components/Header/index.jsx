@@ -42,12 +42,12 @@ export function Header() {
 				<Image
 					src={childrenImage}
 					alt="image"
-					className="md:block hidden absolute left-[5%]"
+					className="lg:block hidden absolute left-[5%]"
 				/>
 				<Image
 					src={childrenSm}
 					alt="image"
-					className="object-contain w-full h-full md:hidden block"
+					className="object-contain w-full h-full lg:hidden block"
 				/>
 			</div>
 			<div className="lg:hidden flex justify-center items-center flex-col mt-[20px] mb-[58px] lg:mb-[55px]">

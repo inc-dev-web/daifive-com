@@ -1,6 +1,5 @@
 'use client';
 import React, { useState } from 'react';
-import childConsultant from '@/public/image/childConsultation.png';
 import ovalRed from '@/public/image/Oval-red.png';
 import ovalBlue from '@/public/image/Oval-blue.png';
 import ovalYellow from '@/public/image/Oval-yellow.png';
@@ -62,11 +61,6 @@ export function Consultation() {
 							Надіслати!
 						</button>
 					</div>
-					<Image
-						src={childConsultant}
-						alt={'img'}
-						className="w-[218px] md:w-[270px] lg:w-[380px] xl:w-[452px] bottom-[19.5%] sm:bottom-[15%] lg:bottom-[21%] md:bottom-[33%] xl:bottom-[20%] right-[15%] lg:right-[5%] md:right-[0%] sm:right-[35%] absolute md:rotate-0 rotate-[-10deg]"
-					/>
 				</div>
 				<Image
 					src={ovalRed}

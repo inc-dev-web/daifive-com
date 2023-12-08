@@ -2,11 +2,10 @@ import React from 'react';
 import Image from 'next/image';
 import ovalRed from '@/public/image/Oval-red.png';
 import ovalYellow from '@/public/image/Oval-yellow.png';
-import { BackButton } from '@/components/BackButton';
 import arrowOrange from '@/public/image/icon/light-orange-arrow.svg';
 import ovalGreen from '@/public/image/Oval-greenish.png';
 import Link from 'next/link';
-import { fetchAllServices } from '@/app/strapi';
+import { fetchAllServices } from '@/api/strapi';
 
 export default async function Service() {
 	const baseUrl = process.env.URL; 
@@ -39,7 +38,6 @@ export default async function Service() {
 				alt="icon"
 				className="lg:block hidden absolute w-[26px] h-[26px] top-[116px]  right-[472px] -z-10"
 			/>
-			<BackButton />
 			<div className="gap-3 lg:gap-4 my-4 mb-6 lg:mb-12">
 				<h1 className="text-2xl lg:text-3xl xl:text-5xl font-bold text-[#2A333C]">Послуги які ми надаємо</h1>
 			</div>
@@ -51,6 +49,7 @@ export default async function Service() {
 					>
 						<div className={`px-4 md:px-6 pt-4 md:pt-6 rounded-[32px] bg-white md:w-[392px] md:h-[416px] w-full`}>
 							<img
+								loading='lazy'
 								src={`${baseUrl}${item?.attributes.preview.data?.attributes.url}`}
 								alt={'image'}
 								className="object-cover rounded-[20px] h-[260px] w-[311px] md:w-[343px] md:h-[300px]"

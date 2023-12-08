@@ -7,7 +7,7 @@ import ovalRed from '@/public/image/Oval-red.png';
 import ovalGreen from '@/public/image/Oval-greenish.png';
 import child from '@/public/image/child.png';
 import arrowCheck from '@/public/image/icon/arrowChek.svg';
-import { fetchAllServices, fetchServiceById } from '@/app/strapi';
+import { fetchAllServices, fetchServiceById } from '@/api/strapi';
 import OtherServicesDropdown from '@/app/services/[id]/other-services-dropdown';
 
 export default async function Page({ params }) {
@@ -33,11 +33,12 @@ export default async function Page({ params }) {
 				alt="icon"
 				className="lg:block hidden absolute w-[26px] h-[26px] bottom-[317px] left-[302px] -z-10"
 			/>
-			<BackButton />
+			<BackButton prop={'/services'}/>
 			{
 				currentService?.attributes.imageTop?.data?.attributes.url &&
 					<div className="block rounded-[16px] bg-[#F3F6FA] w-full mt-8">
 						<img
+							loading='lazy'
 							src={`${baseUrl}${currentService?.attributes.imageTop?.data?.attributes.url}`}
 							alt={'img'}
 							className="object-cover w-full rounded-[16px]"
@@ -131,6 +132,7 @@ export default async function Page({ params }) {
 							<p className="opacity-70 text-sm text-[#2A333C] lg:text-base">{currentService?.attributes.descriptionOne}</p>
 							{currentService?.attributes.image?.data?.attributes?.url && (
 								<img
+									loading='lazy'
 									src={`${baseUrl}${currentService?.attributes.image.data.attributes.url}`}
 									alt="Image"
 									className="w-full my-8"

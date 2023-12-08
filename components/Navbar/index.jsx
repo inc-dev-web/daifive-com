@@ -67,18 +67,18 @@ export function Navbar() {
 					className="object-contain w-[24px] h-[24px]"
 				/>
 			</button>
-			<div className="md:flex hidden h-[48px] flex-row items-center w-[213px] justify-between py-[16px] px-[32px] text-sm bg-customOrangeLight rounded-[60px]">
-				<Image
-					src={iconPhone}
-					alt="phone"
-				/>
-				<a
-					href="tel:+380668262415"
-					className="text-customOrange"
-				>
-					+38 066 826 24 15
-				</a>
-			</div>
+			<a
+				href="tel:+380668262415"
+				className="md:flex hidden h-[48px] flex-row items-center w-[213px] justify-between py-[16px] px-[32px] text-sm bg-customOrangeLight rounded-[60px]"
+			>
+				<button className="flex items-center justify-between w-full h-full">
+					<Image
+						src={iconPhone}
+						alt="phone"
+					/>
+						<span className='text-customOrange'>+38 066 826 24 15</span>
+				</button>
+			</a>
 		</header>
 	);
 }

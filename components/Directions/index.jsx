@@ -43,7 +43,7 @@ export function Directions() {
 	};
 
 	return (
-		<section className="py-[100px] px-4 h-full lg:px-[50px] lg:py-[100px] xl:px-[100px] xl:py-[150px] flex flex-col lg:flex-row items-center relative">
+		<section className="py-[100px] px-4 lg:px-[50px] lg:py-[100px] xl:px-[100px] xl:py-[150px] flex flex-col lg:flex-row items-center relative h-auto">
 			<div className="-z-10 lg:flex hidden bg-radiant-blue absolute rotate-[-120deg] bottom-[-50%] right-[-15%] md:w-[955px] md:h-[1095px]"></div>
 			<Image
 				alt={'image'}

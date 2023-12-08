@@ -1,6 +1,5 @@
 'use client';
 import React, { useState, useEffect } from 'react';
-import { BackButton } from '@/components/BackButton';
 import Image from 'next/image';
 import arrow from '@/public/image/icon/arrowDown.svg';
 import arrowUp from '@/public/image/icon/arrowUpBlue.svg';
@@ -11,40 +10,47 @@ import ovalYellow from '@/public/image/Oval-yellow.png';
 import Link from 'next/link';
 import { GET } from '@/app/api/route';
 
+
+const initialState = {
+	screenWidth: null,
+	isOpen: false,
+	selectedItem: null,
+	isAllCategoriesSelected: true,
+};
+
 export default function Blog() {
 	const baseUrl = process.env.URL;
 
+	const [state, setState] = useState(initialState);
+	const [allArticles, setAllArticles] = useState([]);
 	const [itemsArticles, setItemsArticles] = useState([]);
-	const [isOpen, setIsOpen] = useState(false);
-	const [selectedItem, setSelectedItem] = useState(null);
-	const [screenWidth, setScreenWidth] = useState(null);
 	const [filteredArticles, setFilteredArticles] = useState([]);
+
 	const uniqueCategories = Array.from(new Set(itemsArticles.map(({ attributes }) => attributes.category)));
 
 	useEffect(() => {
 		async function fetchData() {
 			const response = await GET(`articles?populate=*`);
 			const data = await response.json();
+			setAllArticles(data.data);
 			setItemsArticles(data.data);
-		}
+		};
 
 		fetchData();
 	}, []);
 
 	useEffect(() => {
-		if (itemsArticles.length > 0) {
-			setSelectedItem(itemsArticles[0].attributes.category);
-		}
-	}, [itemsArticles]);
-
-	useEffect(() => {
-		setScreenWidth(window.innerWidth);
-
 		const handleResize = () => {
-			setScreenWidth(typeof window !== 'undefined' ? window.innerWidth : 0);
+			setState((prevState) => ({
+				...prevState,
+				screenWidth: typeof window !== 'undefined' ? window.innerWidth : 0,
+			}));
 		};
 
-		setScreenWidth(typeof window !== 'undefined' ? window.innerWidth : 0);
+		setState((prevState) => ({
+			...prevState,
+			screenWidth: typeof window !== 'undefined' ? window.innerWidth : 0,
+		}));
 		window.addEventListener('resize', handleResize);
 
 		return () => {
@@ -53,33 +59,51 @@ export default function Blog() {
 	}, []);
 
 	useEffect(() => {
-		setIsOpen(screenWidth >= 1024);
-	}, [screenWidth]);
+		setState((prevState) => ({
+			...prevState,
+			isOpen: window.innerWidth >= 1024,
+		}));
+	}, []);
 
 	useEffect(() => {
-		const defaultFiltered = itemsArticles.filter(({ attributes }) => attributes.category === selectedItem);
-		setFilteredArticles(defaultFiltered);
-	}, [selectedItem, itemsArticles]);
+		const { isAllCategoriesSelected, selectedItem } = state;
+
+		if (isAllCategoriesSelected) {
+			setFilteredArticles(allArticles);
+		} else {
+			const defaultFiltered = itemsArticles.filter(({ attributes }) => attributes.category === selectedItem);
+			setFilteredArticles(defaultFiltered);
+		}
+	}, [state.selectedItem, itemsArticles, state.isAllCategoriesSelected, allArticles]);
 
 	const toggleDropdown = () => {
+		const { screenWidth, isOpen } = state;
+
 		if (screenWidth < 1024 || !isOpen) {
-			setIsOpen(!isOpen);
+			setState((prevState) => ({ ...prevState, isOpen: !isOpen }));
 		}
 	};
 
 	const handleItemClick = (item) => {
-		setSelectedItem(item);
+		const { isAllCategoriesSelected, screenWidth } = state;
 
-		if (screenWidth < 1024) {
-			setIsOpen(false);
+		if (item === 'all' && isAllCategoriesSelected) {
+			return;
 		}
+
+		setState((prevState) => ({
+			...prevState,
+			isAllCategoriesSelected: item === 'all',
+			selectedItem: item,
+			isOpen: screenWidth < 1024 ? false : prevState.isOpen,
+		}));
 
 		const filtered = itemsArticles.filter(({ attributes }) => attributes.category === item);
 		setFilteredArticles(filtered);
 	};
+
 	return (
 		<section className="px-4 pt-[39px] pb-[68px] lg:pt-[50px] lg:pb-[118px] lg:px-[50px] xl:px-[100px] relative">
-			<BackButton />
 			<div className="gap-3 lg:gap-4 my-4 lg:mt-4 lg:mb-12">
 				<h1 className="text-2xl lg:text-3xl xl:text-5xl font-bold text-[#2A333C]">Read Our Articles</h1>
 				<p className="text-xs xl:text-base text-[#7D7D7D]">Powerful Trading Tools and Features for Experienced Investors</p>
@@ -92,42 +116,49 @@ export default function Blog() {
 					>
 						<div className="flex gap-3 justify-center items-center">
 							<div className="bg-blueRadianCustom w-[24px] h-[24px] flex justify-center items-center rounded-[32px]">
-								<Image
-									src={arrowUp}
-									alt="icon"
-								/>
+								<Image src={arrowUp} alt="icon" />
 							</div>
 							<span className="text-[#0B82FC] min-w-[268px] text-sm xl:text-base font-medium">
-								{selectedItem ? `${selectedItem}` : 'Category Name'}
-							</span>
+                {state.isAllCategoriesSelected ? 'Всі категорії' : (state.selectedItem ? `${state.selectedItem}` : 'Category Name')}
+              </span>
 						</div>
-						<Image
-							src={arrow}
-							alt={'icon'}
-							width={24}
-							height={24}
-						/>
+						<Image src={arrow} alt={'icon'} width={24} height={24} />
 					</div>
-					{isOpen && (
+					{state.isOpen && (
 						<ul className="flex gap-1 flex-col text-sm xl:text-base lg:p-6">
 							<h4 className="lg:block hidden text-[#2A333C] text-xl font-bold mb-4">Категорії</h4>
+							<li
+								className={`gap-[10px] flex hover:bg-[#F3F6FA] hover:[#0B82FC] hover:font-medium rounded-[70px] h-[48px] pl-[10px] items-center ${
+									state.isAllCategoriesSelected ? 'text-[#0B82FC] bg-[#F3F6FA]' : 'text-[#2a333c99]'
+								}`}
+								onClick={() => handleItemClick('all')}
+							>
+								<div
+									className={`w-[24px] h-[24px] flex justify-center items-center rounded-[32px] ${
+										state.isAllCategoriesSelected ? 'bg-blueRadianCustom' : 'bg-[#00000019]'
+									}`}
+								>
+									<Image
+										src={state.isAllCategoriesSelected ? arrowUp : arrowUpWhite}
+										alt="icon"
+									/>
+								</div>
+								Всі категорії
+							</li>
 							{uniqueCategories.map((item, index) => (
 								<li
 									className={`gap-[10px] flex hover:bg-[#F3F6FA] hover:[#0B82FC] hover:font-medium rounded-[70px] h-[48px] pl-[10px] items-center ${
-										selectedItem === item ? 'text-[#0B82FC] bg-[#F3F6FA]' : 'text-[#2a333c99]'
+										state.selectedItem === item ? 'text-[#0B82FC] bg-[#F3F6FA]' : 'text-[#2a333c99]'
 									}`}
 									key={index}
 									onClick={() => handleItemClick(item)}
 								>
 									<div
 										className={`w-[24px] h-[24px] flex justify-center items-center rounded-[32px] ${
-											selectedItem === item ? 'bg-blueRadianCustom' : 'bg-[#00000019]'
+											state.selectedItem === item ? 'bg-blueRadianCustom' : 'bg-[#00000019]'
 										}`}
 									>
-										<Image
-											src={selectedItem === item ? arrowUp : arrowUpWhite}
-											alt="icon"
-										/>
+										<Image src={state.selectedItem === item ? arrowUp : arrowUpWhite} alt="icon" />
 									</div>
 									{item}
 								</li>
@@ -144,6 +175,7 @@ export default function Blog() {
 						>
 							<picture className="bg-white p-3 rounded-[24px] max-w-[343px] max-h-[282px] lg:min-h-[318px] lg:max-h-[318px] lg:min-w-[318px] lg:max-w-[318px]">
 								<img
+									loading='lazy'
 									src={`${baseUrl}${item?.attributes.preview?.data.attributes.url}`}
 									alt="img"
 									className="object-center w-full h-full lg:min-h-[294px] lg:max-h-[294px] lg:min-w-[294px] lg:max-w-[294px]"

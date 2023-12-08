@@ -1,5 +1,4 @@
 import React from 'react';
-import { BackButton } from '@/components/BackButton';
 import Image from 'next/image';
 import ovalRed from '@/public/image/Oval-red.png';
 import ovalYellow from '@/public/image/Oval-yellow.png';
@@ -32,7 +31,6 @@ export default function Contact() {
 				alt="icon"
 				className="lg:hidden absolute w-[22px] h-[22px] top-[62px] right-[41px] -z-10"
 			/>
-			<BackButton />
 			<div className="gap-3 lg:gap-4 my-4 mb-6 lg:mb-12">
 				<h1 className="text-2xl lg:text-3xl xl:text-5xl font-bold text-[#2A333C]">Локація та контакти</h1>
 			</div>

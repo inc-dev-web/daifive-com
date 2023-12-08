@@ -37,7 +37,7 @@ export function RemainingQuestions() {
 		setActiveIndex(index);
 	};
 	return (
-		<section className="pt-[93px] px-4 lg:h-[764px] lg:px-[50px] lg:py-[100px] xl:px-[100px] xl:py-[150px] flex flex-col lg:flex-row items-center lg:justify-between relative">
+		<section className="pt-[93px] px-4 lg:h-auto lg:px-[50px] lg:py-[100px] xl:px-[100px] xl:py-[150px] flex flex-col lg:flex-row items-start lg:justify-between relative">
 			<Image
 				alt={'image'}
 				src={ovalYellow}
@@ -50,7 +50,7 @@ export function RemainingQuestions() {
 				height={17}
 				className="md:hidden block absolute bottom-[19%] right-[20%]"
 			/>
-			<div className={'gap-3 lg:gap-4 flex flex-col lg:mt-12 lg:w-[45%] w-full'}>
+			<div className={'gap-3 lg:gap-4 flex flex-col lg:w-[45%] w-full'}>
 				<div className="flex justify-center flex-col items-start relative">
 					<Image
 						src={ovalRed}
@@ -108,7 +108,7 @@ export function RemainingQuestions() {
 					</div>
 				))}
 			</div>
-			<div className={'w-full lg:w-2/4 relative flex justify-center mt-8 lg:mt-0 mb-[100px] lg:mb-0'}>
+			<div className={'w-full lg:w-2/4 relative flex justify-center items-start mt-8 lg:mt-0 mb-[100px] lg:mb-0'}>
 				<div className={'bg-radiant-orange absolute w-full h-full z-[-1] top-[0] lg:right-[-20%]'}></div>
 				<Image
 					src={childrenImage}

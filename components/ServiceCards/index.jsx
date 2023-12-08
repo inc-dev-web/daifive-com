@@ -71,7 +71,7 @@ export function ServiceCards() {
 			/>
 			<div className={'flex flex-col justify-center items-center md:flex-row gap-7 md:gap-8 md:absolute md:bottom-[150px] z-1 md:max-w-[1250px] w-full'}>
 				{card.map(({ title, image, background, shadow, rotate, margin, ellipse }, index) => (
-					<Link key={index} href={'/services'} className={'flex w-full h-full'}>
+					<Link key={index} href={'/services'} className={'flex w-full h-full justify-center items-center'}>
 					<div
 						className={`px-[20px] py-[22px] md:px-0 md:py-0 text-[#FFF] font-bold text-base md:text-2xl flex items-end md:justify-around md:flex-1 md:w-full w-[244px] h-[137px] md:h-[220px] rounded-[32px] md:pb-[32px] overflow-hidden cursor-pointer ${background} ${shadow} ${rotate} md:${margin} ${ellipse}`}
 						// onClick={router.push(`/services`)}

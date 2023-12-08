@@ -7,7 +7,7 @@ import ovalYellow from '@/public/image/Oval-yellow.png';
 import Image from 'next/image';
 import arrowBlue from '@/public/image/icon/ArrowRightBlue.svg';
 import Link from 'next/link';
-import { fetchArticleById, fetchLastArticles } from '@/app/strapi';
+import { fetchArticleById, fetchLastArticles } from '@/api/strapi';
 
 export default async function Articles({ params }) {
 	const baseUrl = process.env.URL;
@@ -25,13 +25,14 @@ export default async function Articles({ params }) {
 				alt="icon"
 				className="lg:block hidden w-[32px] h-[32px] absolute bottom-[105px] left-[93px] -z-10"
 			/>
-			<BackButton />
+			<BackButton prop={'/blog'}/>
 			<div className="flex flex-col pt-4 lg:flex-row-reverse gap-8">
 				<>
 					<div className="flex flex-col flex-1">
 						{
 							currentArticle?.attributes.imagePageTop?.data?.attributes.url &&
 								<img
+									loading='lazy'
 									src={`${baseUrl}${currentArticle?.attributes.imagePageTop?.data?.attributes.url}`}
 									alt="img"
 									className="object-cover min-h-[160px] max-h-[228px] mb-6 rounded-[16px] lg:rounded-[24px]"
@@ -43,6 +44,7 @@ export default async function Articles({ params }) {
 							<div className="flex flex-col gap-[20px] px-4 lg:flex-row lg: items-start justify-between">
 								<figure className="flex flex-row items-center gap-[6px] lg:gap-[16px] lg:mr-[270px] max-w-[253px]">
 									<img
+										loading='lazy'
 										src={`${baseUrl}${currentArticle?.attributes.authorIcon?.data?.attributes.url}`}
 										alt="img"
 										className="object-cover rounded-[32px] w-[32px] h-[32px] lg:w-[50px] lg:h-[50px]"
@@ -66,6 +68,7 @@ export default async function Articles({ params }) {
 								{
 									currentArticle?.attributes.imageText?.data && 
 										<img
+											loading='lazy'
 											src={`${baseUrl}${currentArticle?.attributes.imageText?.data.attributes.url}`}
 											alt="img"
 											className="mt-6 m w-full object-cover"
@@ -88,6 +91,7 @@ export default async function Articles({ params }) {
 							>
 								<picture className="flex p-3 bg-white rounded-[24px]">
 									<img
+										loading='lazy'
 										src={`${baseUrl}${article?.attributes.preview?.data.attributes.url}`}
 										alt="icon"
 										className="w-full object-cover"

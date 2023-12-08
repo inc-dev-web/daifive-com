@@ -1,9 +1,8 @@
-'use client';
 import Image from 'next/image';
 import arrowBlue from '@/public/image/icon/ArrowRightBlue.svg';
 import Link from 'next/link';
 import React from 'react';
-import { fetchLastArticles } from '@/app/strapi';
+import { fetchLastArticles } from '@/api/strapi';
 
 export async function Articles() {
 	const baseUrl = process.env.URL;
@@ -15,7 +14,7 @@ export async function Articles() {
 				<span className="font-bold lg:text-base text-xs text-customBlue uppercase">Що почитати?</span>
 				<h4 className="lg:text-custom32 text-xl font-bold text-[#2A333C] mt-4 mb-12">Ми написали для вас цікаві статті</h4>
 			</div>
-			<div className="mt-4 flex flex-col lg:flex-row lg:flex-wrap gap-8 lg:mt-0 items-start lg:justify-center">
+			<div className="mt-4 flex flex-row flex-wrap gap-8 lg:mt-0 items-start md:items-center justify-center">
 				{articles.map((article, index) => (
 					<div
 						className="flex flex-col xl:flex-row items-start xl:w-[calc(50%-32px)] xl:max-h-[247px]"
@@ -23,6 +22,7 @@ export async function Articles() {
 					>
 						<picture className="accent-amber-800 bg-white p-3 rounded-[24px] h-[282px] max-w-[286px] lg:h-[247px]">
 							<img
+								loading="lazy"
 								src={`${baseUrl}${article?.attributes.preview?.data.attributes.url}`}
 								alt="img"
 								className="object-cover rounded-[16px] w-[319px] h-[258px] lg:w-[255px] lg:h-[215px]"
