@@ -5,8 +5,6 @@ import Image from 'next/image';
 import ovalYellow from '@/public/image/Oval-yellow.png';
 import ovalRed from '@/public/image/Oval-red.png';
 import ovalGreen from '@/public/image/Oval-greenish.png';
-import child from '@/public/image/child.png';
-import arrowCheck from '@/public/image/icon/arrowChek.svg';
 import { fetchAllServices, fetchServiceById } from '@/app/strapi';
 import OtherServicesDropdown from '@/app/services/[id]/other-services-dropdown';
 
@@ -66,78 +64,78 @@ export default async function Page({ params }) {
 						</div>
 					</>
 				</div>
-				<div className="lg:hidden flex flex-col bg-white rounded-[32px] p-6">
-					<div className="relative h-[210px] flex mb-[22px] items-start">
-						<Image
-							loading="lazy"
-							src={child}
-							alt="icon"
-							className="absolute w-[295px] object-contain z-10"
-						/>
-					</div>
-					<div className="flex flex-col lg:justify-center gap-[14px]">
-						<h4 className="text-xl font-bold text-customOrange mb-[10px]">Кому підійде?</h4>
-						<>
-							<div className="gap-[14px]">
-								<div className="flex-1 flex flex-row justify-start">
-									<div className="gap-3 flex items-center w-[120px] lg:w-[50%] justify-between">
-										<span className="text-[#2A333C] text-[11px] opacity-30">Назва</span>
-									</div>
-									<Image
-										src={arrowCheck}
-										alt="icon"
-										className="mx-4"
-									/>
-									<span className="text-[#2A333C] text-xs flex w-full">{currentService?.attributes.titlle}</span>
-								</div>
-								<div className="flex-1 flex flex-row justify-start">
-									<div className="gap-3 flex items-center w-[120px] lg:w-[50%] justify-between">
-										<span className="text-[#2A333C] text-[11px] opacity-30">Назва</span>
-									</div>
-									<Image
-										src={arrowCheck}
-										alt="icon"
-										className="mx-4"
-									/>
-									<span className="text-[#2A333C] text-xs flex w-full">{currentService?.attributes.detailsCategorySmallDescription}</span>
-								</div>
-								<div className="flex-1 flex flex-row justify-start">
-									<div className="gap-3 flex items-center w-[120px] lg:w-[50%] justify-between">
-										<span className="text-[#2A333C] text-[11px] opacity-30">Вік</span>
-									</div>
-									<Image
-										src={arrowCheck}
-										alt="icon"
-										className="mx-4"
-									/>
-									<span className="text-[#2A333C] text-xs flex w-full">{currentService?.attributes.categoryAge}</span>
-								</div>
-								<div className="flex-1 flex flex-row justify-start">
-									<div className="gap-3 flex items-center w-[120px] lg:w-[50%] justify-between">
-										<span className="text-[#2A333C] text-[11px] opacity-30">Тривалість</span>
-									</div>
-									<Image
-										src={arrowCheck}
-										alt="icon"
-										className="mx-4"
-									/>
-									<span className="text-[#2A333C] text-xs flex w-full">{currentService?.attributes.durationLesson}</span>
-								</div>
-								<div className="flex-1 flex flex-row justify-start">
-									<div className="gap-3 flex items-center w-[120px] lg:w-[50%] justify-between">
-										<span className="text-[#2A333C] text-[11px] opacity-30">К-ть занять</span>
-									</div>
-									<Image
-										src={arrowCheck}
-										alt="icon"
-										className="mx-4"
-									/>
-									<span className="text-[#2A333C] text-xs flex w-full">{currentService?.attributes.countLessons}</span>
-								</div>
-							</div>
-						</>
-					</div>
-				</div>
+				{/*<div className="lg:hidden flex flex-col bg-white rounded-[32px] p-6">*/}
+				{/*	<div className="relative h-[210px] flex mb-[22px] items-start">*/}
+				{/*		<Image*/}
+				{/*			loading="lazy"*/}
+				{/*			src={child}*/}
+				{/*			alt="icon"*/}
+				{/*			className="absolute w-[295px] object-contain z-10"*/}
+				{/*		/>*/}
+				{/*	</div>*/}
+				{/*	<div className="flex flex-col lg:justify-center gap-[14px]">*/}
+				{/*		<h4 className="text-xl font-bold text-customOrange mb-[10px]">Кому підійде?</h4>*/}
+				{/*		<>*/}
+				{/*			<div className="gap-[14px]">*/}
+				{/*				<div className="flex-1 flex flex-row justify-start">*/}
+				{/*					<div className="gap-3 flex items-center w-[120px] lg:w-[50%] justify-between">*/}
+				{/*						<span className="text-[#2A333C] text-[11px] opacity-30">Назва</span>*/}
+				{/*					</div>*/}
+				{/*					<Image*/}
+				{/*						src={arrowCheck}*/}
+				{/*						alt="icon"*/}
+				{/*						className="mx-4"*/}
+				{/*					/>*/}
+				{/*					<span className="text-[#2A333C] text-xs flex w-full">{currentService?.attributes.titlle}</span>*/}
+				{/*				</div>*/}
+				{/*				<div className="flex-1 flex flex-row justify-start">*/}
+				{/*					<div className="gap-3 flex items-center w-[120px] lg:w-[50%] justify-between">*/}
+				{/*						<span className="text-[#2A333C] text-[11px] opacity-30">Назва</span>*/}
+				{/*					</div>*/}
+				{/*					<Image*/}
+				{/*						src={arrowCheck}*/}
+				{/*						alt="icon"*/}
+				{/*						className="mx-4"*/}
+				{/*					/>*/}
+				{/*					<span className="text-[#2A333C] text-xs flex w-full">{currentService?.attributes.detailsCategorySmallDescription}</span>*/}
+				{/*				</div>*/}
+				{/*				<div className="flex-1 flex flex-row justify-start">*/}
+				{/*					<div className="gap-3 flex items-center w-[120px] lg:w-[50%] justify-between">*/}
+				{/*						<span className="text-[#2A333C] text-[11px] opacity-30">Вік</span>*/}
+				{/*					</div>*/}
+				{/*					<Image*/}
+				{/*						src={arrowCheck}*/}
+				{/*						alt="icon"*/}
+				{/*						className="mx-4"*/}
+				{/*					/>*/}
+				{/*					<span className="text-[#2A333C] text-xs flex w-full">{currentService?.attributes.categoryAge}</span>*/}
+				{/*				</div>*/}
+				{/*				<div className="flex-1 flex flex-row justify-start">*/}
+				{/*					<div className="gap-3 flex items-center w-[120px] lg:w-[50%] justify-between">*/}
+				{/*						<span className="text-[#2A333C] text-[11px] opacity-30">Тривалість</span>*/}
+				{/*					</div>*/}
+				{/*					<Image*/}
+				{/*						src={arrowCheck}*/}
+				{/*						alt="icon"*/}
+				{/*						className="mx-4"*/}
+				{/*					/>*/}
+				{/*					<span className="text-[#2A333C] text-xs flex w-full">{currentService?.attributes.durationLesson}</span>*/}
+				{/*				</div>*/}
+				{/*				<div className="flex-1 flex flex-row justify-start">*/}
+				{/*					<div className="gap-3 flex items-center w-[120px] lg:w-[50%] justify-between">*/}
+				{/*						<span className="text-[#2A333C] text-[11px] opacity-30">К-ть занять</span>*/}
+				{/*					</div>*/}
+				{/*					<Image*/}
+				{/*						src={arrowCheck}*/}
+				{/*						alt="icon"*/}
+				{/*						className="mx-4"*/}
+				{/*					/>*/}
+				{/*					<span className="text-[#2A333C] text-xs flex w-full">{currentService?.attributes.countLessons}</span>*/}
+				{/*				</div>*/}
+				{/*			</div>*/}
+				{/*		</>*/}
+				{/*	</div>*/}
+				{/*</div>*/}
 			</div>
 		</section>
 	);

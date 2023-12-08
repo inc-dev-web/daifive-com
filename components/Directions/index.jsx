@@ -86,7 +86,9 @@ export function Directions() {
 									className={`w-[28px] h-[28px] lg:w-[48px] lg:h-[48px] rounded-[50%] flex items-center justify-center lg:text-2xl text-xl font-bold leading-none ${
 										index === activeIndex ? 'bg-[#FFFFFF33] text-white' : 'bg-[#2A333C33] opacity-30 text-[#2A333C]'
 									}`}
-								></div>
+								>
+									{index + 1}
+								</div>
 								<span
 									className={`flex-1 lg:text-2xl md:text-xl text-base font-bold text-[#2A333C] flex-1 ${
 										index === activeIndex ? 'text-[#FAFAFA] transition-opacity' : 'opacity-30'

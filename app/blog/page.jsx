@@ -12,6 +12,17 @@ import { GET } from '@/app/api/route';
 import { useWindowSize } from '@uidotdev/usehooks';
 
 export default function Blog() {
+	useEffect(() => {
+		async function fetchData() {
+			const response = await GET(`articles?populate=*`);
+			const data = await response.json();
+			setAllArticles(data.data);
+			setItemsArticles(data.data);
+		}
+
+		fetchData();
+	}, []);
+
 	const baseUrl = process.env.URL;
 	const { width: screenWidth } = useWindowSize();
 
@@ -23,17 +34,6 @@ export default function Blog() {
 	const [filteredArticles, setFilteredArticles] = useState([]);
 
 	const uniqueCategories = Array.from(new Set(itemsArticles.map(({ attributes }) => attributes.category)));
-
-	useEffect(() => {
-		async function fetchData() {
-			const response = await GET(`articles?populate=*`);
-			const data = await response.json();
-			setAllArticles(data.data);
-			setItemsArticles(data.data);
-		}
-
-		fetchData();
-	}, []);
 
 	useEffect(() => {
 		setIsOpen(screenWidth >= 1024);
@@ -66,7 +66,7 @@ export default function Blog() {
 	};
 
 	return (
-		<section className="px-4 pt-[39px] pb-[68px] lg:pt-[50px] lg:pb-[118px] lg:px-[50px] xl:px-[100px] relative">
+		<section className="px-4 pt-[39px] pb-[68px] lg:pt-[50px] lg:pb-[118px] lg:px-[50px] xl:px-[100px] relative min-h-[500px]">
 			<div className="gap-3 lg:gap-4 my-4 lg:mt-4 lg:mb-12">
 				<h1 className="text-2xl lg:text-3xl xl:text-5xl font-bold text-[#2A333C]">Читайте наші статті</h1>
 				{/*<p className="text-xs xl:text-base text-[#7D7D7D]">Powerful Trading Tools and Features for Experienced Investors</p>*/}
@@ -78,13 +78,14 @@ export default function Blog() {
 						onClick={toggleDropdown}
 					>
 						<div className="flex gap-3 justify-center items-center">
-							<div className="bg-blueRadianCustom w-[24px] h-[24px] flex justify-center items-center rounded-[32px]">
+							<div className="bg-customOrangeLight w-[24px] h-[24px] flex justify-center items-center rounded-[32px]">
 								<Image
 									src={arrowUp}
 									alt="icon"
+									className="object-center max-h-[343px] min-h-[230px] h-full"
 								/>
 							</div>
-							<span className="text-[#0B82FC] min-w-[268px] text-sm xl:text-base font-medium">
+							<span className={`text-[#0B82FC] min-w-[268px] text-sm xl:text-base font-medium`}>
 								{isAllCategoriesSelected ? 'Всі категорії' : selectedItem ? `${selectedItem}` : 'Category Name'}
 							</span>
 						</div>
@@ -99,7 +100,7 @@ export default function Blog() {
 						<ul className="flex gap-1 flex-col text-sm xl:text-base lg:p-6">
 							<h4 className="lg:block hidden text-[#2A333C] text-xl font-bold mb-4">Категорії</h4>
 							<li
-								className={`gap-[10px] flex hover:bg-[#F3F6FA] hover:[#0B82FC] hover:font-medium rounded-[70px] h-[48px] pl-[10px] items-center ${
+								className={`hover:cursor-pointer gap-[10px] flex hover:bg-[#F3F6FA] hover:[#0B82FC] hover:font-medium rounded-[70px] h-[48px] pl-[10px] items-center ${
 									isAllCategoriesSelected ? 'text-[#0B82FC] bg-[#F3F6FA]' : 'text-[#2a333c99]'
 								}`}
 								onClick={() => handleItemClick('all')}
@@ -118,7 +119,7 @@ export default function Blog() {
 							</li>
 							{uniqueCategories.map((item, index) => (
 								<li
-									className={`gap-[10px] flex hover:bg-[#F3F6FA] hover:[#0B82FC] hover:font-medium rounded-[70px] h-[48px] pl-[10px] items-center ${
+									className={`hover:cursor-pointer gap-[10px] flex hover:bg-[#F3F6FA] hover:[#0B82FC] hover:font-medium rounded-[70px] h-[48px] pl-[10px] items-center ${
 										selectedItem === item ? 'text-[#0B82FC] bg-[#F3F6FA]' : 'text-[#2a333c99]'
 									}`}
 									key={index}
@@ -147,12 +148,12 @@ export default function Blog() {
 							className="flex flex-col lg:flex-row lg:items-center lg:w-full lg:max-h-[318px] lg:min-h-[318px]"
 							key={index}
 						>
-							<picture className="bg-white p-3 rounded-[24px] max-w-[343px] max-h-[282px] lg:min-h-[318px] lg:max-h-[318px] lg:min-w-[318px] lg:max-w-[318px]">
+							<picture className="bg-white p-3 lg:p-6 rounded-[24px] max-w-[343px] max-h-[282px] lg:min-h-[318px] lg:max-h-[318px] lg:min-w-[318px] lg:max-w-[318px]">
 								<img
 									loading="lazy"
 									src={`${baseUrl}${item?.attributes.preview?.data.attributes.url}`}
 									alt="img"
-									className="object-center w-full h-full lg:min-h-[294px] lg:max-h-[294px] lg:min-w-[294px] lg:max-w-[294px]"
+									className="object-cover h-[258px] w-full lg:h-[269px] lg:w-[269px] rounded-[16px]"
 								/>
 							</picture>
 							<div className="flex flex-col px-5 lg:px-0 lg:pl-5 gap-3 max-w-[350px] lg:max-w-full">
