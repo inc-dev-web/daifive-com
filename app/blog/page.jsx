@@ -9,11 +9,12 @@ import ovalRed from '@/public/image/Oval-red.png';
 import ovalYellow from '@/public/image/Oval-yellow.png';
 import Link from 'next/link';
 import { GET } from '@/app/api/route';
+import { useWindowSize } from '@uidotdev/usehooks';
 
 export default function Blog() {
 	const baseUrl = process.env.URL;
+	const { width: screenWidth } = useWindowSize();
 
-	const [screenWidth, setScreenWidth] = useState(null);
 	const [isOpen, setIsOpen] = useState(false);
 	const [selectedItem, setSelectedItem] = useState(null);
 	const [isAllCategoriesSelected, setIsAllCategoriesSelected] = useState(true);
@@ -35,19 +36,6 @@ export default function Blog() {
 	}, []);
 
 	useEffect(() => {
-		const handleResize = () => {
-			setScreenWidth(typeof window !== 'undefined' ? window.innerWidth : 0);
-		};
-
-		setScreenWidth(typeof window !== 'undefined' ? window.innerWidth : 0);
-		window.addEventListener('resize', handleResize);
-
-		return () => {
-			window.removeEventListener('resize', handleResize);
-		};
-	}, []);
-
-	useEffect(() => {
 		setIsOpen(screenWidth >= 1024);
 	}, [screenWidth]);
 
@@ -62,7 +50,7 @@ export default function Blog() {
 
 	const toggleDropdown = () => {
 		if (screenWidth < 1024 || !isOpen) {
-			setIsOpen((prevIsOpen) => !prevIsOpen);
+			setIsOpen(!isOpen);
 		}
 	};
 
@@ -70,12 +58,10 @@ export default function Blog() {
 		if (item === 'all' && isAllCategoriesSelected) {
 			return;
 		}
-
 		setIsAllCategoriesSelected(item === 'all');
 		setSelectedItem(item);
-		setIsOpen((prevIsOpen) => (screenWidth < 1024 ? false : prevIsOpen));
 
-		const filtered = itemsArticles.filter(({ attributes }) => attributes.category === item);
+		const filtered = itemsArticles.filter(({ attributes }) => isAllCategoriesSelected || attributes.category === item);
 		setFilteredArticles(filtered);
 	};
 
