@@ -1,3 +1,5 @@
+export const runtime = 'edge';
+
 const fetchStrapiApiEndpoint = async (url) => {
 	const response = await fetch(`${process.env.API_URL}/${url}`);
   return (await response.json()).data
