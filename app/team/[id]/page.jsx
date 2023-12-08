@@ -80,7 +80,7 @@ export default async function Resume({ params }) {
 					<div className="md:mt-8 px-4 md:px-6 py-6 flex flex-col gap-8 lg:gap-10 bg-white rounded-[32px]">
 						<div>
 							<span className="text-customBlue text-sm lg:text-base">Освіта</span>
-							<h4 className="text-[#2A333C] text-xl font-bold mt-[6px] lg:text-custom32">Важлива інформейшн</h4>
+							<h4 className="text-[#2A333C] text-xl font-bold mt-[6px] lg:text-custom32">Сертифікація</h4>
 							<p className="opacity-70 text-sm text-[#2A333C] mt-[14px] lg:text-base">
 								I’m always trying to think of new and interesting business ideas. I generally try to come up with ideas I’m always trying to
 								think of new and interesting business ideas. I generally try to come up with ideas.
