@@ -192,7 +192,7 @@ export default function Blog() {
 			<Image
 				src={ovalRed}
 				alt="icon"
-				className="lg:block hidden w-[21px] h-[21px] absolute -z-10 right-[-120px] bottom-[34%]"
+				className="lg:block hidden w-[21px] h-[21px] absolute -z-10 right-[34px] bottom-[34%]"
 			/>
 			<Image
 				src={ovalYellow}
