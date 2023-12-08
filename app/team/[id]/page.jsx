@@ -19,7 +19,7 @@ export default async function Resume({ params }) {
 			/>
 			<BackButton prop={'/team'} />
 			<div className="lg:mt-8 flex flex-col-reverse desktop:flex-row desktop:gap-8">
-				<div className="flex flex-wrap justify-start gap-10 mt-6 w-full desktop:w-[278px] desktop:max-h-[1000px] desktop:overflow-y-scroll">
+				<div className="flex flex-wrap justify-start gap-10 mt-6 w-full desktop:w-[278px] desktop:max-h-[1200px] desktop:overflow-y-scroll">
 					{specialists
 						.filter((item) => item.id != params.id)
 						.map((people, key) => (
@@ -70,23 +70,23 @@ export default async function Resume({ params }) {
 									{singleSpecialist?.attributes?.name}
 								</h4>
 								{/* <span className="opacity-70 text-sm lg:text-base text-[#2A333C]">2I’m always trying to them always trying</span> */}
-								<p className="opacity-70 text-sm lg:text-base text-[#2A333C] mt-4 lg:mt-8">{singleSpecialist?.attributes?.description}</p>
+								<p className="opacity-70 text-sm lg:text-base  text-[#2A333C] mt-4 lg:mt-8">{singleSpecialist?.attributes?.description}</p>
 							</div>
 							<button className="mt-8 lg:mt-10 rounded-[92px] w-[270px] lg:w-[286px] h-[48px] lg:h-[56px] items-center justify-center font-bold text-sm lg:text-base text-white bg-customOrange customBoxShadowOrange">
 								Записатися
 							</button>
 						</div>
 					</div>
-					<div className="md:mt-8 px-4 md:px-6 py-6 flex flex-col bg-white rounded-[32px]">
+					<div className="md:mt-8 px-4 md:px-6 py-6 flex flex-col gap-8 lg:gap-10 bg-white rounded-[32px]">
 						<div>
 							<span className="text-customBlue text-sm lg:text-base">Освіта</span>
-							{/*<h4 className="text-[#2A333C] text-xl font-bold mt-[6px] lg:text-custom32">Важлива інформейшн</h4>*/}
-							{/*<p className="opacity-70 text-sm text-[#2A333C] mt-[14px] lg:text-base">*/}
-							{/*	I’m always trying to think of new and interesting business ideas. I generally try to come up with ideas I’m always trying to*/}
-							{/*	think of new and interesting business ideas. I generally try to come up with ideas.*/}
-							{/*</p>*/}
+							<h4 className="text-[#2A333C] text-xl font-bold mt-[6px] lg:text-custom32">Сертифікація</h4>
+							<p className="opacity-70 text-sm text-[#2A333C] mt-[14px] lg:text-base">
+								I’m always trying to think of new and interesting business ideas. I generally try to come up with ideas I’m always trying to
+								think of new and interesting business ideas. I generally try to come up with ideas.
+							</p>
 						</div>
-						<div className="mt-2 gap-8 flex flex-col md:flex-row-reverse md:items-center md:justify-end">
+						<div className="gap-8 flex flex-col md:flex-row-reverse md:items-center md:justify-end">
 							<div className="flex flex-col lg:justify-center gap-[14px] flex-1">
 								<h4 className="text-[#2A333C] text-xl font-bold mb-[18px] lg:text-2xl">Персональні деталі</h4>
 								<div className="flex-1 flex flex-row justify-start">
