@@ -41,13 +41,13 @@ export function AboutUs() {
 		<section className="flex lg:flex-row lg:h-[768px] h-auto flex-col lg:items-center items-start gap-[23px] overflow-hidden relative pt-[50px] lg:pt-0 pb-[96px] lg:pb-0">
 			<div className="max-w-[710px] flex-1 w-full h-full mt-[-12px] relative flex -mb-[78px]">
 				<Image
-					loading='lazy'
+					loading="lazy"
 					src={childCat}
 					className="hidden md:block w-full h-full object-contain lg:absolute"
 					alt="img"
 				/>
 				<Image
-					loading='lazy'
+					loading="lazy"
 					src={childCatSmall}
 					className="md:hidden w-full h-full object-contain lg:absolute"
 					alt="img"
@@ -98,8 +98,13 @@ export function AboutUs() {
 							className={`text-2xl ${animate ? 'animate-slideRight' : ''}`}
 							onAnimationEnd={onAnimationEnd}
 						>
-							<h4 className="lg:text-custom32 md:text-2xl text-xl font-bold text-[#2A333C] mb-4">{content[(currentIndex - 1 + content.length) % content.length].title}</h4>
-							<p className="text-[#2A333CB2] font-normal leading-[normal] lg:text-lg md:text-base text-sm"> {content[(currentIndex - 1 + content.length) % content.length].content}</p>
+							<h4 className="lg:text-custom32 md:text-2xl text-xl font-bold text-[#2A333C] mb-4">
+								{content[(currentIndex - 1 + content.length) % content.length].title}
+							</h4>
+							<p className="text-[#2A333CB2] font-normal leading-[normal] lg:text-lg md:text-base text-sm">
+								{' '}
+								{content[(currentIndex - 1 + content.length) % content.length].content}
+							</p>
 						</div>
 					</div>
 				</div>

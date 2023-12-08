@@ -1,23 +1,14 @@
-'use client'
-import React, {useEffect, useState} from 'react';
 import arrowOrange from '@/public/image/icon/light-orange-arrow.svg';
 import Image from 'next/image';
 import ovalRed from '@/public/image/Oval-red.png';
 import ovalYellow from '@/public/image/Oval-yellow.png';
 import Link from 'next/link';
-import { GET } from '@/app/api/route';
+import { fetchAllSpecialists } from '@/app/strapi';
 
-export default function Specialist() {
+export default async function Specialist() {
 	const baseUrl = process.env.URL;
-	const [specialists, setSpecialists] = useState([]);
-	useEffect(() => {
-		async function fetchData() {
-			const response = await GET('specialists?populate=*');
-			const data = await response.json();
-			setSpecialists(data.data);
-		}
-		fetchData();
-	}, []);
+	const specialists = await fetchAllSpecialists();
+
 	return (
 		<section className="px-4 pt-[39px] lg:pt-[50px] pb-[56px] lg:px-[100px] relative">
 			<Image
@@ -33,8 +24,7 @@ export default function Specialist() {
 			<div className="gap-3 lg:gap-4 my-4 mb-6 lg:mb-12">
 				<h1 className="text-2xl lg:text-3xl xl:text-5xl font-bold text-[#2A333C]">Наші спеціалісти</h1>
 			</div>
-			<div
-				className="flex gap-6 md:gap-8 flex-row flex-wrap justify-between">
+			<div className="flex gap-6 md:gap-8 flex-row flex-wrap justify-between">
 				{specialists.map((specialist, index) => (
 					<div
 						key={index}
@@ -46,8 +36,8 @@ export default function Specialist() {
 							}`}
 						>
 							<img
-								loading='lazy'
-								src={`${baseUrl}${specialist.attributes.photoSpecialist?.data?.attributes.formats.small.url}`}
+								loading="lazy"
+								src={`${baseUrl}${specialist.attributes.photoSpecialist?.data?.attributes?.url}`}
 								alt={'image'}
 								className="absolute w-full h-[380px] md:w-[308px] md:h-[442px] bottom-0 object-cover rounded-[24px]"
 							/>
@@ -57,10 +47,8 @@ export default function Specialist() {
 							<p className="text-base text-[#2A333C] md:text-2xl line-clamp-1">{specialist.attributes.position}</p>
 						</div>
 						<Link href={`/team/${specialist.id}`}>
-							<button
-								className="flex justify-center items-center gap-2 bg-customOrangeLight rounded-[92px] w-[270px] md:w-[316px] h-[48px] md:h-[56px] mt-6 md:mt-8">
-								<span
-									className="text-customOrange font-bold text-sm md:text-base">Дізнатись більше</span>
+							<button className="flex justify-center items-center gap-2 bg-customOrangeLight rounded-[92px] w-[270px] md:w-[316px] h-[48px] md:h-[56px] mt-6 md:mt-8">
+								<span className="text-customOrange font-bold text-sm md:text-base">Дізнатись більше</span>
 								<Image
 									src={arrowOrange}
 									alt={'icon'}

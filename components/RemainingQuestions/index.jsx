@@ -15,11 +15,13 @@ export function RemainingQuestions() {
 		},
 		{
 			title: 'Дитина не розмовляє, з чого краще почати? ',
-			description: 'В першу чергу, ви маєте звернутись на загальну діагностичну консультацію до куратора Центру, на якій вас зорієнтують с чого вам почати взалежності від хароактеру порушень, та особлиовстей дитини.',
+			description:
+				'В першу чергу, ви маєте звернутись на загальну діагностичну консультацію до куратора Центру, на якій вас зорієнтують с чого вам почати взалежності від хароактеру порушень, та особлиовстей дитини.',
 		},
 		{
 			title: 'Яка терапія краще?',
-			description: 'Найкращим для вашої дитини, буде відвідування різних спеціалістів. Тобто системне там мультидисциплінарне втручання яке допоможе компенсувати та виправити всі дефіцити її розвитку. Тобто найркращим буде відвідувати різні терапії одночасно.',
+			description:
+				'Найкращим для вашої дитини, буде відвідування різних спеціалістів. Тобто системне там мультидисциплінарне втручання яке допоможе компенсувати та виправити всі дефіцити її розвитку. Тобто найркращим буде відвідувати різні терапії одночасно.',
 		},
 		{
 			title: 'У вас групові чи індивідуальні зайняття?',
@@ -27,7 +29,8 @@ export function RemainingQuestions() {
 		},
 		{
 			title: 'До вас ходять тільки діти з аутизмом? ',
-			description: 'Ні. До нас звертаються діти з різними порушеннями психічного і мовленнєвого розвитку:\n\n- аутизм (всі різновидності)\n- РДУГ\n- Синдром Дауна\n- ДЦП\n- ЗМР\n- ЗПР\n- всі види логопедичних порушень (такі як діспраксія, \n- Діти які маюсть проблеми з навчанням, соціалізацією, і тд.',
+			description:
+				'Ні. До нас звертаються діти з різними порушеннями психічного і мовленнєвого розвитку:\n\n- аутизм (всі різновидності)\n- РДУГ\n- Синдром Дауна\n- ДЦП\n- ЗМР\n- ЗПР\n- всі види логопедичних порушень (такі як діспраксія, \n- Діти які маюсть проблеми з навчанням, соціалізацією, і тд.',
 		},
 	];
 
@@ -102,7 +105,11 @@ export function RemainingQuestions() {
 								</svg>
 							</div>
 						</div>
-						<div className={`mt-4 md:text-base text-xs font-normal text-[#2A333CB3] px-[25px] whitespace-pre-line ${index === activeIndex ? 'flex' : 'hidden'}`}>
+						<div
+							className={`mt-4 md:text-base text-xs font-normal text-[#2A333CB3] px-[25px] whitespace-pre-line ${
+								index === activeIndex ? 'flex' : 'hidden'
+							}`}
+						>
 							{item.description}
 						</div>
 					</div>
@@ -111,11 +118,13 @@ export function RemainingQuestions() {
 			<div className={'w-full lg:w-2/4 relative flex justify-center items-start mt-8 lg:mt-0 mb-[100px] lg:mb-0'}>
 				<div className={'bg-radiant-orange absolute w-full h-full z-[-1] top-[0] lg:right-[-20%]'}></div>
 				<Image
+					loading="lazy"
 					src={childrenImage}
 					alt={'img'}
 					className={'lg:block hidden max-h-[578px]'}
 				/>
 				<Image
+					loading="lazy"
 					src={childrenImageSmall}
 					alt={'img'}
 					className={'lg:hidden block object-cover md:max-h-[420px] md:max-w-[322px] max-h-[365px] max-w-[292px] -ml-[20px]'}

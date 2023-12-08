@@ -6,51 +6,54 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+    --foreground-rgb: 0, 0, 0;
+    --background-start-rgb: 214, 219, 220;
+    --background-end-rgb: 255, 255, 255;
 }
 
 body {
-  font-family: 'Ubuntu', sans-serif !important;
-  background-color: #FAFAFA !important;
-  margin: 0 auto;
-  max-width: 1440px;
-  > main {
-    width: 100%;
-  }
+    font-family: 'Ubuntu', sans-serif !important;
+    background-color: #FAFAFA !important;
+    margin: 0 auto;
+    max-width: 1440px;
+
+    > main {
+        width: 100%;
+    }
 }
 
 section {
-  overflow: hidden;
+    overflow: hidden;
+    @media (min-width: 1440px) {
+        overflow: visible;
+    }
 }
 
 button {
-  &:hover {
-    opacity: 0.7;
-  }
+    &:hover {
+        opacity: 0.7;
+    }
 }
 
 html {
-  scroll-behavior: smooth;
+    scroll-behavior: smooth;
 }
 
 * {
-  transition: .25s all;
+    transition: .25s all;
 }
 
 @keyframes slideRight {
-  from {
-    opacity: 0;
-    /*transform: translateX(-50%);*/
-    transform: translateX(-50%);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
+    from {
+        opacity: 0;
+        transform: translateX(-80%);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
 }
 
 .animate-slideRight {
-  animation: slideRight 0.5s forwards;
+    animation: slideRight 0.5s forwards;
 }

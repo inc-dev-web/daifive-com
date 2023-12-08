@@ -1,5 +1,5 @@
 'use client';
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import arrow from '@/public/image/icon/arrowDown.svg';
 import arrowUp from '@/public/image/icon/arrowUpBlue.svg';
@@ -9,7 +9,6 @@ import ovalRed from '@/public/image/Oval-red.png';
 import ovalYellow from '@/public/image/Oval-yellow.png';
 import Link from 'next/link';
 import { GET } from '@/app/api/route';
-
 
 const initialState = {
 	screenWidth: null,
@@ -34,7 +33,7 @@ export default function Blog() {
 			const data = await response.json();
 			setAllArticles(data.data);
 			setItemsArticles(data.data);
-		};
+		}
 
 		fetchData();
 	}, []);
@@ -105,8 +104,8 @@ export default function Blog() {
 	return (
 		<section className="px-4 pt-[39px] pb-[68px] lg:pt-[50px] lg:pb-[118px] lg:px-[50px] xl:px-[100px] relative">
 			<div className="gap-3 lg:gap-4 my-4 lg:mt-4 lg:mb-12">
-				<h1 className="text-2xl lg:text-3xl xl:text-5xl font-bold text-[#2A333C]">Read Our Articles</h1>
-				<p className="text-xs xl:text-base text-[#7D7D7D]">Powerful Trading Tools and Features for Experienced Investors</p>
+				<h1 className="text-2xl lg:text-3xl xl:text-5xl font-bold text-[#2A333C]">Читайте наші статті</h1>
+				{/*<p className="text-xs xl:text-base text-[#7D7D7D]">Powerful Trading Tools and Features for Experienced Investors</p>*/}
 			</div>
 			<div className="flex flex-col items-center lg:flex-row lg:items-start lg:gap-[32px]">
 				<div className={`w-full lg:max-w-[360px] bg-white rounded-[23px] lx:p-24`}>
@@ -116,13 +115,21 @@ export default function Blog() {
 					>
 						<div className="flex gap-3 justify-center items-center">
 							<div className="bg-blueRadianCustom w-[24px] h-[24px] flex justify-center items-center rounded-[32px]">
-								<Image src={arrowUp} alt="icon" />
+								<Image
+									src={arrowUp}
+									alt="icon"
+								/>
 							</div>
 							<span className="text-[#0B82FC] min-w-[268px] text-sm xl:text-base font-medium">
-                {state.isAllCategoriesSelected ? 'Всі категорії' : (state.selectedItem ? `${state.selectedItem}` : 'Category Name')}
-              </span>
+								{state.isAllCategoriesSelected ? 'Всі категорії' : state.selectedItem ? `${state.selectedItem}` : 'Category Name'}
+							</span>
 						</div>
-						<Image src={arrow} alt={'icon'} width={24} height={24} />
+						<Image
+							src={arrow}
+							alt={'icon'}
+							width={24}
+							height={24}
+						/>
 					</div>
 					{state.isOpen && (
 						<ul className="flex gap-1 flex-col text-sm xl:text-base lg:p-6">
@@ -158,7 +165,10 @@ export default function Blog() {
 											state.selectedItem === item ? 'bg-blueRadianCustom' : 'bg-[#00000019]'
 										}`}
 									>
-										<Image src={state.selectedItem === item ? arrowUp : arrowUpWhite} alt="icon" />
+										<Image
+											src={state.selectedItem === item ? arrowUp : arrowUpWhite}
+											alt="icon"
+										/>
 									</div>
 									{item}
 								</li>
@@ -175,7 +185,7 @@ export default function Blog() {
 						>
 							<picture className="bg-white p-3 rounded-[24px] max-w-[343px] max-h-[282px] lg:min-h-[318px] lg:max-h-[318px] lg:min-w-[318px] lg:max-w-[318px]">
 								<img
-									loading='lazy'
+									loading="lazy"
 									src={`${baseUrl}${item?.attributes.preview?.data.attributes.url}`}
 									alt="img"
 									className="object-center w-full h-full lg:min-h-[294px] lg:max-h-[294px] lg:min-w-[294px] lg:max-w-[294px]"
@@ -208,7 +218,7 @@ export default function Blog() {
 					))}
 				</div>
 			</div>
-			<div className="lg:block hidden customRotate bg-radiant-blue absolute w-[900px] h-[500px] bottom-[0%] left-[-15%] -z-10"></div>
+			<div className="lg:block hidden customRotate bg-radiant-blue absolute w-[600px] h-[600px] bottom-[0%] left-[0] -z-10"></div>
 			<Image
 				src={ovalRed}
 				alt="icon"

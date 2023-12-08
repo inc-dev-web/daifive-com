@@ -4,7 +4,7 @@ import marketOrange from '@/public/image/icon/point-orange.svg';
 import arrowRight from '@/public/image/icon/white-arrow-right.svg';
 import childrenImage from '@/public/image/childrenMain.png';
 import childrenSm from '@/public/image/childrenMainSmall.png';
-import Link from "next/link";
+import Link from 'next/link';
 
 export function Header() {
 	return (
@@ -18,14 +18,16 @@ export function Header() {
 						Коррекційно реаілітацвійний центр, який працює з дітьми. З порушеннями психічного та мовленвого розвитку.
 					</p>
 				</div>
-				<button
-					className="lg:flex justify-center items-center hidden bg-customOrange rounded-[60px] text-base h-[56px] w-[286px] text-[#FAFAFA] lg:mb-[90px] customBoxShadowOrange">
-					<Link href='/services' className={'flex items-center justify-center gap-3 w-full h-full'}>
-					Почати
-					<Image
-						src={arrowRight}
-						alt={'icon'}
-					/>
+				<button className="lg:flex justify-center items-center hidden bg-customOrange rounded-[60px] text-base h-[56px] w-[286px] text-[#FAFAFA] lg:mb-[90px] customBoxShadowOrange">
+					<Link
+						href="/services"
+						className={'flex items-center justify-center gap-3 w-full h-full'}
+					>
+						Почати
+						<Image
+							src={arrowRight}
+							alt={'icon'}
+						/>
 					</Link>
 				</button>
 				<figure className="lg:flex hidden items-center gap-4">
@@ -35,31 +37,32 @@ export function Header() {
 						width={24}
 						height={24}
 					/>
-					<figcaption className="text-sm text-[#2A333C] opacity-70">м. Ніжин, Богдана Хмельницкого 37, 4 поверх, 25 кабінет </figcaption>
+					<figcaption className="text-sm text-[#2A333C] opacity-70">м. Ніжин, Богдана Хмельницкого 37, 4 поверх, 25 кабінет</figcaption>
 				</figure>
 			</div>
 			<div className="w-full lg:w-[68%] flex min-h-[300px] md:min-h-[660px] md:h-full relative md: mb-[60px] lg:mb-0">
-				<Image
-					src={childrenImage}
-					alt="image"
-					className="lg:block hidden absolute left-[5%]"
-				/>
 				<Image
 					src={childrenSm}
 					alt="image"
 					className="object-contain w-full h-full lg:hidden block"
 				/>
+				<Image
+					src={childrenImage}
+					alt="image"
+					className="lg:block hidden absolute left-[5%]"
+				/>
 			</div>
 			<div className="lg:hidden flex justify-center items-center flex-col mt-[20px] mb-[58px] lg:mb-[55px]">
-				<button
-					className="flex justify-center items-center w-[270px] h-[48px] bg-customOrange rounded-[60px] text-sm text-[#FAFAFA] mb-[24px] customBoxShadowOrange"
-				>
-					<Link href='/services' className={'flex items-center justify-center gap-3 h-full w-full'}>
-					Почати
-					<Image
-						src={arrowRight}
-						alt={'icon'}
-					/>
+				<button className="flex justify-center items-center w-[270px] h-[48px] bg-customOrange rounded-[60px] text-sm text-[#FAFAFA] mb-[24px] customBoxShadowOrange">
+					<Link
+						href="/services"
+						className={'flex items-center justify-center gap-3 h-full w-full'}
+					>
+						Почати
+						<Image
+							src={arrowRight}
+							alt={'icon'}
+						/>
 					</Link>
 				</button>
 				<figure className="flex items-center gap-2">

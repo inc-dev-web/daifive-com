@@ -42,7 +42,8 @@ export function Consultation() {
 			id="consultation"
 			className="flex h-[935px] md:h-[764px] px-4 lg:pl-[23px] xl:pl-[73px] items-center justify-start relative"
 		>
-			<div className="-z-10 lg:flex hidden bg-radiant-blue absolute rotate-[-120deg] top-[-85%] right-[-13%] md:w-[955px] md:h-[1095px]"></div>
+			{/*<div className="-z-10 lg:flex hidden bg-radiant-blue absolute rotate-[-120deg] top-[-85%] right-[-13%] md:w-[955px] md:h-[1095px]"></div>*/}
+			<div className="-z-10 lg:flex hidden bg-radiant-blue absolute rotate-[-120deg] top-[-45%] right-[-5%] md:w-[600px] md:h-[600px]"></div>
 			<div className="md:px-0 pb-[150px] md:pb-0 md:bg-childConsultant bg-childConsultantSmall relative h-full ms:w-[343px] w-full lg:w-[1267px] bg-contain bg-center bg-no-repeat flex md:flex-row flex-col items-center justify-center md:justify-start">
 				<div className="max-w-[343px] md:max-w-max px-[40px] -mt-[100px] sm:-mt-[50px] md:px-0 md:-mt-0 md:w-[60%] flex items-start md:items-center justify-center flex-col md:pl-[100px] md:gap-[40px] md:mb-[-15px]">
 					<h4 className="lg:text-5xl md:text-3xl text-xl lg:leading-[58px] font-bold text-white mb-4 lg:mb-0">Час записатися на консультацію!</h4>
