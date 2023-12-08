@@ -10,17 +10,13 @@ import ovalYellow from '@/public/image/Oval-yellow.png';
 import Link from 'next/link';
 import { GET } from '@/app/api/route';
 
-const initialState = {
-	screenWidth: null,
-	isOpen: false,
-	selectedItem: null,
-	isAllCategoriesSelected: true,
-};
-
 export default function Blog() {
 	const baseUrl = process.env.URL;
 
-	const [state, setState] = useState(initialState);
+	const [screenWidth, setScreenWidth] = useState(null);
+	const [isOpen, setIsOpen] = useState(false);
+	const [selectedItem, setSelectedItem] = useState(null);
+	const [isAllCategoriesSelected, setIsAllCategoriesSelected] = useState(true);
 	const [allArticles, setAllArticles] = useState([]);
 	const [itemsArticles, setItemsArticles] = useState([]);
 	const [filteredArticles, setFilteredArticles] = useState([]);
@@ -40,16 +36,10 @@ export default function Blog() {
 
 	useEffect(() => {
 		const handleResize = () => {
-			setState((prevState) => ({
-				...prevState,
-				screenWidth: typeof window !== 'undefined' ? window.innerWidth : 0,
-			}));
+			setScreenWidth(typeof window !== 'undefined' ? window.innerWidth : 0);
 		};
 
-		setState((prevState) => ({
-			...prevState,
-			screenWidth: typeof window !== 'undefined' ? window.innerWidth : 0,
-		}));
+		setScreenWidth(typeof window !== 'undefined' ? window.innerWidth : 0);
 		window.addEventListener('resize', handleResize);
 
 		return () => {
@@ -58,44 +48,32 @@ export default function Blog() {
 	}, []);
 
 	useEffect(() => {
-		setState((prevState) => ({
-			...prevState,
-			isOpen: window.innerWidth >= 1024,
-		}));
-	}, []);
+		setIsOpen(screenWidth >= 1024);
+	}, [screenWidth]);
 
 	useEffect(() => {
-		const { isAllCategoriesSelected, selectedItem } = state;
-
 		if (isAllCategoriesSelected) {
 			setFilteredArticles(allArticles);
 		} else {
 			const defaultFiltered = itemsArticles.filter(({ attributes }) => attributes.category === selectedItem);
 			setFilteredArticles(defaultFiltered);
 		}
-	}, [state.selectedItem, itemsArticles, state.isAllCategoriesSelected, allArticles]);
+	}, [selectedItem, itemsArticles, isAllCategoriesSelected, allArticles]);
 
 	const toggleDropdown = () => {
-		const { screenWidth, isOpen } = state;
-
 		if (screenWidth < 1024 || !isOpen) {
-			setState((prevState) => ({ ...prevState, isOpen: !isOpen }));
+			setIsOpen((prevIsOpen) => !prevIsOpen);
 		}
 	};
 
 	const handleItemClick = (item) => {
-		const { isAllCategoriesSelected, screenWidth } = state;
-
 		if (item === 'all' && isAllCategoriesSelected) {
 			return;
 		}
 
-		setState((prevState) => ({
-			...prevState,
-			isAllCategoriesSelected: item === 'all',
-			selectedItem: item,
-			isOpen: screenWidth < 1024 ? false : prevState.isOpen,
-		}));
+		setIsAllCategoriesSelected(item === 'all');
+		setSelectedItem(item);
+		setIsOpen((prevIsOpen) => (screenWidth < 1024 ? false : prevIsOpen));
 
 		const filtered = itemsArticles.filter(({ attributes }) => attributes.category === item);
 		setFilteredArticles(filtered);
@@ -121,7 +99,7 @@ export default function Blog() {
 								/>
 							</div>
 							<span className="text-[#0B82FC] min-w-[268px] text-sm xl:text-base font-medium">
-								{state.isAllCategoriesSelected ? 'Всі категорії' : state.selectedItem ? `${state.selectedItem}` : 'Category Name'}
+								{isAllCategoriesSelected ? 'Всі категорії' : selectedItem ? `${selectedItem}` : 'Category Name'}
 							</span>
 						</div>
 						<Image
@@ -131,22 +109,22 @@ export default function Blog() {
 							height={24}
 						/>
 					</div>
-					{state.isOpen && (
+					{isOpen && (
 						<ul className="flex gap-1 flex-col text-sm xl:text-base lg:p-6">
 							<h4 className="lg:block hidden text-[#2A333C] text-xl font-bold mb-4">Категорії</h4>
 							<li
 								className={`gap-[10px] flex hover:bg-[#F3F6FA] hover:[#0B82FC] hover:font-medium rounded-[70px] h-[48px] pl-[10px] items-center ${
-									state.isAllCategoriesSelected ? 'text-[#0B82FC] bg-[#F3F6FA]' : 'text-[#2a333c99]'
+									isAllCategoriesSelected ? 'text-[#0B82FC] bg-[#F3F6FA]' : 'text-[#2a333c99]'
 								}`}
 								onClick={() => handleItemClick('all')}
 							>
 								<div
 									className={`w-[24px] h-[24px] flex justify-center items-center rounded-[32px] ${
-										state.isAllCategoriesSelected ? 'bg-blueRadianCustom' : 'bg-[#00000019]'
+										isAllCategoriesSelected ? 'bg-blueRadianCustom' : 'bg-[#00000019]'
 									}`}
 								>
 									<Image
-										src={state.isAllCategoriesSelected ? arrowUp : arrowUpWhite}
+										src={isAllCategoriesSelected ? arrowUp : arrowUpWhite}
 										alt="icon"
 									/>
 								</div>
@@ -155,18 +133,18 @@ export default function Blog() {
 							{uniqueCategories.map((item, index) => (
 								<li
 									className={`gap-[10px] flex hover:bg-[#F3F6FA] hover:[#0B82FC] hover:font-medium rounded-[70px] h-[48px] pl-[10px] items-center ${
-										state.selectedItem === item ? 'text-[#0B82FC] bg-[#F3F6FA]' : 'text-[#2a333c99]'
+										selectedItem === item ? 'text-[#0B82FC] bg-[#F3F6FA]' : 'text-[#2a333c99]'
 									}`}
 									key={index}
 									onClick={() => handleItemClick(item)}
 								>
 									<div
 										className={`w-[24px] h-[24px] flex justify-center items-center rounded-[32px] ${
-											state.selectedItem === item ? 'bg-blueRadianCustom' : 'bg-[#00000019]'
+											selectedItem === item ? 'bg-blueRadianCustom' : 'bg-[#00000019]'
 										}`}
 									>
 										<Image
-											src={state.selectedItem === item ? arrowUp : arrowUpWhite}
+											src={selectedItem === item ? arrowUp : arrowUpWhite}
 											alt="icon"
 										/>
 									</div>
