@@ -15,7 +15,7 @@ export function Header() {
 						Забезпечте своїй дитині <span className="text-customBottomLine">успішне</span> майбутнє
 					</h1>
 					<p className="text-xs md:text-base lg:text-left mt-4 lg:mt-6 lg:mb-12 text-[#2A333CB2] min-w-[300px] max-w-[700px] text-center">
-						&quot;Ми - &quot;Дай пять&quot; - це корекційно-реабілітацыйний центр, який працює з дітьми з порушеннями психічного та мовленнєвого розвитку.			
+						Ми - &quot;Дай пять&quot; - це корекційно-реабілітаційний центр, який працює з дітьми з порушеннями психічного та мовленнєвого розвитку.
 					</p>
 				</div>
 				<button className="lg:flex justify-center items-center hidden bg-customOrange rounded-[60px] text-base h-[56px] w-[286px] text-[#FAFAFA] lg:mb-[90px] customBoxShadowOrange">

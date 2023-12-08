@@ -10,7 +10,7 @@ import email from '@/public/image/icon/email.svg';
 export default function Contact() {
 	const items = [
 		{ title: 'Адреса', description: 'м. Ніжин, Богдана Хмельницкого 37', icon: marker },
-		{ title: 'Телефон', description: '+380 96 123 45 67', icon: phone },
+		{ title: 'Телефон', description: '+380931487217', icon: phone },
 		{ title: 'Email', description: 'dobirka@gmail.com', icon: email },
 	];
 
