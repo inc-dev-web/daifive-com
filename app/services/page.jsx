@@ -5,7 +5,7 @@ import ovalYellow from '@/public/image/Oval-yellow.png';
 import arrowOrange from '@/public/image/icon/light-orange-arrow.svg';
 import ovalGreen from '@/public/image/Oval-greenish.png';
 import Link from 'next/link';
-import { fetchAllServices } from '@/api/strapi';
+import { fetchAllServices } from '@/app/strapi';
 
 export default async function Service() {
 	const baseUrl = process.env.URL; 

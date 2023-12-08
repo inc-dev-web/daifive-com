@@ -7,7 +7,7 @@ import ovalRed from '@/public/image/Oval-red.png';
 import ovalGreen from '@/public/image/Oval-greenish.png';
 import child from '@/public/image/child.png';
 import arrowCheck from '@/public/image/icon/arrowChek.svg';
-import { fetchAllServices, fetchServiceById } from '@/api/strapi';
+import { fetchAllServices, fetchServiceById } from '@/app/strapi';
 import OtherServicesDropdown from '@/app/services/[id]/other-services-dropdown';
 
 export default async function Page({ params }) {

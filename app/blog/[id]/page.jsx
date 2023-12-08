@@ -7,7 +7,7 @@ import ovalYellow from '@/public/image/Oval-yellow.png';
 import Image from 'next/image';
 import arrowBlue from '@/public/image/icon/ArrowRightBlue.svg';
 import Link from 'next/link';
-import { fetchArticleById, fetchLastArticles } from '@/api/strapi';
+import { fetchArticleById, fetchLastArticles } from '@/app/strapi';
 
 export default async function Articles({ params }) {
 	const baseUrl = process.env.URL;

@@ -6,7 +6,7 @@ import ovalYellow from '@/public/image/Oval-yellow.png';
 import Image from 'next/image';
 import arrowCheck from '@/public/image/icon/arrowChek.svg';
 import Link from 'next/link';
-// import { fetchAllSpecialists, fetchSpecialistById } from '@/api/strapi';
+// import { fetchAllSpecialists, fetchSpecialistById } from '@/app/strapi';
 import { GET } from '@/app/api/route';
 
 export default function Resume({ params }) {

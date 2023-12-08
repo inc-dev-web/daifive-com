@@ -2,7 +2,7 @@ import Image from 'next/image';
 import arrowBlue from '@/public/image/icon/ArrowRightBlue.svg';
 import Link from 'next/link';
 import React from 'react';
-import { fetchLastArticles } from '@/api/strapi';
+import { fetchLastArticles } from '@/app/strapi';
 
 export async function Articles() {
 	const baseUrl = process.env.URL;
