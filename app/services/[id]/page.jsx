@@ -1,4 +1,5 @@
 export const runtime = 'edge';
+
 import React from 'react';
 import { BackButton } from '@/components/BackButton';
 import Image from 'next/image';

@@ -1,3 +1,5 @@
+export const runtime = 'edge';
+
 import arrowOrange from '@/public/image/icon/light-orange-arrow.svg';
 import Image from 'next/image';
 import ovalRed from '@/public/image/Oval-red.png';

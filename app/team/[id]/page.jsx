@@ -1,4 +1,5 @@
 export const runtime = 'edge';
+
 import { BackButton } from '@/components/BackButton';
 import ovalYellow from '@/public/image/Oval-yellow.png';
 import Image from 'next/image';
