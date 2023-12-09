@@ -18,7 +18,7 @@ export function Footer() {
 					alt={'icon'}
 				/>
 			),
-			link: '#',
+			link: 'https://t.me/abatherapistM',
 		},
 		{
 			title: 'Instagram',
@@ -38,7 +38,7 @@ export function Footer() {
 					alt={'icon'}
 				/>
 			),
-			link: '#',
+			link: 'https://www.youtube.com/@ABAtherapistM',
 		},
 	];
 

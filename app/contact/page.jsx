@@ -11,7 +11,7 @@ export default function Contact() {
 	const items = [
 		{ title: 'Адреса', description: 'м. Ніжин, Богдана Хмельницкого 37', icon: marker },
 		{ title: 'Телефон', description: '+380931487217', icon: phone },
-		{ title: 'Email', description: 'dobirka@gmail.com', icon: email },
+		{ title: 'Email', description: 'dai5pyatcentre@gmail.com', icon: email },
 	];
 
 	return (

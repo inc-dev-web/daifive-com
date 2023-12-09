@@ -26,7 +26,6 @@ export async function Specialists() {
 							index % 2 === 0 ? 'xl:mt-[145px]' : 'mt-0'
 						}`}
 					>
-						{JSON.stringify(specialistData)}
 						<Link href={`/team/${specialistData.id}`}>
 							<div
 								className={`flex justify-center relative w-[270px] h-[313px] md:w-[305px] md:h-[394px] rounded-[24px] md:rounded-[29px] ${
