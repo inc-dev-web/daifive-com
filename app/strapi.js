@@ -2,12 +2,9 @@ export const runtime = 'edge';
 
 const fetchStrapiApiEndpoint = async (url) => {
 	const response = await fetch(`${process.env.API_URL}/${url}`, {
-		cf: {
-			// Always cache this fetch regardless of content type
-			// for a max of 5 seconds before revalidating the resource
-			cacheTtl: 30,
-			cacheEverything: true,
-		},
+		next: {
+			revalidate: 10
+		}
 	});
 	return (await response.json()).data;
 };
