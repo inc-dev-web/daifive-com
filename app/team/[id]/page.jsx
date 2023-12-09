@@ -90,6 +90,9 @@ export default async function Resume({ params }) {
 						<div className="gap-8 mt-2 flex flex-col md:flex-row-reverse md:items-center md:justify-end">
 							<div className="flex flex-col lg:justify-center gap-[14px] flex-1">
 								<h4 className="text-[#2A333C] text-xl font-bold mb-[18px] lg:text-2xl">Сертифікація</h4>
+								<div className="mb-4 text-[#2A333C] opacity-70 whitespace-pre-line">
+									{singleSpecialist?.attributes.topDescription}
+								</div>
 								<div className="flex-1 flex flex-row justify-start">
 									<div className="gap-3 flex items-center w-[120px] lg:max-w-[196px] lg:w-full">
 										<div className="bg-[#007EFF1A] w-[16px] h-[16px] lg:w-[24px] lg:h-[24px] rounded-[32px]"></div>
