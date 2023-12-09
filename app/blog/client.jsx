@@ -10,9 +10,8 @@ import ovalYellow from '@/public/image/Oval-yellow.png';
 import Link from 'next/link';
 import { useWindowSize } from '@uidotdev/usehooks';
 
-export default function BlogClient({articles}) {
+export default function BlogClient({articles, baseUrl}) {
 
-	const baseUrl = process.env.URL;
 	const { width: screenWidth } = useWindowSize();
 
 	const [isOpen, setIsOpen] = useState(false);
