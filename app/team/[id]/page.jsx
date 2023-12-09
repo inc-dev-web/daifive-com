@@ -1,4 +1,4 @@
-export const runtime = 'edge';
+export const revalidate = 600;
 
 import { BackButton } from '@/components/BackButton';
 import ovalYellow from '@/public/image/Oval-yellow.png';

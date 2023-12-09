@@ -1,4 +1,4 @@
-export const runtime = 'edge';
+export const revalidate = 600;
 
 import React from 'react';
 import { BackButton } from '@/components/BackButton';

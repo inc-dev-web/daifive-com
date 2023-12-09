@@ -1,4 +1,4 @@
-export const runtime = 'edge';
+export const revalidate = 600;
 
 import arrowOrange from '@/public/image/icon/light-orange-arrow.svg';
 import Image from 'next/image';
