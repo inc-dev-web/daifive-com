@@ -27,8 +27,8 @@ RUN npm ci --include=dev
 # Copy application code
 COPY --link . .
 
-ENV API_URL "https://daifive-admin.fly.dev/api"
-ENV URL "https://daifive-admin.fly.dev"
+RUN echo API_URL="https://daifive-admin.fly.dev/api" >> .env
+RUN echo URL="https://daifive-admin.fly.dev" >> .env
 
 # Build application
 RUN npm run build

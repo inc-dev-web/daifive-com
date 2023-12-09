@@ -56,7 +56,7 @@ export default function Contact() {
 			</ul>
 			<div className="bg-[#FFF] rounded-[32px] p-4 lg:p-8 h-[520px]">
 				<iframe
-					src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2508.4823991915455!2d31.889865200000003!3d51.044179899999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x412a9db3c8ae9bfb%3A0xa6bfbf202000b972!2sVulytsya%20Bohdana%20Khmel%CA%B9nyts%CA%B9koho%2C%2037%2C%20Nizhyn%2C%20Chernihivs&#39;ka%20oblast%2C%2016601!5e0!3m2!1sen!2sua!4v1701940804073!5m2!1sen!2sua"
+					src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d156.78366024268573!2d31.8932594!3d51.0431427!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xac0c9ebd2620461b%3A0x46809f62d86246ec!2z0KbQtdC90YLRgCDRgNC-0LfQstC40YLQutGDINC00ZbRgtC10Lkg0JTQsNC5INC_4oCZ0Y_RgtGM!5e0!3m2!1suk!2sua!4v1702143976116!5m2!1suk!2sua"
 					style={{ border: '0' }}
 					allowFullScreen=""
 					loading="lazy"
