@@ -1,4 +1,5 @@
 export const runtime = 'edge';
+export const revalidate = 10;
 
 import React from 'react';
 import Image from 'next/image';
