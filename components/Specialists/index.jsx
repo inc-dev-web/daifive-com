@@ -4,6 +4,7 @@ import { fetchLastSpecialists } from '@/app/strapi';
 export async function Specialists() {
 	const baseUrl = process.env.URL;
 	const specialists = await fetchLastSpecialists(3);
+
 	return (
 		<section className={'pb-[108px] md:pb-[150px] md:pl-[100px] md:pt-[125px] px-4 md:px-0'}>
 			<div className={'flex flex-col md:pr-[243px]'}>
@@ -25,6 +26,7 @@ export async function Specialists() {
 							index % 2 === 0 ? 'xl:mt-[145px]' : 'mt-0'
 						}`}
 					>
+						{JSON.stringify(specialistData)}
 						<Link href={`/team/${specialistData.id}`}>
 							<div
 								className={`flex justify-center relative w-[270px] h-[313px] md:w-[305px] md:h-[394px] rounded-[24px] md:rounded-[29px] ${
