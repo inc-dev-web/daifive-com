@@ -41,7 +41,7 @@ export default function OtherServicesDropdown({ items, currentServiceId }) {
 						/>
 					</div>
 					<span className={`text-customOrange min-w-[268px] text-sm xl:text-base font-medium`}>
-						{items ? `${items[currentServiceId].attributes?.titlle}` : 'Category Name'}
+						{items ? `${items.find(service => service.id === currentServiceId).attributes?.titlle}` : 'Category Name'}
 					</span>
 				</div>
 				<Image
