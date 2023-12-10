@@ -24,7 +24,7 @@ body {
 
 section {
     overflow: hidden;
-    @media (min-width: 1440px) {
+    @media (min-width: 1536px) {
         overflow: visible;
     }
 }
