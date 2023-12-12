@@ -56,7 +56,7 @@ export default function Contact() {
 			</ul>
 			<div className="bg-[#FFF] rounded-[32px] p-4 lg:p-8 h-[520px]">
 				<iframe
-					src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d156.78366024268573!2d31.8932594!3d51.0431427!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xac0c9ebd2620461b%3A0x46809f62d86246ec!2z0KbQtdC90YLRgCDRgNC-0LfQstC40YLQutGDINC00ZbRgtC10Lkg0JTQsNC5INC_4oCZ0Y_RgtGM!5e0!3m2!1suk!2sua!4v1702143976116!5m2!1suk!2sua"
+					src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d10033.54299924526!2d31.8855632!3d51.0459647!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xac0c9ebd2620461b%3A0x46809f62d86246ec!2z0KbQtdC90YLRgCDRgNC-0LfQstC40YLQutGDINC00ZbRgtC10Lkg0JTQsNC5INC_4oCZ0Y_RgtGM!5e0!3m2!1sen!2sua!4v1702421692067!5m2!1sen!2sua"
 					style={{ border: '0' }}
 					allowFullScreen=""
 					loading="lazy"
