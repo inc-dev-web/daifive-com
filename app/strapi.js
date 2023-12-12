@@ -28,7 +28,7 @@ export const fetchAllSpecialists = async () => {
 };
 
 export const fetchLastSpecialists = async (count) => {
-	return await fetchStrapiApiEndpoint(`specialists?populate=*&pagination[page]=1&pagination[pageSize]=${count}`);
+	return await fetchStrapiApiEndpoint(`specialists?populate=*&pagination[page]=1&pagination[pageSize]=${count}&sort=publishedAt:desc`);
 };
 
 export const fetchLastArticles = async (count) => {
