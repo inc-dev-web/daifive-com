@@ -7,13 +7,15 @@ import Image from 'next/image';
 
 export function Consultation() {
 	const [phoneNumber, setPhoneNumber] = useState('');
+	const [requestSent, setRequestSent] = useState(false)
+
 	const formatPhoneNumber = (inputValue) => {
 		const cleanedInput = inputValue.replace(/\D/g, '');
 
 		if (cleanedInput.length < 3) {
 			return `+380${cleanedInput}`;
 		} else {
-			return `+380 ${cleanedInput.slice(3, 6)} ${cleanedInput.slice(6, 9)} ${cleanedInput.slice(9, 12)}`;
+			return `+380 ${cleanedInput.slice(3, 5)} ${cleanedInput.slice(5, 8)} ${cleanedInput.slice(8, 12)}`;
 		}
 	};
 
@@ -37,6 +39,24 @@ export function Consultation() {
 		}
 	};
 
+	const onSendButtonClick = async () => {
+		const normalizedPhoneNumber = phoneNumber.replaceAll(' ', '')
+
+		if(normalizedPhoneNumber) {
+			await fetch('/api/contact-form', {
+				method: 'POST',
+				body: JSON.stringify({
+					phoneNumber: normalizedPhoneNumber
+				}),
+				headers: {
+					'Content-Type': 'application/json'
+				}
+			})
+
+			setRequestSent(true)
+		}
+	}
+
 	return (
 		<section
 			id="consultation"
@@ -48,18 +68,32 @@ export function Consultation() {
 					<h4 className="lg:text-5xl md:text-3xl text-xl lg:leading-[58px] font-bold text-white mb-4 lg:mb-0">Час записатися на консультацію!</h4>
 					<p className="md:hidden flex text-sm text-[#FFFFFFB3] max-w-[195px] text-left mb-6">Текст який стисло описує організацію, та її цінності</p>
 					<div className=" md:gap-4 gap-6 flex flex-col md:flex-row md:items-start items-center justify-start w-full">
-						<input
-							placeholder={'+38 0__ ___ __ __'}
-							type="text"
-							value={phoneNumber}
-							onChange={handleInputChange}
-							onKeyDown={handleKeyDown}
-							onFocus={handleInputFocus}
-							className="placeholder-[#FFFFFF80] outline-none text-white w-full lg:w-[318px] h-[46px] lg:h-[56px] flex rounded-[72px] bg-[#FFFFFF66] pl-[28px]"
-						/>
-						<button className="w-full lg:w-[231px] h-[48px] lg:h-[56px] text-white flex items-center justify-center bg-customOrange rounded-[92px]">
-							Надіслати!
-						</button>
+						{
+							requestSent ?
+								(<>
+									<span className='text-white'>
+										<span className='text-2xl font-bold'>Дякуємо за запит!</span> <br/> 
+										Ми звʼяжемось з вами за першої ж можливості!
+									</span>
+									</>
+								) :
+								(
+									<>
+										<input
+											placeholder={'+38 0__ ___ __ __'}
+											type="text"
+											value={phoneNumber}
+											onChange={handleInputChange}
+											onKeyDown={handleKeyDown}
+											onFocus={handleInputFocus}
+											className="placeholder-[#FFFFFF80] outline-none text-white w-full lg:w-[318px] h-[46px] lg:h-[56px] flex rounded-[72px] bg-[#FFFFFF66] pl-[28px]"
+										/>
+										<button onClick={onSendButtonClick} className="w-full lg:w-[231px] h-[48px] lg:h-[56px] text-white flex items-center justify-center bg-customOrange rounded-[92px]">
+											Надіслати!
+										</button>
+									</>
+								)
+						}
 					</div>
 				</div>
 				<Image

@@ -59,7 +59,7 @@ export async function Specialists() {
 						</Link>
 						<div className="flex flex-col items-center justify-center mt-4 md:mt-6 gap-[9px] xl:w-full md:w-[305px]">
 							<h4 className="text-[#2A333C] text-xl font-bold md:text-custom32">{specialistData.attributes.name}</h4>
-							<p className="text-base text-[#2A333C] md:text-2xl line-clamp-1">{specialistData.attributes.position}</p>
+							<p className="text-base text-[#2A333C] md:text-2xl line-clamp-1 text-center">{specialistData.attributes.position}</p>
 						</div>
 					</div>
 				))}
