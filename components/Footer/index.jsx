@@ -5,6 +5,7 @@ import youTubeIcon from '@/public/image/icon/youtube.svg';
 import logo from '@/public/image/logoWhite.png';
 import Image from 'next/image';
 import { useState } from 'react';
+import Link from 'next/link';
 
 export function Footer() {
 	const [activeIndex, setActiveIndex] = useState(null);
@@ -73,7 +74,7 @@ export function Footer() {
 					))}
 				</ul>
 				<div className={'text-customLightGrayTint '}>
-					<a className={'underline'}>Privacy policy</a>
+					<Link className={'underline hover:text-white'} href='/privacy-policy'>Політика конфіденційності</Link>
 				</div>
 			</div>
 		</footer>

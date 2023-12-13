@@ -4,6 +4,7 @@ import ovalRed from '@/public/image/Oval-red.png';
 import ovalBlue from '@/public/image/Oval-blue.png';
 import ovalYellow from '@/public/image/Oval-yellow.png';
 import Image from 'next/image';
+import Link from 'next/link';
 
 export function Consultation() {
 	const [phoneNumber, setPhoneNumber] = useState('');
@@ -66,32 +67,35 @@ export function Consultation() {
 			<div className="md:px-0 pb-[150px] md:pb-0 md:bg-childConsultant bg-childConsultantSmall relative h-full ms:w-[343px] w-full lg:w-[1267px] bg-contain bg-center bg-no-repeat flex md:flex-row flex-col items-center justify-center md:justify-start">
 				<div className="max-w-[343px] md:max-w-max px-[40px] -mt-[100px] sm:-mt-[50px] md:px-0 md:-mt-0 md:w-[60%] flex items-start md:items-center justify-center flex-col md:pl-[100px] md:gap-[40px] md:mb-[-15px]">
 					<h4 className="lg:text-5xl md:text-3xl text-xl lg:leading-[58px] font-bold text-white mb-4 lg:mb-0">Час записатися на консультацію!</h4>
-					<p className="md:hidden flex text-sm text-[#FFFFFFB3] max-w-[195px] text-left mb-6">Текст який стисло описує організацію, та її цінності</p>
-					<div className=" md:gap-4 gap-6 flex flex-col md:flex-row md:items-start items-center justify-start w-full">
+					{/* <p className="md:hidden flex text-sm text-[#FFFFFFB3] max-w-[195px] text-left mb-6">Текст який стисло описує організацію, та її цінності</p> */}
+					<div className="md:gap-4 gap-6 flex flex-col md:flex-row md:items-start items-center justify-start w-full">
 						{
 							requestSent ?
-								(<>
+								(<div>
 									<span className='text-white'>
 										<span className='text-2xl font-bold'>Дякуємо за запит!</span> <br/> 
 										Ми звʼяжемось з вами за першої ж можливості!
 									</span>
-									</>
+									</div>
 								) :
 								(
-									<>
-										<input
-											placeholder={'+38 0__ ___ __ __'}
-											type="text"
-											value={phoneNumber}
-											onChange={handleInputChange}
-											onKeyDown={handleKeyDown}
-											onFocus={handleInputFocus}
-											className="placeholder-[#FFFFFF80] outline-none text-white w-full lg:w-[318px] h-[46px] lg:h-[56px] flex rounded-[72px] bg-[#FFFFFF66] pl-[28px]"
-										/>
-										<button onClick={onSendButtonClick} className="w-full lg:w-[231px] h-[48px] lg:h-[56px] text-white flex items-center justify-center bg-customOrange rounded-[92px]">
-											Надіслати!
-										</button>
-									</>
+									<div className='flex flex-col items-start gap-4'>
+										<div className='flex flex-col md:flex-row md:items-start items-center gap-2'>
+											<input
+												placeholder={'+38 0__ ___ __ __'}
+												type="text"
+												value={phoneNumber}
+												onChange={handleInputChange}
+												onKeyDown={handleKeyDown}
+												onFocus={handleInputFocus}
+												className="placeholder-[#FFFFFF80] outline-none text-white w-full lg:w-[318px] h-[46px] lg:h-[56px] flex rounded-[72px] bg-[#FFFFFF66] pl-[28px]"
+											/>
+											<button onClick={onSendButtonClick} className="w-full lg:w-[231px] h-[48px] lg:h-[56px] text-white flex items-center justify-center bg-customOrange rounded-[92px]">
+												Надіслати!
+											</button>
+										</div>
+										<div className='text-white text-sm'><span className='opacity-80'>Натискаючи кнопку &quot;Надіслати&quot;, ви погоджуєтесь з </span><Link className='underline' href='/privacy-policy'>Політикою конфіденційності</Link></div>
+									</div>
 								)
 						}
 					</div>
