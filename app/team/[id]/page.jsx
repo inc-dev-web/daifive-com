@@ -73,9 +73,9 @@ export default async function Resume({ params }) {
 								{/* <span className="opacity-70 text-sm lg:text-base text-[#2A333C]">2I’m always trying to them always trying</span> */}
 								<p className="opacity-70 text-sm lg:text-base  text-[#2A333C] mt-4 lg:mt-8">{singleSpecialist?.attributes?.description}</p>
 							</div>
-							<button className="mt-8 lg:mt-10 rounded-[92px] w-[270px] lg:w-[286px] h-[48px] lg:h-[56px] items-center justify-center font-bold text-sm lg:text-base text-white bg-customOrange customBoxShadowOrange">
+							<Link href='/#consultation' className="flex mt-8 lg:mt-10 rounded-[92px] w-[270px] lg:w-[286px] h-[48px] lg:h-[56px] items-center justify-center font-bold text-sm lg:text-base text-white bg-customOrange customBoxShadowOrange">
 								Записатися
-							</button>
+							</Link>
 						</div>
 					</div>
 					<div className="md:mt-8 px-4 md:px-6 py-6 flex flex-col bg-white rounded-[32px]">
