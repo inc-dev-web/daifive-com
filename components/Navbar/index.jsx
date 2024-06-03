@@ -12,6 +12,7 @@ export function Navbar() {
 		{ title: 'Послуги', href: '/services' },
 		{ title: 'Спеціалісти', href: '/team' },
 		{ title: 'Блог', href: '/blog' },
+		{ title: 'Громадська організація', href: '/public-organization' },
 		{ title: 'Контакти', href: '/contact' },
 	];
 
