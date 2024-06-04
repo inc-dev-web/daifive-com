@@ -1,20 +1,18 @@
 'use client';
-import { positions, Provider } from 'react-alert';
-import AlertTemplate from 'react-alert-template-basic';
-
-const options = {
-	timeout: 5000,
-	position: positions.TOP_RIGHT,
-};
+import { SnackbarProvider } from 'notistack';
 
 const AlertProvider = ({ children }) => {
 	return (
-		<Provider
-			template={AlertTemplate}
-			{...options}
+		<SnackbarProvider
+			anchorOrigin={{
+				vertical: 'top',
+				horizontal: 'right',
+			}}
+			autoHideDuration={3000}
+			maxSnack={10}
 		>
 			{children}
-		</Provider>
+		</SnackbarProvider>
 	);
 };
 

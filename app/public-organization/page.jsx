@@ -14,14 +14,13 @@ import star from '@/public/image/public-organization/star.png';
 import target from '@/public/image/public-organization/target.png';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
-import { useAlert } from 'react-alert';
+import { enqueueSnackbar } from 'notistack';
 
 export default function publicOrganization() {
 	const router = useRouter();
-	const alert = useAlert();
 
 	const onCopyText = (e) => {
-		alert.success('Текст скопійовано!');
+		enqueueSnackbar('Текст скопійовано!', { variant: 'success' });
 		navigator.clipboard.writeText(e.target.innerText);
 	};
 
