@@ -1,4 +1,3 @@
-'use client';
 export const revalidate = 600;
 
 import { BackButton } from '@/components/BackButton';
@@ -12,9 +11,6 @@ export default async function Resume({ params }) {
 	const baseUrl = process.env.URL;
 	const [singleSpecialist, specialists] = await Promise.all([fetchSpecialistById(params.id), fetchAllSpecialists()]);
 
-	console.log('singleSpecialist', singleSpecialist);
-
-	console.log('singleSpecialist', baseUrl);
 	return (
 		<section className="relative pt-[39px] px-4 lg:px-[50px] xl:px-[100px] xl:pb-[118px]">
 			<Image
@@ -147,32 +143,18 @@ export default async function Resume({ params }) {
 					</div>
 				</div>
 			</div>
-
-			<div className="rid grid-cols-2 md:grid-cols-3 gap-4 p-4">
+			<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 p-4">
 				{singleSpecialist?.attributes?.certificates.data.map((item) => (
 					<div
 						key={item.id}
-						className="bg-gray-200 h-40 w-full relative "
-					>
-						<Image
-							src={`${baseUrl}${item.attributes.url}`}
-							fill={true}
-							alt={''}
-						/>
-					</div>
-				))}
-			</div>
-			<div className="grid grid-cols-2 md:grid-cols-3 gap-4 p-4">
-				{singleSpecialist?.attributes?.certificates.data.map((item) => (
-					<div
-						key={item.id}
-						className="bg-gray-200 h-40 w-full relative"
+						className="w-full relative pt-[250px]"
 					>
 						<Image
 							src={`${baseUrl}${item.attributes.url}`}
 							layout="fill"
-							objectFit="cover"
-							alt=""
+							objectFit="contain"
+							alt={item.attributes.url}
+							className="absolute top-0 left-0 w-full h-full"
 						/>
 					</div>
 				))}
