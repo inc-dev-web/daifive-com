@@ -14,116 +14,109 @@ import star from '@/public/image/public-organization/star.png';
 import target from '@/public/image/public-organization/target.png';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
-import { useRef, useState } from 'react';
+import { useAlert } from 'react-alert';
 
 export default function publicOrganization() {
 	const router = useRouter();
-	const [status, setStatus] = useState('');
+	const alert = useAlert();
 
 	const onCopyText = (e) => {
-		console.log('text', e.target.innerText);
-		navigator.clipboard
-			.writeText(e.target.innerText)
-			.catch(() => {
-				document.execCommand(true);
-			})
-			.finally(() => {
-				setStatus(false);
-				setTimeout(() => setStatus(''), 1000);
-			});
+		alert.success('Текст скопійовано!');
+		navigator.clipboard.writeText(e.target.innerText);
 	};
 
 	return (
-		<section className="px-2">
+		<div className="px-2">
 			<button
 				className="text-cyan-500 lg:pl-[100px] mt-4"
 				onClick={() => router.back()}
 			>
 				назад
 			</button>
-			<div className="relative h-9 flex flex-col items-center justify-center mt-20">
-				<h1 className="max-w-2xl text-3xl font-semibold text-center relative">
-					Ми хочемо щоб{' '}
-					<span className="relative inline-block">
-						діти з аутизмом
-						<Image
-							src={highlight}
-							width={329}
-							height={50}
-							alt="icon"
-							className="absolute top-full left-1/2 transform -translate-x-1/2 -mt-2 -ml-2"
-						/>
-					</span>{' '}
-					жили так само як і діти без нього
-				</h1>
-			</div>
+			<section>
+				<div className="relative h-9 flex flex-col items-center justify-center mt-20">
+					<h1 className="max-w-2xl text-3xl font-semibold text-center relative">
+						Ми хочемо щоб{' '}
+						<span className="relative inline-block">
+							діти з аутизмом
+							<Image
+								src={highlight}
+								width={329}
+								height={50}
+								alt="icon"
+								className="absolute top-full left-1/2 transform -translate-x-1/2 -mt-2 -ml-2"
+							/>
+						</span>{' '}
+						жили так само як і діти без нього
+					</h1>
+				</div>
 
-			<div className="relative w-full min-h-[531px] mt-20 lg:mt-0 flex items-center justify-center">
-				<Image
-					src={ovalRed}
-					width={19}
-					alt="icon"
-					className="absolute top-[-18%] right-[44%] z-10 lg:right-[14%] lg:top-[-6%]"
-				/>
-				<Image
-					src={ovalYellow}
-					alt="icon"
-					className="absolute left-[91%] top-[-15%] z-10 lg:left-[3%] lg:top-[90%]"
-					width={29}
-				/>
-				<div className="absolute inset-0 w-full h-full hidden lg:block">
+				<div className="relative w-full min-h-[531px] mt-20 lg:mt-0 flex items-center justify-center">
 					<Image
-						src={background}
+						src={ovalRed}
+						width={19}
 						alt="icon"
-						layout="fill"
+						className="absolute top-[-18%] right-[44%] z-10 lg:right-[14%] lg:top-[-6%]"
 					/>
+					<Image
+						src={ovalYellow}
+						alt="icon"
+						className="absolute left-[91%] top-[-15%] z-10 lg:left-[3%] lg:top-[90%]"
+						width={29}
+					/>
+					<div className="absolute inset-0 w-full h-full hidden lg:block">
+						<Image
+							src={background}
+							alt="icon"
+							layout="fill"
+						/>
+					</div>
+					<div className="h-full flex lg:px-[100px] lg:flex-row flex-col justify-between items-center">
+						<div className="lg:mb-0 mb-8">
+							<Image
+								style={{ transform: 'perspective(1000px) rotateY(20deg)' }}
+								height={295}
+								width={321}
+								src={'/image/public-organization/publicOrganization.png'}
+								className="object-fill h-[295px] w-[321px] rounded-lg"
+								alt={''}
+							/>
+							<div className="mt-8 lg:mt-14 text-center text-lg font-semibold ">
+								Вчасне<span className="text-orange-400"> вступлення</span> в школу
+							</div>
+						</div>
+
+						<div className="lg:mb-0 mb-14">
+							<Image
+								height={237}
+								width={321}
+								className="object-fill h-[295px] w-[321px] rounded-lg scale-100 lg:scale-90"
+								src={'/image/public-organization/publicOrganization-2.png'}
+								alt={''}
+							/>
+							<div className="mt-2 lg:mt-14 text-center text-lg font-semibold ">
+								Відвідування<span className="text-orange-400"> секцій</span>
+							</div>
+						</div>
+
+						<div className="lg:mb-0 mb-8">
+							<Image
+								height={237}
+								width={321}
+								src={'/image/public-organization/publicOrganization-1.png'}
+								className="object-fill h-[295px] w-[321px] rounded-lg"
+								alt={''}
+								style={{ transform: 'perspective(1000px) rotateY(-20deg)' }}
+							/>
+							<div className="mt-8 lg:mt-14 text-center text-lg font-semibold ">
+								Активна участь в дитячих
+								<span className="text-orange-400"> заходах</span>
+							</div>
+						</div>
+					</div>
 				</div>
-				<div className="h-full flex lg:px-[100px] lg:flex-row flex-col justify-between items-center">
-					<div className="lg:mb-0 mb-8">
-						<Image
-							style={{ transform: 'perspective(1000px) rotateY(20deg)' }}
-							height={295}
-							width={321}
-							src={'/image/public-organization/publicOrganization.png'}
-							className="object-fill h-[295px] w-[321px] rounded-lg"
-							alt={''}
-						/>
-						<div className="mt-8 lg:mt-14 text-center text-lg font-semibold ">
-							Вчасне<span className="text-orange-400"> вступлення</span> в школу
-						</div>
-					</div>
-
-					<div className="lg:mb-0 mb-14">
-						<Image
-							height={237}
-							width={321}
-							className="object-fill h-[295px] w-[321px] rounded-lg scale-100 lg:scale-90"
-							src={'/image/public-organization/publicOrganization-2.png'}
-							alt={''}
-						/>
-						<div className="mt-2 lg:mt-14 text-center text-lg font-semibold ">
-							Відвідування<span className="text-orange-400"> секцій</span>
-						</div>
-					</div>
-
-					<div className="lg:mb-0 mb-8">
-						<Image
-							height={237}
-							width={321}
-							src={'/image/public-organization/publicOrganization-1.png'}
-							className="object-fill h-[295px] w-[321px] rounded-lg"
-							alt={''}
-							style={{ transform: 'perspective(1000px) rotateY(-20deg)' }}
-						/>
-						<div className="mt-8 lg:mt-14 text-center text-lg font-semibold ">
-							Активна участь в дитячих
-							<span className="text-orange-400"> заходах</span>
-						</div>
-					</div>
-				</div>
-			</div>
-
-			<div className="relative w-full min-h-[1275px] lg:min-h-[636px] mt-14 lg:mt-14 flex items-center">
+			</section>
+			<section className="relative w-full min-h-[1275px] lg:min-h-[636px] mt-14 lg:mt-14 flex items-center">
 				<div className="absolute inset-0 w-full h-full hidden lg:block">
 					<Image
 						src={background2}
@@ -182,9 +175,9 @@ export default function publicOrganization() {
 						</div>
 					</div>
 				</div>
-			</div>
+			</section>
 			<div className="flex lg:flex-col flex-col-reverse">
-				<div className=" mt-10 lg:mt-0 flex justify-between items-center flex-col lg:flex-row pb-12 mx-36 lg:border-b-2 gap-12">
+				<section className=" mt-10 lg:mt-0 flex justify-between items-center flex-col lg:flex-row pb-12 mx-36 lg:border-b-2 gap-12">
 					<div className="flex-1 text-center relative ">
 						<Image
 							src={ovalRed}
@@ -198,20 +191,20 @@ export default function publicOrganization() {
 							className="absolute left-[4%] top-[-15%] -z-10 lg:hidden"
 							width={19}
 						/>
-						<h2 className="text-4xl font-bold mb-4">700 +</h2>
+						<h3 className="text-4xl font-bold mb-4">700 +</h3>
 						<p className="text-gray-600 opacity-70 w-40 mx-auto">Дітей та батьків що відвідали наш центр</p>
 					</div>
 					<div className="flex-1 text-center">
-						<h2 className="text-4xl font-bold mb-4">200 +</h2>
+						<h3 className="text-4xl font-bold mb-4">200 +</h3>
 						<p className="text-gray-600 opacity-70 w-60 mx-auto">Щасливих діток які пройшли нашу реабілітацію</p>
 					</div>
 					<div className="flex-1 text-center">
-						<h2 className="text-4xl font-bold mb-4">450 +</h2>
+						<h3 className="text-4xl font-bold mb-4">450 +</h3>
 						<p className="text-gray-600 opacity-70 w-40 mx-auto">Дітей та батьків що відвідали наш центр</p>
 					</div>
-				</div>
+				</section>
 
-				<div className="relative w-full min-h-[586px] lg:min-h-[658px] mt-14 lg:mt-14 flex items-center justify-center">
+				<section className="relative w-full min-h-[586px] lg:min-h-[658px] mt-14 lg:mt-14 flex items-center justify-center">
 					<div className="absolute inset-0 w-full h-full -z-10 ">
 						<Image
 							src={background4}
@@ -229,7 +222,7 @@ export default function publicOrganization() {
 								height={40}
 							/>
 						</div>
-						<div className="text-white font-bold text-2xl mt-14">Ви можете допомогти нашому центр</div>
+						<h4 className="text-white font-bold text-2xl mt-14">Ви можете допомогти нашому центр</h4>
 						<div className="bg-blue-400 rounded-3xl text-white text-xs max-w-[90%] lg:max-w-[50%] p-4">
 							Good specialists are those who are professional, warm and able to promote children's development through a creative and empathetic
 							approach.Good spe
@@ -246,10 +239,10 @@ export default function publicOrganization() {
 							<span className="inline-block text-white">Завантажити деталі</span>
 						</button>
 					</div>
-				</div>
+				</section>
 			</div>
-			<div className="flex flex-col items-center justify-center my-12 gap-5">
-				<div className="text-xl font-bold">На рахунок ГО «ДАЙ ПʼЯТЬ»</div>
+			<section className="flex flex-col items-center justify-center my-12 gap-5">
+				<h4 className="text-xl font-bold">На рахунок ГО «ДАЙ ПʼЯТЬ»</h4>
 				<div className="bg-slate-200 rounded-2xl w-[303px] lg:w-[675px] flex flex-col items-center gap-4 py-4">
 					<div className="font-bold">Код отримувача:</div>
 					<button
@@ -296,7 +289,7 @@ export default function publicOrganization() {
 				</div>
 
 				<div>ДОБРОВІЛЬНЕ ПОЖЕРТВУВАННЯ</div>
-			</div>
-		</section>
+			</section>
+		</div>
 	);
 }
