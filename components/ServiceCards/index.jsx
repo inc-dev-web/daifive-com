@@ -49,48 +49,59 @@ export function ServiceCards() {
 		},
 	];
 	return (
-		<section className="h-[619px] md:h-[550px] lg:h-[705px] relative flex lg:items-center justify-center">
-			<Image
-				src={ovalRed}
-				alt="img"
-				className="lg:block hidden absolute right-[20%] top-[20%] -z-10"
-				width={21}
-				height={21}
-			/>
-			<div className="bg-radiant-blue absolute left-[-15%] top-[0%] -z-10 w-[637px] h-[731px]"></div>
-			<Image
-				loading="lazy"
-				src={bg}
-				alt={'img'}
-				className={'object-contain absolute md:relative md:block hidden -z-10'}
-			/>
-			<Image
-				loading="lazy"
-				src={bgSmall}
-				alt={'img'}
-				className={'object-contain w-full h-full absolute md:relative md:hidden block -z-10'}
-			/>
-			<div className={'flex flex-col justify-center items-center md:flex-row gap-7 md:gap-8 md:absolute md:bottom-[150px] z-1 md:max-w-[1250px] w-full'}>
-				{card.map(({ title, image, background, shadow, rotate, margin, ellipse }, index) => (
-					<Link
-						key={index}
-						href={'/services'}
-						className={'flex w-full h-full justify-center items-center'}
-					>
-						<div
-							className={`px-[20px] py-[22px] md:px-0 md:py-0 text-[#FFF] font-bold text-base md:text-2xl flex items-end md:justify-around md:flex-1 md:w-full w-[244px] h-[137px] md:h-[220px] rounded-[32px] md:pb-[32px] overflow-hidden cursor-pointer ${background} ${shadow} ${rotate} md:${margin} ${ellipse}`}
-							// onClick={router.push(`/services`)}
+		<section className="h-[619px] md:h-[550px] lg:h-[705px]">
+			<div className="text-center mb-8 lg:mb-0">
+				<div className="font-bold md:text-base text-xs text-customBlue uppercase mb-5">Довіряй найкащим</div>
+				<h4 className="font-bold text-4xl mb-5">До нас звертаються з такими запитами:</h4>
+				<div className="opacity-50">Good specialists are those who are professional, warm andugh a creat</div>
+			</div>
+			<div className="relative flex lg:items-center justify-center">
+				<Image
+					src={ovalRed}
+					alt="img"
+					className="lg:block hidden absolute right-[20%] top-[20%] -z-10"
+					width={21}
+					height={21}
+				/>
+				<div className="bg-radiant-blue absolute left-[-15%] top-[0%] -z-10 w-[637px] h-[731px]"></div>
+				<Image
+					loading="lazy"
+					src={bg}
+					alt={'img'}
+					className={'object-contain absolute md:relative md:block hidden -z-10'}
+				/>
+				<Image
+					loading="lazy"
+					src={bgSmall}
+					alt={'img'}
+					className={'object-contain w-full h-full absolute md:relative md:hidden block -z-10'}
+				/>
+				<div
+					className={
+						'flex flex-col justify-center items-center md:flex-row gap-7 md:gap-8 md:absolute md:bottom-[150px] z-1 md:max-w-[1250px] w-full'
+					}
+				>
+					{card.map(({ title, image, background, shadow, rotate, margin, ellipse }, index) => (
+						<Link
+							key={index}
+							href={'/services'}
+							className={'flex w-full h-full justify-center items-center'}
 						>
-							<div className={'w-[234px] whitespace-pre-line'}>{title}</div>
-							<picture
-								className={'w-[32px] h-[32px] lg:w-[52px] lg:h-[52px] flex items-center justify-center rounded-[70px]'}
-								style={{ background: 'rgba(255, 255, 255, 0.10)' }}
+							<div
+								className={`px-[20px] py-[22px] md:px-0 md:py-0 text-[#FFF] font-bold text-base md:text-2xl flex items-end md:justify-around md:flex-1 md:w-full w-[244px] h-[137px] md:h-[220px] rounded-[32px] md:pb-[32px] overflow-hidden cursor-pointer ${background} ${shadow} ${rotate} md:${margin} ${ellipse}`}
+								// onClick={router.push(`/services`)}
 							>
-								{image}
-							</picture>
-						</div>
-					</Link>
-				))}
+								<div className={'w-[234px] whitespace-pre-line'}>{title}</div>
+								<picture
+									className={'w-[32px] h-[32px] lg:w-[52px] lg:h-[52px] flex items-center justify-center rounded-[70px]'}
+									style={{ background: 'rgba(255, 255, 255, 0.10)' }}
+								>
+									{image}
+								</picture>
+							</div>
+						</Link>
+					))}
+				</div>
 			</div>
 		</section>
 	);
