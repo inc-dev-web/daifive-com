@@ -1,3 +1,4 @@
+'use client';
 export const revalidate = 600;
 
 import { BackButton } from '@/components/BackButton';
@@ -11,6 +12,9 @@ export default async function Resume({ params }) {
 	const baseUrl = process.env.URL;
 	const [singleSpecialist, specialists] = await Promise.all([fetchSpecialistById(params.id), fetchAllSpecialists()]);
 
+	console.log('singleSpecialist', singleSpecialist);
+
+	console.log('singleSpecialist', baseUrl);
 	return (
 		<section className="relative pt-[39px] px-4 lg:px-[50px] xl:px-[100px] xl:pb-[118px]">
 			<Image
@@ -73,7 +77,10 @@ export default async function Resume({ params }) {
 								{/* <span className="opacity-70 text-sm lg:text-base text-[#2A333C]">2I’m always trying to them always trying</span> */}
 								<p className="opacity-70 text-sm lg:text-base  text-[#2A333C] mt-4 lg:mt-8">{singleSpecialist?.attributes?.description}</p>
 							</div>
-							<Link href='/#consultation' className="flex mt-8 lg:mt-10 rounded-[92px] w-[270px] lg:w-[286px] h-[48px] lg:h-[56px] items-center justify-center font-bold text-sm lg:text-base text-white bg-customOrange customBoxShadowOrange">
+							<Link
+								href="/#consultation"
+								className="flex mt-8 lg:mt-10 rounded-[92px] w-[270px] lg:w-[286px] h-[48px] lg:h-[56px] items-center justify-center font-bold text-sm lg:text-base text-white bg-customOrange customBoxShadowOrange"
+							>
 								Записатися
 							</Link>
 						</div>
@@ -90,9 +97,7 @@ export default async function Resume({ params }) {
 						<div className="gap-8 mt-2 flex flex-col md:flex-row-reverse md:items-center md:justify-end">
 							<div className="flex flex-col lg:justify-center gap-[14px] flex-1">
 								<h4 className="text-[#2A333C] text-xl font-bold mb-[18px] lg:text-2xl">Сертифікація</h4>
-								<div className="mb-4 text-[#2A333C] opacity-70 whitespace-pre-line">
-									{singleSpecialist?.attributes.topDescription}
-								</div>
+								<div className="mb-4 text-[#2A333C] opacity-70 whitespace-pre-line">{singleSpecialist?.attributes.topDescription}</div>
 								<div className="flex-1 flex flex-row justify-start">
 									<div className="gap-3 flex items-center w-[120px] lg:max-w-[196px] lg:w-full">
 										<div className="bg-[#007EFF1A] w-[16px] h-[16px] lg:w-[24px] lg:h-[24px] rounded-[32px]"></div>
@@ -141,6 +146,36 @@ export default async function Resume({ params }) {
 						</div>
 					</div>
 				</div>
+			</div>
+
+			<div className="rid grid-cols-2 md:grid-cols-3 gap-4 p-4">
+				{singleSpecialist?.attributes?.certificates.data.map((item) => (
+					<div
+						key={item.id}
+						className="bg-gray-200 h-40 w-full relative "
+					>
+						<Image
+							src={`${baseUrl}${item.attributes.url}`}
+							fill={true}
+							alt={''}
+						/>
+					</div>
+				))}
+			</div>
+			<div className="grid grid-cols-2 md:grid-cols-3 gap-4 p-4">
+				{singleSpecialist?.attributes?.certificates.data.map((item) => (
+					<div
+						key={item.id}
+						className="bg-gray-200 h-40 w-full relative"
+					>
+						<Image
+							src={`${baseUrl}${item.attributes.url}`}
+							layout="fill"
+							objectFit="cover"
+							alt=""
+						/>
+					</div>
+				))}
 			</div>
 		</section>
 	);
