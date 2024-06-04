@@ -6,12 +6,32 @@ import highlight from '@/public/image/public-organization/h1-highlight.svg';
 import background from '@/public/image/public-organization/background.svg';
 import background2 from '@/public/image/public-organization/background2.svg';
 import background3 from '@/public/image/public-organization/background3.svg';
+import background4 from '@/public/image/public-organization/background4.png';
+import download from '@/public/image/icon/download.svg';
+import copy from '@/public/image/icon/copy.svg';
+import heart from '@/public/image/public-organization/heart.png';
 import star from '@/public/image/public-organization/star.png';
 import target from '@/public/image/public-organization/target.png';
 import { useRouter } from 'next/navigation';
+import Link from 'next/link';
+import { useRef, useState } from 'react';
 
-export default async function publicOrganization() {
+export default function publicOrganization() {
 	const router = useRouter();
+	const [status, setStatus] = useState('');
+
+	const onCopyText = (e) => {
+		console.log('text', e.target.innerText);
+		navigator.clipboard
+			.writeText(e.target.innerText)
+			.catch(() => {
+				document.execCommand(true);
+			})
+			.finally(() => {
+				setStatus(false);
+				setTimeout(() => setStatus(''), 1000);
+			});
+	};
 
 	return (
 		<section className="px-2">
@@ -102,6 +122,7 @@ export default async function publicOrganization() {
 					</div>
 				</div>
 			</div>
+
 			<div className="relative w-full min-h-[1275px] lg:min-h-[636px] mt-14 lg:mt-14 flex items-center">
 				<div className="absolute inset-0 w-full h-full hidden lg:block">
 					<Image
@@ -162,19 +183,119 @@ export default async function publicOrganization() {
 					</div>
 				</div>
 			</div>
-			<div className="mt-10 lg:mt-0 flex justify-between items-center flex-col lg:flex-row pb-12 mx-36 lg:border-b-2 gap-12">
-				<div className="flex-1 text-center">
-					<h2 className="text-4xl font-bold mb-4">700 +</h2>
-					<p className="text-gray-600 opacity-70 w-40 mx-auto">Дітей та батьків що відвідали наш центр</p>
+			<div className="flex lg:flex-col flex-col-reverse">
+				<div className=" mt-10 lg:mt-0 flex justify-between items-center flex-col lg:flex-row pb-12 mx-36 lg:border-b-2 gap-12">
+					<div className="flex-1 text-center relative ">
+						<Image
+							src={ovalRed}
+							width={20}
+							alt="icon"
+							className="absolute left-[140%] top-[105%] -z-10 lg:hidden"
+						/>
+						<Image
+							src={ovalYellow}
+							alt="icon"
+							className="absolute left-[4%] top-[-15%] -z-10 lg:hidden"
+							width={19}
+						/>
+						<h2 className="text-4xl font-bold mb-4">700 +</h2>
+						<p className="text-gray-600 opacity-70 w-40 mx-auto">Дітей та батьків що відвідали наш центр</p>
+					</div>
+					<div className="flex-1 text-center">
+						<h2 className="text-4xl font-bold mb-4">200 +</h2>
+						<p className="text-gray-600 opacity-70 w-60 mx-auto">Щасливих діток які пройшли нашу реабілітацію</p>
+					</div>
+					<div className="flex-1 text-center">
+						<h2 className="text-4xl font-bold mb-4">450 +</h2>
+						<p className="text-gray-600 opacity-70 w-40 mx-auto">Дітей та батьків що відвідали наш центр</p>
+					</div>
 				</div>
-				<div className="flex-1 text-center">
-					<h2 className="text-4xl font-bold mb-4">200 +</h2>
-					<p className="text-gray-600 opacity-70 w-60 mx-auto">Щасливих діток які пройшли нашу реабілітацію</p>
+
+				<div className="relative w-full min-h-[586px] lg:min-h-[658px] mt-14 lg:mt-14 flex items-center justify-center">
+					<div className="absolute inset-0 w-full h-full -z-10 ">
+						<Image
+							src={background4}
+							alt="icon"
+							layout="fill"
+							className="object-cover rounded-xl"
+						/>
+					</div>
+					<div className="gap-4 relative flex flex-col items-center text-center bg-opacity-70 bg-blue-400 backdrop-blur-sm rounded-2xl mx-44 max-w-[812px]">
+						<div className="absolute bg-white rounded-full w-20 h-20 p-5 -top-10 left-1/2 transform -translate-x-1/2 flex items-center justify-center">
+							<Image
+								src={heart}
+								alt="icon"
+								width={40}
+								height={40}
+							/>
+						</div>
+						<div className="text-white font-bold text-2xl mt-14">Ви можете допомогти нашому центр</div>
+						<div className="bg-blue-400 rounded-3xl text-white text-xs max-w-[90%] lg:max-w-[50%] p-4">
+							Good specialists are those who are professional, warm and able to promote children's development through a creative and empathetic
+							approach.Good spe
+						</div>
+						<button className="mx-5 flex justify-center items-center bg-customOrange rounded-[60px] text-base h-[56px] w-[226px] lg:w-[286px] text-[#FAFAFA] customBoxShadowOrange">
+							<Link href="/">Підтримати організацію</Link>
+						</button>
+						<button className="mb-10 gap-2 flex">
+							<Image
+								src={download}
+								alt={'icon'}
+								className={'inline-block'}
+							/>
+							<span className="inline-block text-white">Завантажити деталі</span>
+						</button>
+					</div>
 				</div>
-				<div className="flex-1 text-center">
-					<h2 className="text-4xl font-bold mb-4">450 +</h2>
-					<p className="text-gray-600 opacity-70 w-40 mx-auto">Дітей та батьків що відвідали наш центр</p>
+			</div>
+			<div className="flex flex-col items-center justify-center my-12 gap-5">
+				<div className="text-xl font-bold">На рахунок ГО «ДАЙ ПʼЯТЬ»</div>
+				<div className="bg-slate-200 rounded-2xl w-[303px] lg:w-[675px] flex flex-col items-center gap-4 py-4">
+					<div className="font-bold">Код отримувача:</div>
+					<button
+						onClick={onCopyText}
+						className="bg-blue-400 rounded-sm text-white w-[90%] h-12"
+					>
+						<span className="mr-2">45044247</span>
+						<Image
+							src={copy}
+							alt={'icon'}
+							className={'inline-block'}
+						/>
+					</button>
 				</div>
+
+				<div className="bg-slate-200 rounded-2xl w-[303px] lg:w-[675px] flex flex-col items-center gap-4 py-4">
+					<div className="font-bold">Рахунок в форматі IBAN:</div>
+					<button
+						onClick={onCopyText}
+						className="bg-blue-400 rounded-sm text-white w-[90%] h-12 px-5 text-wrap"
+					>
+						<span className="mr-2 break-words w-full">UA543052990000026006026306398</span>
+						<Image
+							src={copy}
+							alt={'icon'}
+							className={'inline-block'}
+						/>
+					</button>
+				</div>
+
+				<div className="bg-slate-200 rounded-2xl w-[303px] lg:w-[675px] flex flex-col items-center gap-4 py-4">
+					<div className="font-bold">Назва Банку</div>
+					<button
+						className="bg-blue-400 rounded-sm text-white w-[90%] h-12"
+						onClick={onCopyText}
+					>
+						<span className="mr-2">АТ КБ «ПРИВАТБАНК»</span>
+						<Image
+							src={copy}
+							alt={'icon'}
+							className={'inline-block'}
+						/>
+					</button>
+				</div>
+
+				<div>ДОБРОВІЛЬНЕ ПОЖЕРТВУВАННЯ</div>
 			</div>
 		</section>
 	);
