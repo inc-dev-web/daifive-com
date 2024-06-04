@@ -51,7 +51,7 @@ export function Footer() {
 		<footer className={'md:h-[339px] flex items-center lg:px-[100px] px-4 md:pt-0'}>
 			<div
 				className={
-					'md:h-[139px] py-8 md:gap-0 bg-customBlue px-4 md:px-[74px] md:py-[32px] rounded-[42px] flex flex-col md:flex-row justify-between items-center w-full min-w-[303px] sm:max-w-none'
+					'md:h-[139px] py-8 md:gap-0 bg-customBlue px-4 md:px-[74px] md:py-[32px] rounded-[42px] flex flex-col md:flex-row justify-between items-center w-full min-w-[290px] sm:max-w-none mb-2'
 				}
 			>
 				<Image

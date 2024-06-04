@@ -115,7 +115,7 @@ export default function publicOrganization() {
 					</div>
 				</div>
 			</section>
-			<section className="relative w-full min-h-[1275px] lg:min-h-[636px] mt-14 lg:mt-14 flex items-center">
+			<section className="relative w-full min-h-[975px] lg:min-h-[636px] mt-14 lg:mt-14 flex items-center">
 				<div className="absolute inset-0 w-full h-full hidden lg:block">
 					<Image
 						src={background2}
@@ -130,7 +130,7 @@ export default function publicOrganization() {
 						layout="fill"
 					/>
 				</div>
-				<div className="px-2 lg:px-28 w-full flex justify-around items-center flex-col lg:flex-row gap-3">
+				<div className="mt-24 px-2 lg:px-28 w-full flex justify-around items-center flex-col lg:flex-row gap-3">
 					<div className="relative flex flex-col items-center w-full max-w-[310px] lg:max-w-[530px]">
 						<Image
 							src={star}
@@ -175,9 +175,9 @@ export default function publicOrganization() {
 					</div>
 				</div>
 			</section>
-			<div className="flex lg:flex-col flex-col-reverse">
-				<section className=" mt-10 lg:mt-0 flex justify-between items-center flex-col lg:flex-row pb-12 mx-36 lg:border-b-2 gap-12">
-					<div className="flex-1 text-center relative ">
+			<div className="flex lg:flex-col flex-col-reverse w-full">
+				<section className="mt-12 lg:mt-0 flex justify-between items-center flex-col lg:flex-row pb-12 mx-0 lg:mx-36 lg:border-b-2 gap-12">
+					<div className="flex-1 text-center relative mt-4">
 						<Image
 							src={ovalRed}
 							width={20}
@@ -227,7 +227,7 @@ export default function publicOrganization() {
 							approach.Good spe
 						</div>
 						<button className="mx-5 flex justify-center items-center bg-customOrange rounded-[60px] text-base h-[56px] w-[226px] lg:w-[286px] text-[#FAFAFA] customBoxShadowOrange">
-							<Link href="/">Підтримати організацію</Link>
+							<Link href="#payments">Підтримати організацію</Link>
 						</button>
 						<button className="mb-10 gap-2 flex">
 							<Image
@@ -240,13 +240,16 @@ export default function publicOrganization() {
 					</div>
 				</section>
 			</div>
-			<section className="flex flex-col items-center justify-center my-12 gap-5">
+			<section
+				className="flex flex-col items-center justify-center my-12 gap-5"
+				id="payments"
+			>
 				<h4 className="text-xl font-bold">На рахунок ГО «ДАЙ ПʼЯТЬ»</h4>
 				<div className="bg-slate-200 rounded-2xl w-[303px] lg:w-[675px] flex flex-col items-center gap-4 py-4">
 					<div className="font-bold">Код отримувача:</div>
 					<button
 						onClick={onCopyText}
-						className="bg-blue-400 rounded-sm text-white w-[90%] h-12"
+						className="bg-blue-400 rounded-sm text-white w-[90%] h-14"
 					>
 						<span className="mr-2">45044247</span>
 						<Image
@@ -261,7 +264,7 @@ export default function publicOrganization() {
 					<div className="font-bold">Рахунок в форматі IBAN:</div>
 					<button
 						onClick={onCopyText}
-						className="bg-blue-400 rounded-sm text-white w-[90%] h-12 px-5 text-wrap"
+						className="bg-blue-400 rounded-sm text-white w-[90%] h-14 px-5 text-wrap"
 					>
 						<span className="mr-2 break-words w-full">UA543052990000026006026306398</span>
 						<Image
@@ -275,7 +278,7 @@ export default function publicOrganization() {
 				<div className="bg-slate-200 rounded-2xl w-[303px] lg:w-[675px] flex flex-col items-center gap-4 py-4">
 					<div className="font-bold">Назва Банку</div>
 					<button
-						className="bg-blue-400 rounded-sm text-white w-[90%] h-12"
+						className="bg-blue-400 rounded-sm text-white w-[90%] h-14"
 						onClick={onCopyText}
 					>
 						<span className="mr-2">АТ КБ «ПРИВАТБАНК»</span>
