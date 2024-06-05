@@ -1,11 +1,41 @@
-import React from 'react';
+'use client';
+import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import background4 from '@/public/image/public-organization/background4.png';
 import heart from '@/public/image/public-organization/heart.png';
 import Link from 'next/link';
 import download from '@/public/image/icon/download.svg';
+import { fetchDocument } from '@/app/strapi';
+import { usePathname } from 'next/navigation';
 
 const HelpCenter = ({ style }) => {
+	const baseUrl = process.env.URL;
+	const pathname = usePathname();
+	const [fileUrl, setFileUrl] = useState('');
+
+	useEffect(() => {
+		const fetchData = async () => {
+			const getDoc = await fetchDocument();
+			const fileUrl = getDoc?.attributes.document.data.attributes.url;
+			const fullUrl = `${baseUrl}${fileUrl}`;
+			setFileUrl(fullUrl);
+		};
+		fetchData();
+	}, []);
+
+	const handleDownload = async (e) => {
+		e.preventDefault();
+		const response = await fetch(fileUrl);
+		const blob = await response.blob();
+		const url = window.URL.createObjectURL(blob);
+		const link = document.createElement('a');
+		link.href = url;
+		link.setAttribute('download', 'document.pdf');
+		document.body.appendChild(link);
+		link.click();
+		document.body.removeChild(link);
+	};
+
 	return (
 		<div className={`${style} mx-2`}>
 			<section className="relative w-full min-h-[586px] lg:min-h-[658px] mt-14 lg:mt-14 flex items-center justify-center">
@@ -26,23 +56,27 @@ const HelpCenter = ({ style }) => {
 							height={40}
 						/>
 					</div>
-					<h4 className="text-white font-bold text-2xl mt-14">Ви можете допомогти нашому центр</h4>
+					<h4 className="text-white font-bold text-2xl mt-14">Ви можете допомогти нашому центру</h4>
 					<div className="bg-blue-400 rounded-3xl text-white text-xs max-w-[90%] lg:max-w-[50%] p-4">
 						Подаруйте світло майбутньому наших дітей. Ваша пожертва - це ключ до їхнього щасливого та успішного життя. Приєднуйтеся до нас, щоб
 						разом забезпечити їм необхідну підтримку та можливість розвитку в суспільстві. З деталями допомоги ви можете ознайомитись нижче у
 						презентації.
 					</div>
 					<button className="mx-5 flex justify-center items-center bg-customOrange rounded-[60px] text-base h-[56px] w-[226px] lg:w-[286px] text-[#FAFAFA] customBoxShadowOrange">
-						<Link href="#payments">Підтримати організацію</Link>
+						<Link href={pathname === '/public-organization' ? '#payments' : '/public-organization'}>Підтримати організацію</Link>
 					</button>
-					<button className="mb-10 gap-2 flex">
+					<a
+						href="#"
+						onClick={handleDownload}
+						className="mb-10 gap-2 flex items-center"
+					>
 						<Image
 							src={download}
 							alt={'icon'}
 							className={'inline-block'}
 						/>
 						<span className="inline-block text-white">Завантажити деталі</span>
-					</button>
+					</a>
 				</div>
 			</section>
 		</div>
