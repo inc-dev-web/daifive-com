@@ -23,8 +23,19 @@ export default function ContactUs() {
 	} = useForm();
 	const [phoneNumber, setPhoneNumber] = useState('');
 
-	const onSubmit = (data) => {
-		console.log(data);
+	const onSubmit = async (data) => {
+		await fetch('/api/contact-form', {
+			method: 'POST',
+			body: JSON.stringify({
+				name: data.name,
+				phoneNumber: data.phone,
+				message: data.message,
+			}),
+			headers: {
+				'Content-Type': 'application/json',
+			},
+		});
+
 		setRequestSent(true);
 	};
 
@@ -36,7 +47,7 @@ export default function ContactUs() {
 			>
 				назад
 			</button>
-			<div className="flex flex-col md:flex-row items-center justify-center mt-20 mb-10 px-2 lg:px-0">
+			<div className="gap-2 flex flex-col md:flex-row items-center justify-center mt-20 mb-10 px-2 lg:px-0">
 				<div className="relative h-[470px] lg:h-full py-14 px-9 lg:p-14">
 					<div className="absolute inset-0 w-full h-full min-h-[300px] -z-10 px-2">
 						<Image
@@ -63,8 +74,8 @@ export default function ContactUs() {
 						className="w-[17px] h-[17px] top-[-10%] right-[25%] md:top-[0%] md:right-[-25%] absolute"
 					/>
 					{requestSent ? (
-						<div>
-							<span className="text-white">
+						<div className="w-full h-full text-center text-white flex items-center justify-center">
+							<span>
 								<span className="text-2xl font-bold">Дякуємо за запит!</span> <br />
 								Ми звʼяжемось з вами за першої ж можливості!
 							</span>
@@ -136,10 +147,10 @@ export default function ContactUs() {
 								/>
 							</div>
 							<a
-								href="mailto:demo@gmail.com"
+								href="mailto:dai5pyatcentre@gmail.com"
 								className="text-black text-xl hover:text-orange-500"
 							>
-								demo@gmail.com
+								dai5pyatcentre@gmail.com
 							</a>
 						</div>
 						<div className="flex items-center space-x-3">
@@ -152,10 +163,10 @@ export default function ContactUs() {
 								/>
 							</div>
 							<a
-								href="tel:+380668262415"
+								href="tel:+380931487217"
 								className="text-black text-xl hover:text-orange-500"
 							>
-								+38 066 826 24 15
+								+38 093 148 72 17
 							</a>
 						</div>
 						<div className="flex items-center space-x-3">
@@ -167,7 +178,7 @@ export default function ContactUs() {
 									height={40}
 								/>
 							</div>
-							<span className="text-xl">м. Ніжин, вул Василя Стуса 54а, каб 15</span>
+							<span className="text-xl">м. Ніжин, Богдана Хмельницкого 37</span>
 						</div>
 					</div>
 				</div>
