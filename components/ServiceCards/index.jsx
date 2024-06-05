@@ -53,7 +53,6 @@ export function ServiceCards() {
 			<div className="text-center mb-8 lg:mb-0">
 				<div className="font-bold md:text-base text-xs text-customBlue uppercase mb-5">Довіряй найкащим</div>
 				<h4 className="font-bold text-4xl mb-5">До нас звертаються з такими запитами:</h4>
-				<div className="opacity-50">Good specialists are those who are professional, warm andugh a creat</div>
 			</div>
 			<div className="relative flex lg:items-center justify-center">
 				<Image
