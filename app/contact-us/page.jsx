@@ -136,10 +136,10 @@ export default function ContactUs() {
 								/>
 							</div>
 							<a
-								href="mailto:demo@gmail.com"
+								href="mailto:dai5pyatcentre@gmail.com"
 								className="text-black text-xl hover:text-orange-500"
 							>
-								demo@gmail.com
+								dai5pyatcentre@gmail.com
 							</a>
 						</div>
 						<div className="flex items-center space-x-3">
@@ -152,10 +152,10 @@ export default function ContactUs() {
 								/>
 							</div>
 							<a
-								href="tel:+380668262415"
+								href="tel:+380931487217"
 								className="text-black text-xl hover:text-orange-500"
 							>
-								+38 066 826 24 15
+								+38 093 148 72 17
 							</a>
 						</div>
 						<div className="flex items-center space-x-3">
@@ -167,7 +167,7 @@ export default function ContactUs() {
 									height={40}
 								/>
 							</div>
-							<span className="text-xl">м. Ніжин, вул Василя Стуса 54а, каб 15</span>
+							<span className="text-xl">м. Ніжин, Богдана Хмельницкого 37</span>
 						</div>
 					</div>
 				</div>
