@@ -223,8 +223,7 @@ export default function publicOrganization() {
 						</div>
 						<h4 className="text-white font-bold text-2xl mt-14">Ви можете допомогти нашому центр</h4>
 						<div className="bg-blue-400 rounded-3xl text-white text-xs max-w-[90%] lg:max-w-[50%] p-4">
-							Good specialists are those who are professional, warm and able to promote children's development through a creative and empathetic
-							approach.Good spe
+							Подаруйте світло майбутньому наших дітей. Ваша пожертва - це ключ до їхнього щасливого та успішного життя. Приєднуйтеся до нас, щоб разом забезпечити їм необхідну підтримку та можливість розвитку в суспільстві. З деталями допомоги ви можете ознайомитись нижче у презентації.	
 						</div>
 						<button className="mx-5 flex justify-center items-center bg-customOrange rounded-[60px] text-base h-[56px] w-[226px] lg:w-[286px] text-[#FAFAFA] customBoxShadowOrange">
 							<Link href="#payments">Підтримати організацію</Link>
