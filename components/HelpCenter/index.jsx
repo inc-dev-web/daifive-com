@@ -4,8 +4,11 @@ import background4 from '@/public/image/public-organization/background4.png';
 import heart from '@/public/image/public-organization/heart.png';
 import Link from 'next/link';
 import download from '@/public/image/icon/download.svg';
+import { usePathname } from 'next/navigation';
 
 const HelpCenter = ({ style }) => {
+	const pathname = usePathname();
+
 	return (
 		<div className={`${style} mx-2`}>
 			<section className="relative w-full min-h-[586px] lg:min-h-[658px] mt-14 lg:mt-14 flex items-center justify-center">
@@ -33,7 +36,7 @@ const HelpCenter = ({ style }) => {
 						презентації.
 					</div>
 					<button className="mx-5 flex justify-center items-center bg-customOrange rounded-[60px] text-base h-[56px] w-[226px] lg:w-[286px] text-[#FAFAFA] customBoxShadowOrange">
-						<Link href="#payments">Підтримати організацію</Link>
+						<Link href={pathname === '/public-organization' ? '#payments' : '/public-organization'}>Підтримати організацію</Link>
 					</button>
 					<button className="mb-10 gap-2 flex">
 						<Image
