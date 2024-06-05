@@ -1,18 +1,18 @@
 import { NextResponse } from 'next/server';
 import { Telegraf } from 'telegraf';
 
-const bot = new Telegraf(process.env.BOT_TOKEN)
+const bot = new Telegraf(process.env.BOT_TOKEN);
 
-/**
- * @param  {import('next/server').NextRequest} request
- * @returns {import('next/server').NextResponse}
- */
 export async function POST(request) {
-  const data = await request.json()
+	const data = await request.json();
+	const { name, phoneNumber, message } = data;
 
-  const phoneNumber = data.phoneNumber
+	const textMessage = `Запись на консультацію:
+Ім'я: ${name}
+Номер телефону: ${phoneNumber}
+Повідомлення: ${message}`;
 
-  await bot.telegram.sendMessage(process.env.CHAT_ID, `Новий запит: ${phoneNumber}`)
+	await bot.telegram.sendMessage(process.env.CHAT_ID, textMessage);
 
-  return NextResponse()
+	return NextResponse();
 }

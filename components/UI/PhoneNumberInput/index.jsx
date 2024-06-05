@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-const PhoneNumberInput = ({ setPhoneNumber, phoneNumber, field }) => {
+const PhoneNumberInput = ({ field, style }) => {
+	const [phoneNumber, setPhoneNumber] = useState('');
+
 	const formatPhoneNumber = (inputValue) => {
 		const cleanedInput = inputValue.replace(/\D/g, '');
 
@@ -45,7 +47,7 @@ const PhoneNumberInput = ({ setPhoneNumber, phoneNumber, field }) => {
 				onChange={handleInputChange}
 				onKeyDown={handleKeyDown}
 				onFocus={handleInputFocus}
-				className="placeholder-[#FFFFFF80] outline-none text-white w-full h-[46px] lg:h-[56px] flex rounded-[72px] bg-[#FFFFFF66] pl-[28px]"
+				className={`placeholder-[#FFFFFF80] outline-none text-white w-full h-[46px] lg:h-[56px] flex rounded-[72px] bg-[#FFFFFF66] pl-[28px] ${style}`}
 			/>
 		</>
 	);

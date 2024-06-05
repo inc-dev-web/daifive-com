@@ -4,91 +4,244 @@ import ovalRed from '@/public/image/Oval-red.png';
 import ovalBlue from '@/public/image/Oval-blue.png';
 import ovalYellow from '@/public/image/Oval-yellow.png';
 import Image from 'next/image';
-import Link from 'next/link';
 import PhoneNumberInput from '@/components/UI/PhoneNumberInput';
+import background1 from '@/public/image/backgroundConsultation1.png';
+import background from '@/public/image/backgroundConsultation.png';
+import backgroundMob from '@/public/image/backgroundConsultationMob.png';
+import { Controller, useForm } from 'react-hook-form';
+import telegram from '@/public/image/icon/telegram.svg';
+import instagram from '@/public/image/icon/instagram.svg';
+import youtube from '@/public/image/icon/youtube.svg';
 
 export function Consultation() {
-	const [phoneNumber, setPhoneNumber] = useState('');
 	const [requestSent, setRequestSent] = useState(false);
+	const {
+		register,
+		handleSubmit,
+		control,
+		formState: { errors },
+	} = useForm();
 
-	const onSendButtonClick = async () => {
-		const normalizedPhoneNumber = phoneNumber.replaceAll(' ', '');
+	const onSubmit = async (data) => {
+		await fetch('/api/contact-form', {
+			method: 'POST',
+			body: JSON.stringify({
+				name: data.name,
+				phoneNumber: data.phone,
+				message: data.message,
+			}),
+			headers: {
+				'Content-Type': 'application/json',
+			},
+		});
 
-		if (normalizedPhoneNumber) {
-			await fetch('/api/contact-form', {
-				method: 'POST',
-				body: JSON.stringify({
-					phoneNumber: normalizedPhoneNumber,
-				}),
-				headers: {
-					'Content-Type': 'application/json',
-				},
-			});
-
-			setRequestSent(true);
-		}
+		setRequestSent(true);
 	};
 
 	return (
-		<section
-			id="consultation"
-			className="flex h-[935px] md:h-[764px] px-4 lg:pl-[23px] xl:pl-[73px] items-center justify-start relative"
-		>
-			<div className="-z-10 lg:flex hidden bg-radiant-blue absolute rotate-[-120deg] top-[-30%] right-[0%] md:w-[700px] md:h-[700px]"></div>
-			<div className="md:px-0 pb-[150px] md:pb-0 md:bg-childConsultant bg-childConsultantSmall relative h-full ms:w-[343px] w-full lg:w-[1267px] bg-contain bg-center bg-no-repeat flex md:flex-row flex-col items-center justify-center md:justify-start">
-				<div className="max-w-[343px] md:max-w-max px-[40px] -mt-[100px] sm:-mt-[50px] md:px-0 md:-mt-0 md:w-[60%] flex items-start md:items-center justify-center flex-col md:pl-[100px] md:gap-[40px] md:mb-[-15px]">
-					<h4 className="lg:text-5xl md:text-3xl text-xl lg:leading-[58px] font-bold text-white mb-4 lg:mb-0">Час записатися на консультацію!</h4>
-					{/* <p className="md:hidden flex text-sm text-[#FFFFFFB3] max-w-[195px] text-left mb-6">Текст який стисло описує організацію, та її цінності</p> */}
-					<div className="md:gap-4 gap-6 flex flex-col md:flex-row md:items-start items-center justify-start w-full">
-						{requestSent ? (
-							<div>
-								<span className="text-white">
-									<span className="text-2xl font-bold">Дякуємо за запит!</span> <br />
-									Ми звʼяжемось з вами за першої ж можливості!
-								</span>
-							</div>
-						) : (
-							<div className="flex flex-col items-start gap-4">
-								<div className="flex flex-col md:flex-row md:items-start items-center gap-2">
-									<PhoneNumberInput
-										setPhoneNumber={setPhoneNumber}
-										phoneNumber={phoneNumber}
-									/>
-									<button
-										onClick={onSendButtonClick}
-										className="w-full lg:w-[231px] h-[48px] lg:h-[56px] text-white flex items-center justify-center bg-customOrange rounded-[92px]"
-									>
-										Надіслати!
-									</button>
-								</div>
-								<div className="text-white text-sm">
-									<span className="opacity-80">Натискаючи кнопку &quot;Надіслати&quot;, ви погоджуєтесь з </span>
-									<Link
-										className="underline"
-										href="/privacy-policy"
-									>
-										Політикою конфіденційності
-									</Link>
-								</div>
-							</div>
-						)}
-					</div>
+		<section id="consultation">
+			<div className="relative h-full lg:h-[638px] mx-3 mb-20 lg:mb:0 lg:m-20 flex items-center justify-center">
+				<div className="absolute inset-0 w-full h-full -z-10">
+					<Image
+						src={background}
+						alt="icon"
+						layout="fill"
+						className="hidden lg:block"
+					/>
+					<Image
+						src={backgroundMob}
+						alt="icon"
+						layout="fill"
+						className="block lg:hidden"
+					/>
+				</div>
+				<div className="absolute -inset-10 w-full -z-20 min-h-[400px]">
+					<Image
+						src={background1}
+						alt="icon"
+						layout="fill"
+					/>
 				</div>
 				<Image
 					src={ovalRed}
 					alt={'img'}
-					className="w-[11px] h-[11px] md:w-[21px] md:h-[21px] left-[46%] top-[8%] md:top-[18%] md:right-[55%] absolute"
-				/>
-				<Image
-					src={ovalYellow}
-					alt={'img'}
-					className="w-[19px] h-[19px] md:w-[29px] md:h-[29px] top-[2%] left-[40%] md:left-[56%] md:top-[10%] md:right-[45%] absolute"
+					className="w-[11px] h-[11px] md:w-[21px] md:h-[21px] left-[50%] top-[0%] md:top-[-8%] md:right-[55%] absolute z-10"
 				/>
 				<Image
 					src={ovalBlue}
 					alt={'img'}
-					className="w-[17px] h-[17px] md:w-[27px] md:h-[27px] bottom-[10%] right-[38%] absolute"
+					className="w-[17px] h-[17px] top-[100%] right-[20%] absolute hidden lg:block"
 				/>
+				<Image
+					src={ovalYellow}
+					alt={'img'}
+					className="w-[11px] h-[11px] md:w-[21px] md:h-[21px] left-[80%] top-[-9%] md:top-[-11%] md:right-[55%] absolute"
+				/>
+				<div className="flex flex-col lg:flex-row items-center justify-center px-3 lg:px-6 ">
+					<div className="w-full text-white hidden lg:block">
+						<h4 className="font-bold text-2xl lg:text-5xl md:text-3xl lg:text-start text-center">Час записатися на консультацію!</h4>
+						<a
+							href="tel:+11234567890"
+							className="text-xl block mt-20 hover:text-red-400 transition-colors duration-200"
+						>
+							(123) 456-7890
+						</a>
+						<a
+							className="block text-xl hover:text-red-400 transition-colors duration-200"
+							href="mailto:hello@lecaloui.com"
+						>
+							hello@lecaloui.com
+						</a>
+						<div className="flex space-x-4 mt-12 -ml-2">
+							<a
+								href="https://t.me/yourtelegram"
+								target="_blank"
+								rel="noopener noreferrer"
+								className="flex items-center gap-2 px-3 py-2 rounded-xl hover:bg-blue-500 hover:text-white transition-all duration-300"
+							>
+								<span>Telegram</span>
+								<Image
+									src={telegram}
+									alt="icon"
+								/>
+							</a>
+							<a
+								href="https://instagram.com/yourinstagram"
+								target="_blank"
+								rel="noopener noreferrer"
+								className="flex items-center gap-2 px-3 py-2 rounded-xl hover:bg-blue-500 hover:text-white transition-all duration-300"
+							>
+								<span>Instagram</span>
+								<Image
+									src={instagram}
+									alt="icon"
+								/>
+							</a>
+							<a
+								href="https://youtube.com/youryoutube"
+								target="_blank"
+								rel="noopener noreferrer"
+								className="flex items-center gap-2 px-3 py-2 rounded-xl hover:bg-blue-500 hover:text-white transition-all duration-300"
+							>
+								<span>YouTube</span>
+								<Image
+									src={youtube}
+									alt="icon"
+								/>
+							</a>
+						</div>
+					</div>
+					{requestSent ? (
+						<div className="w-full text-white text-center py-20">
+							<span className="">
+								<span className="text-2xl font-bold">Дякуємо за запит!</span> <br />
+								Ми звʼяжемось з вами за першої ж можливості!
+							</span>
+						</div>
+					) : (
+						<form
+							onSubmit={handleSubmit(onSubmit)}
+							className="w-full flex gap-4 mb-4 flex-col text-white"
+						>
+							<h4 className="mt-20 font-bold text-2xl lg:text-5xl md:text-3xl lg:text-start text-center block lg:hidden">
+								Час записатися на консультацію!
+							</h4>
+							<div className="w-full relative">
+								<input
+									{...register('name', {
+										required: 'Це поле обов’язкове',
+										minLength: { value: 3, message: 'Мінімум 3 символи' },
+										maxLength: { value: 50, message: 'Максимум 50 символів' },
+									})}
+									placeholder={'Ваше імя'}
+									type="text"
+									className="placeholder-[#FFFFFF80] outline-none text-white w-full h-[46px] lg:h-[56px] flex rounded-xl bg-[#FFFFFF66] pl-[28px]"
+								/>
+								{errors.name && <span className="text-red-500 absolute -bottom-5 ml-2">{errors.name.message}</span>}
+							</div>
+							<div className="w-full relative">
+								<Controller
+									name="phone"
+									control={control}
+									rules={{
+										required: 'Це поле обов’язкове',
+										pattern: {
+											value: /^\+380 \d{2} \d{3} \d{4}$/,
+											message: 'Невірний формат телефону',
+										},
+									}}
+									render={({ field }) => (
+										<PhoneNumberInput
+											field={field}
+											style={'rounded-xl'}
+										/>
+									)}
+								/>
+								{errors.phone && <span className="text-red-500 absolute -bottom-5 ml-2 whitespace-nowrap">{errors.phone.message}</span>}
+							</div>
+							<textarea
+								{...register('message')}
+								className="p-2 resize-none placeholder-[#FFFFFF80] outline-none text-white w-full h-[117px] flex rounded-xl bg-[#FFFFFF66] pl-[28px]"
+								placeholder={'Напишіть ваше повідомлення'}
+							/>
+							<button className="mt-0 lg:mt-4 mb-8 w-full lg:w-[231px] h-[48px] lg:h-[56px] bg-[#5B40FF] text-white flex items-center justify-center rounded-xl">
+								Надіслати!
+							</button>
+						</form>
+					)}
+					<div className="w-full text-white block lg:hidden text-center">
+						<a
+							href="tel:+11234567890"
+							className="text-xl block hover:text-red-400 transition-colors duration-200"
+						>
+							(123) 456-7890
+						</a>
+						<a
+							className="block text-xl hover:text-red-400 transition-colors duration-200"
+							href="mailto:hello@lecaloui.com"
+						>
+							hello@lecaloui.com
+						</a>
+						<div className="mt-4 flex flex-col items-center mb-10 opacity-70">
+							<a
+								href="https://t.me/yourtelegram"
+								target="_blank"
+								rel="noopener noreferrer"
+								className="flex items-center gap-2 px-3 py-2 rounded-xl hover:bg-blue-600 hover:text-white transition-all duration-300"
+							>
+								<span>Telegram</span>
+								<Image
+									src={telegram}
+									alt="icon"
+								/>
+							</a>
+							<a
+								href="https://instagram.com/yourinstagram"
+								target="_blank"
+								rel="noopener noreferrer"
+								className="flex items-center gap-2 px-3 py-2 rounded-xl hover:bg-blue-600 hover:text-white transition-all duration-300"
+							>
+								<span>Instagram</span>
+								<Image
+									src={instagram}
+									alt="icon"
+								/>
+							</a>
+							<a
+								href="https://youtube.com/youryoutube"
+								target="_blank"
+								rel="noopener noreferrer"
+								className="flex items-center gap-2 px-3 py-2 rounded-xl hover:bg-blue-600 hover:text-white transition-all duration-300"
+							>
+								<span>YouTube</span>
+								<Image
+									src={youtube}
+									alt="icon"
+								/>
+							</a>
+						</div>
+					</div>
+				</div>
 			</div>
 		</section>
 	);
