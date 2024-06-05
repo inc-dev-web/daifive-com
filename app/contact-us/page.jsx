@@ -1,83 +1,177 @@
 'use client';
 import Image from 'next/image';
 import ovalRed from '@/public/image/Oval-red.png';
-import ovalYellow from '@/public/image/Oval-yellow.png';
 import ovalBlue from '@/public/image/Oval-blue.png';
 import phone from '@/public/image/icon/phone.svg';
 import email from '@/public/image/icon/email.svg';
 import location from '@/public/image/icon/location-icon.svg';
+import React, { useState } from 'react';
+import background from '@/public/image/bgContactUs.png';
+import background1 from '@/public/image/bg1ContactUs.png';
+import { useRouter } from 'next/navigation';
+import PhoneNumberInput from '@/components/UI/PhoneNumberInput';
+import { Controller, useForm } from 'react-hook-form';
 
 export default function ContactUs() {
+	const router = useRouter();
+	const [requestSent, setRequestSent] = useState(false);
+	const {
+		register,
+		handleSubmit,
+		control,
+		formState: { errors },
+	} = useForm();
+	const [phoneNumber, setPhoneNumber] = useState('');
+
+	const onSubmit = (data) => {
+		console.log(data);
+		setRequestSent(true);
+	};
+
 	return (
-		<div className="flex flex-col md:flex-row">
-			<div className="md:bg-bgContactUs bg-bg1MbContactUs md:w-1/2 h-full bg-no-repeat bg-center">
-				<div className="flex h-[935px] md:h-[764px] px-4 lg:pl-[23px] xl:pl-[73px] items-center justify-start relative">
-					<div className="md:px-0 pb-[150px] md:pb-0 md:bg-bg1ContactUs bg-bgMbContactUs h-full ms:w-[343px] w-full lg:w-[1267px] bg-contain bg-center bg-no-repeat flex md:flex-row flex-col items-center justify-center md:justify-start">
+		<>
+			<button
+				className="text-cyan-500 lg:pl-[100px] mt-4"
+				onClick={() => router.back()}
+			>
+				назад
+			</button>
+			<div className="flex flex-col md:flex-row items-center justify-center mt-20 mb-10 px-2 lg:px-0">
+				<div className="relative h-[470px] lg:h-full py-14 px-9 lg:p-14">
+					<div className="absolute inset-0 w-full h-full min-h-[300px] -z-10 px-2">
 						<Image
-							src={ovalRed}
-							alt={'img'}
-							className="w-[11px] h-[11px] md:w-[21px] md:h-[21px] left-[46%] top-[8%] md:top-[18%] md:right-[55%] absolute"
+							src={background1}
+							alt="icon"
+							layout="fill"
 						/>
+					</div>
+					<div className="absolute -inset-10 w-full -z-20 min-h-[400px]">
 						<Image
-							src={ovalYellow}
-							alt={'img'}
-							className="w-[19px] h-[19px] md:w-[29px] md:h-[29px] top-[2%] left-[40%] md:left-[56%] md:top-[10%] md:right-[45%] absolute"
+							src={background}
+							alt="icon"
+							layout="fill"
 						/>
-						<Image
-							src={ovalBlue}
-							alt={'img'}
-							className="w-[17px] h-[17px] md:w-[27px] md:h-[27px] bottom-[10%] right-[38%] absolute"
-						/>
+					</div>
+					<Image
+						src={ovalRed}
+						alt={'img'}
+						className="w-[11px] h-[11px] md:w-[21px] md:h-[21px] left-[30%] top-[-17%] md:top-[-8%] md:right-[55%] absolute"
+					/>
+					<Image
+						src={ovalBlue}
+						alt={'img'}
+						className="w-[17px] h-[17px] top-[-10%] right-[25%] md:top-[0%] md:right-[-25%] absolute"
+					/>
+					{requestSent ? (
+						<div>
+							<span className="text-white">
+								<span className="text-2xl font-bold">Дякуємо за запит!</span> <br />
+								Ми звʼяжемось з вами за першої ж можливості!
+							</span>
+						</div>
+					) : (
+						<form onSubmit={handleSubmit(onSubmit)}>
+							<h1 className="text-white text-2xl font-bold mb-4 sm:text-3xl">Зв’яжіться з нами!</h1>
+							<div className="flex w-full gap-4 mb-4 flex-col sm:flex-row">
+								<div className="w-full relative">
+									<input
+										{...register('name', {
+											required: 'Це поле обов’язкове',
+											minLength: { value: 3, message: 'Мінімум 3 символи' },
+											maxLength: { value: 50, message: 'Максимум 50 символів' },
+										})}
+										placeholder={'Ваше імя'}
+										type="text"
+										className="placeholder-[#FFFFFF80] outline-none text-white w-full h-[46px] lg:h-[56px] flex rounded-[72px] bg-[#FFFFFF66] pl-[28px]"
+									/>
+									{errors.name && <span className="text-red-500 absolute -bottom-5 ml-2">{errors.name.message}</span>}
+								</div>
+								<div className="w-full relative">
+									<Controller
+										name="phone"
+										control={control}
+										rules={{
+											required: 'Це поле обов’язкове',
+											pattern: {
+												value: /^\+380 \d{2} \d{3} \d{4}$/,
+												message: 'Невірний формат телефону',
+											},
+										}}
+										render={({ field }) => (
+											<PhoneNumberInput
+												setPhoneNumber={setPhoneNumber}
+												phoneNumber={phoneNumber}
+												field={field}
+											/>
+										)}
+									/>
+									{errors.phone && <span className="text-red-500 absolute -bottom-5 ml-2 whitespace-nowrap">{errors.phone.message}</span>}
+								</div>
+							</div>
+							<textarea
+								{...register('message')}
+								className="p-2 resize-none placeholder-[#FFFFFF80] outline-none text-white w-full h-[117px] flex rounded-[22px] bg-[#FFFFFF66] pl-[28px]"
+								placeholder={'Напишіть ваше повідомлення'}
+							/>
+							<button className="mt-4 w-[220px] lg:w-[231px] h-[48px] lg:h-[56px] text-white flex items-center justify-center bg-customOrange rounded-[92px]">
+								Надіслати!
+							</button>
+						</form>
+					)}
+				</div>
+				<div className="md:w-1/2 hidden md:flex items-center justify-center relative">
+					<Image
+						src={ovalBlue}
+						alt={'img'}
+						className="w-[17px] h-[17px] md:w-[27px] md:h-[27px] top-[100%] right-[0%] absolute hidden md:block"
+					/>
+					<div className="flex flex-col space-y-4">
+						<div className="flex items-center space-x-3">
+							<div className="bg-slate-100 rounded-full w-20 h-20 mr-5 flex items-center justify-center">
+								<Image
+									src={email}
+									alt="icon"
+									width={40}
+									height={40}
+								/>
+							</div>
+							<a
+								href="mailto:demo@gmail.com"
+								className="text-black text-xl hover:text-orange-500"
+							>
+								demo@gmail.com
+							</a>
+						</div>
+						<div className="flex items-center space-x-3">
+							<div className="bg-slate-100 rounded-full w-20 h-20 mr-5 flex items-center justify-center">
+								<Image
+									src={phone}
+									alt="icon"
+									width={40}
+									height={40}
+								/>
+							</div>
+							<a
+								href="tel:+380668262415"
+								className="text-black text-xl hover:text-orange-500"
+							>
+								+38 066 826 24 15
+							</a>
+						</div>
+						<div className="flex items-center space-x-3">
+							<div className="bg-slate-100 rounded-full w-20 h-20 mr-5 flex items-center justify-center">
+								<Image
+									src={location}
+									alt="icon"
+									width={40}
+									height={40}
+								/>
+							</div>
+							<span className="text-xl">м. Ніжин, вул Василя Стуса 54а, каб 15</span>
+						</div>
 					</div>
 				</div>
 			</div>
-			<div className="md:w-1/2 hidden md:flex items-center justify-center ">
-				<div className="flex flex-col space-y-4">
-					<div className="flex items-center space-x-3">
-						<div className="bg-slate-100 rounded-full w-20 h-20 p-5 -top-10 left-1/2 transform -translate-x-1/2 flex items-center justify-center">
-							<Image
-								src={email}
-								alt="icon"
-								width={40}
-								height={40}
-							/>
-						</div>
-						<a
-							href="mailto:demo@gmail.com"
-							className="text-black text-xl hover:text-orange-500"
-						>
-							demo@gmail.com
-						</a>
-					</div>
-					<div className="flex items-center space-x-3">
-						<div className="bg-slate-100 rounded-full w-20 h-20 p-5 -top-10 left-1/2 transform -translate-x-1/2 flex items-center justify-center">
-							<Image
-								src={phone}
-								alt="icon"
-								width={40}
-								height={40}
-							/>
-						</div>
-						<a
-							href="tel:+380668262415"
-							className="text-black text-xl hover:text-orange-500"
-						>
-							+38 066 826 24 15
-						</a>
-					</div>
-					<div className="flex items-center space-x-3">
-						<div className="bg-slate-100 rounded-full w-20 h-20 p-5 -top-10 left-1/2 transform -translate-x-1/2 flex items-center justify-center">
-							<Image
-								src={location}
-								alt="icon"
-								width={40}
-								height={40}
-							/>
-						</div>
-						<span className="text-xl">м. Ніжин, вул Василя Стуса 54а, каб 15</span>
-					</div>
-				</div>
-			</div>
-		</div>
+		</>
 	);
 }
