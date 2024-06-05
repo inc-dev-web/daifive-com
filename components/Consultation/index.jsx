@@ -5,58 +5,29 @@ import ovalBlue from '@/public/image/Oval-blue.png';
 import ovalYellow from '@/public/image/Oval-yellow.png';
 import Image from 'next/image';
 import Link from 'next/link';
+import PhoneNumberInput from '@/components/UI/PhoneNumberInput';
 
 export function Consultation() {
 	const [phoneNumber, setPhoneNumber] = useState('');
-	const [requestSent, setRequestSent] = useState(false)
-
-	const formatPhoneNumber = (inputValue) => {
-		const cleanedInput = inputValue.replace(/\D/g, '');
-
-		if (cleanedInput.length < 3) {
-			return `+380${cleanedInput}`;
-		} else {
-			return `+380 ${cleanedInput.slice(3, 5)} ${cleanedInput.slice(5, 8)} ${cleanedInput.slice(8, 12)}`;
-		}
-	};
-
-	const handleInputChange = (e) => {
-		const inputValue = e.target.value;
-		setPhoneNumber(formatPhoneNumber(inputValue));
-	};
-
-	const handleKeyDown = (e) => {
-		if (e.key === 'Backspace' || e.key === 'Delete') {
-			e.preventDefault();
-			if (phoneNumber.length > 4) {
-				setPhoneNumber(phoneNumber.slice(0, -1));
-			}
-		}
-	};
-
-	const handleInputFocus = () => {
-		if (!phoneNumber) {
-			setPhoneNumber('+380');
-		}
-	};
+	const [requestSent, setRequestSent] = useState(false);
 
 	const onSendButtonClick = async () => {
-		const normalizedPhoneNumber = phoneNumber.replaceAll(' ', '')
+		const normalizedPhoneNumber = phoneNumber.replaceAll(' ', '');
 
-		if(normalizedPhoneNumber) {
+		if (normalizedPhoneNumber) {
 			await fetch('/api/contact-form', {
 				method: 'POST',
 				body: JSON.stringify({
-					phoneNumber: normalizedPhoneNumber
+					phoneNumber: normalizedPhoneNumber,
 				}),
 				headers: {
-					'Content-Type': 'application/json'
-				}
-			})
+					'Content-Type': 'application/json',
+				},
+			});
 
-			setRequestSent(true)
+			setRequestSent(true);
 		}
-	}
+	};
 
 	return (
 		<section
@@ -69,35 +40,38 @@ export function Consultation() {
 					<h4 className="lg:text-5xl md:text-3xl text-xl lg:leading-[58px] font-bold text-white mb-4 lg:mb-0">Час записатися на консультацію!</h4>
 					{/* <p className="md:hidden flex text-sm text-[#FFFFFFB3] max-w-[195px] text-left mb-6">Текст який стисло описує організацію, та її цінності</p> */}
 					<div className="md:gap-4 gap-6 flex flex-col md:flex-row md:items-start items-center justify-start w-full">
-						{
-							requestSent ?
-								(<div>
-									<span className='text-white'>
-										<span className='text-2xl font-bold'>Дякуємо за запит!</span> <br/> 
-										Ми звʼяжемось з вами за першої ж можливості!
-									</span>
-									</div>
-								) :
-								(
-									<div className='flex flex-col items-start gap-4'>
-										<div className='flex flex-col md:flex-row md:items-start items-center gap-2'>
-											<input
-												placeholder={'+38 0__ ___ __ __'}
-												type="text"
-												value={phoneNumber}
-												onChange={handleInputChange}
-												onKeyDown={handleKeyDown}
-												onFocus={handleInputFocus}
-												className="placeholder-[#FFFFFF80] outline-none text-white w-full lg:w-[318px] h-[46px] lg:h-[56px] flex rounded-[72px] bg-[#FFFFFF66] pl-[28px]"
-											/>
-											<button onClick={onSendButtonClick} className="w-full lg:w-[231px] h-[48px] lg:h-[56px] text-white flex items-center justify-center bg-customOrange rounded-[92px]">
-												Надіслати!
-											</button>
-										</div>
-										<div className='text-white text-sm'><span className='opacity-80'>Натискаючи кнопку &quot;Надіслати&quot;, ви погоджуєтесь з </span><Link className='underline' href='/privacy-policy'>Політикою конфіденційності</Link></div>
-									</div>
-								)
-						}
+						{requestSent ? (
+							<div>
+								<span className="text-white">
+									<span className="text-2xl font-bold">Дякуємо за запит!</span> <br />
+									Ми звʼяжемось з вами за першої ж можливості!
+								</span>
+							</div>
+						) : (
+							<div className="flex flex-col items-start gap-4">
+								<div className="flex flex-col md:flex-row md:items-start items-center gap-2">
+									<PhoneNumberInput
+										setPhoneNumber={setPhoneNumber}
+										phoneNumber={phoneNumber}
+									/>
+									<button
+										onClick={onSendButtonClick}
+										className="w-full lg:w-[231px] h-[48px] lg:h-[56px] text-white flex items-center justify-center bg-customOrange rounded-[92px]"
+									>
+										Надіслати!
+									</button>
+								</div>
+								<div className="text-white text-sm">
+									<span className="opacity-80">Натискаючи кнопку &quot;Надіслати&quot;, ви погоджуєтесь з </span>
+									<Link
+										className="underline"
+										href="/privacy-policy"
+									>
+										Політикою конфіденційності
+									</Link>
+								</div>
+							</div>
+						)}
 					</div>
 				</div>
 				<Image
