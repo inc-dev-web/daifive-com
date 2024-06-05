@@ -81,20 +81,20 @@ export function Consultation() {
 					<div className="w-full text-white hidden lg:block">
 						<h4 className="font-bold text-2xl lg:text-5xl md:text-3xl lg:text-start text-center">Час записатися на консультацію!</h4>
 						<a
-							href="tel:+11234567890"
+							href="tel:+380931487217"
 							className="text-xl block mt-20 hover:text-red-400 transition-colors duration-200"
 						>
-							(123) 456-7890
+							+38 093 148 72 17
 						</a>
 						<a
 							className="block text-xl hover:text-red-400 transition-colors duration-200"
-							href="mailto:hello@lecaloui.com"
+							href="mailto:dai5pyatcentre@gmail.com"
 						>
-							hello@lecaloui.com
+							dai5pyatcentre@gmail.com
 						</a>
 						<div className="flex space-x-4 mt-12 -ml-2">
 							<a
-								href="https://t.me/yourtelegram"
+								href="https://t.me/abatherapistM"
 								target="_blank"
 								rel="noopener noreferrer"
 								className="flex items-center gap-2 px-3 py-2 rounded-xl hover:bg-blue-500 hover:text-white transition-all duration-300"
@@ -106,7 +106,7 @@ export function Consultation() {
 								/>
 							</a>
 							<a
-								href="https://instagram.com/yourinstagram"
+								href="https://www.instagram.com/dai5pyat/"
 								target="_blank"
 								rel="noopener noreferrer"
 								className="flex items-center gap-2 px-3 py-2 rounded-xl hover:bg-blue-500 hover:text-white transition-all duration-300"
@@ -118,7 +118,7 @@ export function Consultation() {
 								/>
 							</a>
 							<a
-								href="https://youtube.com/youryoutube"
+								href="https://www.youtube.com/@ABAtherapistM"
 								target="_blank"
 								rel="noopener noreferrer"
 								className="flex items-center gap-2 px-3 py-2 rounded-xl hover:bg-blue-500 hover:text-white transition-all duration-300"
@@ -191,20 +191,20 @@ export function Consultation() {
 					)}
 					<div className="w-full text-white block lg:hidden text-center">
 						<a
-							href="tel:+11234567890"
+							href="tel:+380931487217"
 							className="text-xl block hover:text-red-400 transition-colors duration-200"
 						>
-							(123) 456-7890
+							+380 931 48 72 17
 						</a>
 						<a
 							className="block text-xl hover:text-red-400 transition-colors duration-200"
-							href="mailto:hello@lecaloui.com"
+							href="dai5pyatcentre@gmail.com"
 						>
-							hello@lecaloui.com
+							dai5pyatcentre@gmail.com
 						</a>
 						<div className="mt-4 flex flex-col items-center mb-10 opacity-70">
 							<a
-								href="https://t.me/yourtelegram"
+								href="https://t.me/abatherapistM"
 								target="_blank"
 								rel="noopener noreferrer"
 								className="flex items-center gap-2 px-3 py-2 rounded-xl hover:bg-blue-600 hover:text-white transition-all duration-300"
@@ -216,7 +216,7 @@ export function Consultation() {
 								/>
 							</a>
 							<a
-								href="https://instagram.com/yourinstagram"
+								href="https://www.instagram.com/dai5pyat/"
 								target="_blank"
 								rel="noopener noreferrer"
 								className="flex items-center gap-2 px-3 py-2 rounded-xl hover:bg-blue-600 hover:text-white transition-all duration-300"
@@ -228,7 +228,7 @@ export function Consultation() {
 								/>
 							</a>
 							<a
-								href="https://youtube.com/youryoutube"
+								href="https://www.youtube.com/@ABAtherapistM"
 								target="_blank"
 								rel="noopener noreferrer"
 								className="flex items-center gap-2 px-3 py-2 rounded-xl hover:bg-blue-600 hover:text-white transition-all duration-300"
