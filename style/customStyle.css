@@ -44,7 +44,6 @@
 .text-customStyleHover {
     display: flex;
     position: relative;
-    overflow: hidden;
 
     & a {
         display: inline-block;
