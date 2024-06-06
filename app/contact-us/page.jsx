@@ -71,7 +71,7 @@ export default function ContactUs() {
 						</div>
 					) : (
 						<form onSubmit={handleSubmit(onSubmit)}>
-							<h1 className="text-white text-2xl font-bold mb-4 sm:text-3xl">Зв’яжіться з нами!</h1>
+							<h1 className="text-white text-2xl font-bold mb-4 sm:text-2xl">Зв’яжіться з нами!</h1>
 							<div className="flex w-full gap-4 mb-4 flex-col sm:flex-row">
 								<div className="w-full relative">
 									<input
