@@ -6,6 +6,7 @@ import { Articles } from '@/components/Articles';
 import { RemainingQuestions } from '@/components/RemainingQuestions';
 import { Specialists } from '@/components/Specialists';
 import { Consultation } from '@/components/Consultation';
+import HelpCenter from '@/components/HelpCenter';
 
 export default function Home() {
 	return (
@@ -14,6 +15,7 @@ export default function Home() {
 			<AboutUs />
 			<ServiceCards />
 			<Directions />
+			<HelpCenter style={'mx-2'} />
 			<Consultation />
 			<Specialists />
 			<RemainingQuestions />
