@@ -43,7 +43,7 @@ export function Navbar() {
 				>
 					{menuItem.map((item, index) => (
 						<li
-							className="text-customStyleHover w-[50%] flex items-center justify-center border-b border-gray-300 md:border-none"
+							className="text-customStyleHover w-[50%] flex items-center justify-center border-b border-gray-300 md:border-none overflow-visible"
 							key={index}
 						>
 							<Link
