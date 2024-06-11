@@ -1,14 +1,18 @@
 const fetchStrapiApiEndpoint = async (url) => {
 	const response = await fetch(`${process.env.API_URL}/${url}`, {
 		next: {
-			revalidate: 10
-		}
+			revalidate: 10,
+		},
 	});
 	return (await response.json()).data;
 };
 
 export const fetchAllServices = async () => {
 	return await fetchStrapiApiEndpoint(`services?populate=*`);
+};
+
+export const fetchDocument = async () => {
+	return await fetchStrapiApiEndpoint(`help-center-document?populate=*`);
 };
 
 export const fetchAllServicesPaginated = async (page, pageSize) => {
