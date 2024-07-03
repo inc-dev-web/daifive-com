@@ -6,6 +6,7 @@ import ovalBlue from '@/public/image/Oval-blue.png';
 import marker from '@/public/image/icon/point-orange.svg';
 import phone from '@/public/image/icon/phone.svg';
 import email from '@/public/image/icon/email.svg';
+import { Consultation } from '@/components/Consultation';
 
 export default function Contact() {
 	const items = [
@@ -63,6 +64,9 @@ export default function Contact() {
 					referrerPolicy="no-referrer-when-downgrade"
 					className="w-full h-full rounded-[24px] lg:rounded-[32px]"
 				></iframe>
+			</div>
+			<div className="mt-12">
+				<Consultation />
 			</div>
 		</section>
 	);
