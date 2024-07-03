@@ -17,7 +17,7 @@ import Link from 'next/link';
 import { enqueueSnackbar } from 'notistack';
 import HelpCenter from '@/components/HelpCenter';
 
-export default function publicOrganization() {
+export default function PublicOrganization() {
 	const router = useRouter();
 
 	const onCopyText = (e) => {
@@ -141,7 +141,7 @@ export default function publicOrganization() {
 						<div className="bg-white rounded-lg flex items-center justify-center flex-col h-[265px] pt-20 lg:pt-0">
 							<h2 className="text-3xl font-bold mb-4">Візія</h2>
 							<p className="text-center mb-6 opacity-30 px-12">
-								В дорослому житті всі наші підопічні успішні та реалізовані у соціумі, мають роботу та сім'ю.
+								В дорослому житті всі наші підопічні успішні та реалізовані у соціумі, мають роботу та сім&apos;ю.
 							</p>
 						</div>
 						<div className="w-full flex justify-between mt-2 lg:mt-8 flex-col lg:flex-row items-center gap-2">
@@ -162,7 +162,7 @@ export default function publicOrganization() {
 						<div className="bg-white rounded-lg flex items-center justify-center flex-col h-[265px] pt-20 lg:pt-0">
 							<h2 className="text-3xl font-bold mb-4">Місія</h2>
 							<p className="text-center mb-6 opacity-30 px-12">
-								Надати кожній дитині рівні можливості для відновлення психічного здоров'я та розвитку.
+								Надати кожній дитині рівні можливості для відновлення психічного здоров&apos;я та розвитку.
 							</p>
 						</div>
 						<div className="w-full flex justify-between mt-2 lg:mt-8 flex-col lg:flex-row items-center gap-2">
