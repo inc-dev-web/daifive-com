@@ -12,6 +12,7 @@ export function Navbar() {
 		{ title: 'Послуги', href: '/services' },
 		{ title: 'Спеціалісти', href: '/team' },
 		{ title: 'Блог', href: '/blog' },
+		{ title: 'Громадська організація', href: '/public-organization' },
 		{ title: 'Контакти', href: '/contact' },
 	];
 
@@ -42,7 +43,7 @@ export function Navbar() {
 				>
 					{menuItem.map((item, index) => (
 						<li
-							className="text-customStyleHover w-[50%] md:w-auto flex items-center justify-center border-b border-gray-300 md:border-none"
+							className="text-customStyleHover w-[50%] flex items-center justify-center border-b border-gray-300 md:border-none overflow-visible"
 							key={index}
 						>
 							<Link
@@ -76,7 +77,7 @@ export function Navbar() {
 						src={iconPhone}
 						alt="phone"
 					/>
-						<span className='text-customOrange'>+380931487217</span>
+					<span className="text-customOrange">+380931487217</span>
 				</button>
 			</a>
 		</header>
