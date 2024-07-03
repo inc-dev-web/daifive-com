@@ -73,7 +73,10 @@ export default async function Resume({ params }) {
 								{/* <span className="opacity-70 text-sm lg:text-base text-[#2A333C]">2I’m always trying to them always trying</span> */}
 								<p className="opacity-70 text-sm lg:text-base  text-[#2A333C] mt-4 lg:mt-8">{singleSpecialist?.attributes?.description}</p>
 							</div>
-							<Link href='/#consultation' className="flex mt-8 lg:mt-10 rounded-[92px] w-[270px] lg:w-[286px] h-[48px] lg:h-[56px] items-center justify-center font-bold text-sm lg:text-base text-white bg-customOrange customBoxShadowOrange">
+							<Link
+								href="/#consultation"
+								className="flex mt-8 lg:mt-10 rounded-[92px] w-[270px] lg:w-[286px] h-[48px] lg:h-[56px] items-center justify-center font-bold text-sm lg:text-base text-white bg-customOrange customBoxShadowOrange"
+							>
 								Записатися
 							</Link>
 						</div>
@@ -90,9 +93,7 @@ export default async function Resume({ params }) {
 						<div className="gap-8 mt-2 flex flex-col md:flex-row-reverse md:items-center md:justify-end">
 							<div className="flex flex-col lg:justify-center gap-[14px] flex-1">
 								<h4 className="text-[#2A333C] text-xl font-bold mb-[18px] lg:text-2xl">Сертифікація</h4>
-								<div className="mb-4 text-[#2A333C] opacity-70 whitespace-pre-line">
-									{singleSpecialist?.attributes.topDescription}
-								</div>
+								<div className="mb-4 text-[#2A333C] opacity-70 whitespace-pre-line">{singleSpecialist?.attributes.topDescription}</div>
 								<div className="flex-1 flex flex-row justify-start">
 									<div className="gap-3 flex items-center w-[120px] lg:max-w-[196px] lg:w-full">
 										<div className="bg-[#007EFF1A] w-[16px] h-[16px] lg:w-[24px] lg:h-[24px] rounded-[32px]"></div>
@@ -140,6 +141,56 @@ export default async function Resume({ params }) {
 							</div> */}
 						</div>
 					</div>
+				</div>
+			</div>
+			<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 p-4">
+				<div className='flex flex-col items-stretch gap-4'>
+					{singleSpecialist?.attributes?.certificates.data?.filter((_item, index) => index % 3 === 0).map((item) => (
+						<div
+							key={item.id}
+							className="w-full relative pt-[250px]"
+						>
+							<Image
+								src={`${baseUrl}${item.attributes.url}`}
+								layout="fill"
+								objectFit="contain"
+								alt={item.attributes.url}
+								className="absolute top-0 left-0 w-full h-full"
+							/>
+						</div>
+					))}
+				</div>
+				<div className='flex flex-col items-stretch gap-4'>
+					{singleSpecialist?.attributes?.certificates.data?.filter((_item, index) => index % 3 === 1).map((item) => (
+						<div
+							key={item.id}
+							className="w-full relative pt-[250px]"
+						>
+							<Image
+								src={`${baseUrl}${item.attributes.url}`}
+								layout="fill"
+								objectFit="contain"
+								alt={item.attributes.url}
+								className="absolute top-0 left-0 w-full h-full"
+							/>
+						</div>
+					))}
+				</div>
+				<div className='flex flex-col items-stretch gap-4'>
+					{singleSpecialist?.attributes?.certificates.data?.filter((_item, index) => index % 3 === 2).map((item) => (
+						<div
+							key={item.id}
+							className="w-full relative pt-[250px]"
+						>
+							<Image
+								src={`${baseUrl}${item.attributes.url}`}
+								layout="fill"
+								objectFit="contain"
+								alt={item.attributes.url}
+								className="absolute top-0 left-0 w-full h-full"
+							/>
+						</div>
+					))}
 				</div>
 			</div>
 		</section>
