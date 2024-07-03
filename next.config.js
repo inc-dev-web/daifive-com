@@ -8,6 +8,6 @@ module.exports = {
 		return config;
 	},
 	images: {
-		domains: ['localhost'],
+		domains: ['localhost', 'daifive-admin.fly.dev'],
 	},
 };

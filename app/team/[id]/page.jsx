@@ -144,7 +144,7 @@ export default async function Resume({ params }) {
 				</div>
 			</div>
 			<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 p-4">
-				{singleSpecialist?.attributes?.certificates.data.map((item) => (
+				{singleSpecialist?.attributes?.certificates.data?.map((item) => (
 					<div
 						key={item.id}
 						className="w-full relative pt-[250px]"
