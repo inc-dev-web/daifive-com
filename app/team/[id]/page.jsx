@@ -144,20 +144,54 @@ export default async function Resume({ params }) {
 				</div>
 			</div>
 			<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 p-4">
-				{singleSpecialist?.attributes?.certificates.data?.map((item) => (
-					<div
-						key={item.id}
-						className="w-full relative pt-[250px]"
-					>
-						<Image
-							src={`${baseUrl}${item.attributes.url}`}
-							layout="fill"
-							objectFit="contain"
-							alt={item.attributes.url}
-							className="absolute top-0 left-0 w-full h-full"
-						/>
-					</div>
-				))}
+				<div className='flex flex-col items-stretch gap-4'>
+					{singleSpecialist?.attributes?.certificates.data?.filter((_item, index) => index % 3 === 0).map((item) => (
+						<div
+							key={item.id}
+							className="w-full relative pt-[250px]"
+						>
+							<Image
+								src={`${baseUrl}${item.attributes.url}`}
+								layout="fill"
+								objectFit="contain"
+								alt={item.attributes.url}
+								className="absolute top-0 left-0 w-full h-full"
+							/>
+						</div>
+					))}
+				</div>
+				<div className='flex flex-col items-stretch gap-4'>
+					{singleSpecialist?.attributes?.certificates.data?.filter((_item, index) => index % 3 === 1).map((item) => (
+						<div
+							key={item.id}
+							className="w-full relative pt-[250px]"
+						>
+							<Image
+								src={`${baseUrl}${item.attributes.url}`}
+								layout="fill"
+								objectFit="contain"
+								alt={item.attributes.url}
+								className="absolute top-0 left-0 w-full h-full"
+							/>
+						</div>
+					))}
+				</div>
+				<div className='flex flex-col items-stretch gap-4'>
+					{singleSpecialist?.attributes?.certificates.data?.filter((_item, index) => index % 3 === 2).map((item) => (
+						<div
+							key={item.id}
+							className="w-full relative pt-[250px]"
+						>
+							<Image
+								src={`${baseUrl}${item.attributes.url}`}
+								layout="fill"
+								objectFit="contain"
+								alt={item.attributes.url}
+								className="absolute top-0 left-0 w-full h-full"
+							/>
+						</div>
+					))}
+				</div>
 			</div>
 		</section>
 	);
