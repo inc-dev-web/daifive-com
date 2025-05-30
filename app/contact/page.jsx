@@ -11,7 +11,7 @@ import { Consultation } from '@/components/Consultation';
 export default function Contact() {
 	const items = [
 		{ title: 'Адреса', description: 'м. Ніжин, Богдана Хмельницкого 37', icon: marker },
-		{ title: 'Телефон', description: '+380931487217', icon: phone },
+		{ title: 'Телефон', description: '+380682390389', icon: phone },
 		{ title: 'Email', description: 'dai5pyatcentre@gmail.com', icon: email },
 	];
 
