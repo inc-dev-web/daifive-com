@@ -81,7 +81,7 @@ export function Consultation() {
 					<div className="w-full text-white hidden lg:block">
 						<h4 className="font-bold text-2xl lg:text-5xl md:text-3xl lg:text-start text-center">Час записатися на консультацію!</h4>
 						<a
-							href="tel:+380931487217"
+							href="tel:+380682390389"
 							className="text-xl block mt-20 hover:text-red-400 transition-colors duration-200"
 						>
 							+38 093 148 72 17
@@ -191,10 +191,10 @@ export function Consultation() {
 					)}
 					<div className="w-full text-white block lg:hidden text-center">
 						<a
-							href="tel:+380931487217"
+							href="tel:+380682390389"
 							className="text-xl block hover:text-red-400 transition-colors duration-200"
 						>
-							+380 931 48 72 17
+							+380682390389
 						</a>
 						<a
 							className="block text-xl hover:text-red-400 transition-colors duration-200"

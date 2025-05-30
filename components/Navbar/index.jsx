@@ -69,7 +69,7 @@ export function Navbar() {
 				/>
 			</button>
 			<a
-				href="tel:+380931487217"
+				href="tel:+380682390389"
 				className="md:flex hidden h-[48px] flex-row items-center w-[213px] justify-between py-[16px] px-[32px] text-sm bg-customOrangeLight rounded-[60px]"
 			>
 				<button className="flex items-center justify-between w-full h-full">
@@ -77,7 +77,7 @@ export function Navbar() {
 						src={iconPhone}
 						alt="phone"
 					/>
-					<span className="text-customOrange">+380931487217</span>
+					<span className="text-customOrange">+380682390389</span>
 				</button>
 			</a>
 		</header>
