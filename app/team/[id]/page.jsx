@@ -150,12 +150,10 @@ export default async function Resume({ params }) {
 							key={item.id}
 							className="w-full relative pt-[250px]"
 						>
-							<Image
+							<img
 								src={`${baseUrl}${item.attributes.url}`}
-								layout="fill"
-								objectFit="contain"
 								alt={item.attributes.url}
-								className="absolute top-0 left-0 w-full h-full"
+								className="absolute top-0 left-0 w-full h-full object-contain"
 							/>
 						</div>
 					))}
@@ -166,12 +164,10 @@ export default async function Resume({ params }) {
 							key={item.id}
 							className="w-full relative pt-[250px]"
 						>
-							<Image
+							<img
 								src={`${baseUrl}${item.attributes.url}`}
-								layout="fill"
-								objectFit="contain"
 								alt={item.attributes.url}
-								className="absolute top-0 left-0 w-full h-full"
+								className="absolute top-0 left-0 w-full h-full object-contain"
 							/>
 						</div>
 					))}
@@ -182,12 +178,10 @@ export default async function Resume({ params }) {
 							key={item.id}
 							className="w-full relative pt-[250px]"
 						>
-							<Image
+							<img
 								src={`${baseUrl}${item.attributes.url}`}
-								layout="fill"
-								objectFit="contain"
 								alt={item.attributes.url}
-								className="absolute top-0 left-0 w-full h-full"
+								className="absolute top-0 left-0 w-full h-full object-contain"
 							/>
 						</div>
 					))}
